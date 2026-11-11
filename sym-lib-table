@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "spielbrett")(type "KiCad")(uri "${KIPRJMOD}/lib/spielbrett.kicad_sym")(options "")(descr "Projektbibliothek Spielbrett"))
+)
