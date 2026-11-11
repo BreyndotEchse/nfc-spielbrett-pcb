@@ -10773,6 +10773,10 @@
 		(pin "1"
 			(uuid "0985ea2a-41cf-417a-90ca-4fa333c3d30b")
 		)
+		(property "LCSC" "C15850"
+			(at 290.83 96.52 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -10927,6 +10931,10 @@
 		(pin "1"
 			(uuid "245e95d2-e6e8-4fdf-b5ce-78888da27672")
 		)
+		(property "LCSC" "C17477"
+			(at 671.83 60.96 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -11004,6 +11012,10 @@
 		)
 		(pin "2"
 			(uuid "c464b4fe-447c-4ffa-b54f-fdc52ac4852b")
+		)
+		(property "LCSC" "C25819"
+			(at 214.63 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -11083,6 +11095,10 @@
 		(pin "2"
 			(uuid "d1f4738b-9686-4472-a04a-5578daf89a30")
 		)
+		(property "LCSC" "C1588"
+			(at 748.03 203.2 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -11101,7 +11117,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "0cd94f83-feec-478d-98e7-b9257cbd7909")
 		(property "Reference" "J5"
 			(at 524.51 58.42 0)
@@ -11349,6 +11365,10 @@
 		(pin "20"
 			(uuid "6ed5d64c-9c8f-4df4-a713-a9e1433e7698")
 		)
+		(property "LCSC" "C5456169"
+			(at 72.39 85.09 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -11427,6 +11447,10 @@
 		)
 		(pin "2"
 			(uuid "6046ec8a-949f-4e3e-87c7-aac3812dbf61")
+		)
+		(property "LCSC" "C1588"
+			(at 519.43 238.76 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -11738,6 +11762,10 @@
 		(pin "1"
 			(uuid "5b81443c-008f-4c35-89f7-819f614366ed")
 		)
+		(property "LCSC" "C1644"
+			(at 748.03 96.52 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -11893,6 +11921,10 @@
 		)
 		(pin "1"
 			(uuid "fc1ad115-bfb9-4339-ae48-3ac63a1f37e8")
+		)
+		(property "LCSC" "C1588"
+			(at 214.63 238.76 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -12205,6 +12237,10 @@
 		(pin "2"
 			(uuid "bcf78079-db62-49ee-917f-a910ec017646")
 		)
+		(property "LCSC" "C7420339"
+			(at 638.81 204.47 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -12513,6 +12549,10 @@
 		(pin "2"
 			(uuid "422e495b-919b-4c23-834e-63e79bdb2015")
 		)
+		(property "LCSC" "C107049"
+			(at 519.43 203.2 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -12819,6 +12859,10 @@
 		(pin "1"
 			(uuid "eededd14-8905-4d51-9b7b-77f816586baa")
 		)
+		(property "LCSC" "C12624"
+			(at 561.34 57.15 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -13049,6 +13093,10 @@
 		(pin "1"
 			(uuid "26b0b6a9-0dab-4c54-bfb6-b00fe6c9d8b5")
 		)
+		(property "LCSC" "C1588"
+			(at 443.23 238.76 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -13126,6 +13174,10 @@
 		)
 		(pin "1"
 			(uuid "b996e4b5-5d6b-4576-a943-092604309280")
+		)
+		(property "LCSC" "C22936"
+			(at 100.33 203.2 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -13283,6 +13335,10 @@
 		(pin "2"
 			(uuid "eb2def15-9a74-4937-b0bf-246eb2fc25b3")
 		)
+		(property "LCSC" "C1588"
+			(at 62.23 238.76 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -13361,6 +13417,10 @@
 		(pin "2"
 			(uuid "c4e4cfa6-cfc6-45d1-a694-91d920a582d6")
 		)
+		(property "LCSC" "C25819"
+			(at 443.23 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -13438,6 +13498,10 @@
 		)
 		(pin "2"
 			(uuid "4902048b-8e57-413a-83f0-353c749304d1")
+		)
+		(property "LCSC" "C1588"
+			(at 671.83 203.2 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -13593,6 +13657,10 @@
 		(pin "1"
 			(uuid "7176745c-8e91-4a68-8224-32567a80152f")
 		)
+		(property "LCSC" "C107049"
+			(at 595.63 203.2 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -13676,6 +13744,10 @@
 		(pin "2"
 			(uuid "6fa40069-9355-4c29-8b56-8f77032e6834")
 		)
+		(property "LCSC" "C7420339"
+			(at 448.31 204.47 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -13753,6 +13825,10 @@
 		)
 		(pin "2"
 			(uuid "9599ff4f-b5f3-4f6b-840f-c9e71d052798")
+		)
+		(property "LCSC" "C25803"
+			(at 786.13 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -13832,6 +13908,10 @@
 		(pin "1"
 			(uuid "16f5e8ee-fcee-4dc6-8a3d-89bafc79d8ce")
 		)
+		(property "LCSC" "C25819"
+			(at 481.33 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -13909,6 +13989,10 @@
 		)
 		(pin "2"
 			(uuid "f640c154-958c-47c5-b544-940b910b7f4e")
+		)
+		(property "LCSC" "C25804"
+			(at 633.73 60.96 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -14064,6 +14148,10 @@
 		(pin "1"
 			(uuid "8c708a4a-93a8-4712-bc78-d89f2d56b399")
 		)
+		(property "LCSC" "C412002"
+			(at 328.93 167.64 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -14141,6 +14229,10 @@
 		)
 		(pin "1"
 			(uuid "5ad86444-51fd-44e7-b290-c63c18191a2c")
+		)
+		(property "LCSC" "C15850"
+			(at 786.13 60.96 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -14372,6 +14464,10 @@
 		(pin "1"
 			(uuid "e116fc58-051a-48cd-8c58-147ba53e8daf")
 		)
+		(property "LCSC" "C25803"
+			(at 748.03 60.96 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -14450,6 +14546,10 @@
 		(pin "1"
 			(uuid "b0315624-0c47-4624-af02-236cdc0f7852")
 		)
+		(property "LCSC" "C14663"
+			(at 481.33 96.52 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -14527,6 +14627,10 @@
 		)
 		(pin "2"
 			(uuid "615f5370-786b-49d7-af6c-46141f82b9c4")
+		)
+		(property "LCSC" "C1623"
+			(at 671.83 96.52 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -14684,6 +14788,10 @@
 		)
 		(pin "3"
 			(uuid "839fd693-8e7f-4860-a36d-6512cbfc829c")
+		)
+		(property "LCSC" "C7420339"
+			(at 410.21 240.03 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -14956,6 +15064,10 @@
 		(pin "2"
 			(uuid "14430c94-7ee1-44d7-a384-14b3827ac800")
 		)
+		(property "LCSC" "C21190"
+			(at 214.63 167.64 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -15113,6 +15225,10 @@
 		)
 		(pin "3"
 			(uuid "c4c9e91f-873f-4f7d-b4f1-52259a74cec0")
+		)
+		(property "LCSC" "C7420339"
+			(at 410.21 204.47 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -15345,6 +15461,10 @@
 		(pin "1"
 			(uuid "27e977be-8090-4767-bee2-ed482678e477")
 		)
+		(property "LCSC" "C106210"
+			(at 100.33 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -15504,6 +15624,10 @@
 		)
 		(pin "1"
 			(uuid "9d49b51a-d7dc-4a84-be25-e377aafff60b")
+		)
+		(property "LCSC" "C29975"
+			(at 332.74 57.15 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -15735,6 +15859,10 @@
 		(pin "2"
 			(uuid "e8f3be4d-3ec0-47d8-9021-ba43040f26e4")
 		)
+		(property "LCSC" "C1644"
+			(at 786.13 96.52 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -15812,6 +15940,10 @@
 		)
 		(pin "1"
 			(uuid "1231a73c-3b71-4167-87c4-e3a31c1295c1")
+		)
+		(property "LCSC" "C1588"
+			(at 367.03 238.76 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -15968,6 +16100,10 @@
 		(pin "1"
 			(uuid "239c6c66-cb7f-4b64-a1b8-7aa6557b745f")
 		)
+		(property "LCSC" "C14663"
+			(at 557.53 96.52 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -16121,6 +16257,10 @@
 		)
 		(pin "2"
 			(uuid "ebeb45d0-d8d5-4bfe-8644-cbf9b44a9287")
+		)
+		(property "LCSC" "C25819"
+			(at 252.73 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -16381,6 +16521,10 @@
 		(pin "3"
 			(uuid "aa6cd81f-dca4-4e95-aab5-5992e1bc52db")
 		)
+		(property "LCSC" "C8963"
+			(at 224.79 72.39 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -16462,6 +16606,10 @@
 		(pin "2"
 			(uuid "e67471c4-dd0a-47bb-9a08-d90aa6b9d741")
 		)
+		(property "LCSC" "C7420339"
+			(at 181.61 240.03 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -16539,6 +16687,10 @@
 		)
 		(pin "2"
 			(uuid "63d63953-b041-44db-95a2-b5c4b1668074")
+		)
+		(property "LCSC" "C19666"
+			(at 367.03 96.52 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -16618,6 +16770,10 @@
 		(pin "1"
 			(uuid "aac039b4-0a8a-45eb-aa71-0298c4e42188")
 		)
+		(property "LCSC" "C4190"
+			(at 481.33 203.2 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -16695,6 +16851,10 @@
 		)
 		(pin "2"
 			(uuid "901d5136-5315-4317-9eac-3c3ea80fe145")
+		)
+		(property "LCSC" "C25819"
+			(at 405.13 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -16852,6 +17012,10 @@
 		(pin "2"
 			(uuid "a8e1f31f-4cba-4872-b959-d005306f5f64")
 		)
+		(property "LCSC" "C25803"
+			(at 100.33 167.64 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -16941,6 +17105,10 @@
 		(pin "2"
 			(uuid "b6c7e1c0-7430-4299-b230-7739e5a81cf5")
 		)
+		(property "LCSC" "C17477"
+			(at 138.43 167.64 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -17018,6 +17186,10 @@
 		)
 		(pin "2"
 			(uuid "866dc1f9-13d9-477d-91f6-66f19952ffbc")
+		)
+		(property "LCSC" "C14663"
+			(at 709.93 96.52 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -17404,6 +17576,10 @@
 		(pin "3"
 			(uuid "4aae580c-a267-470f-9f12-bca114204165")
 		)
+		(property "LCSC" "C7420339"
+			(at 295.91 204.47 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -17481,6 +17657,10 @@
 		)
 		(pin "2"
 			(uuid "b00e90a9-8dd5-414d-89fa-8839b7e08a66")
+		)
+		(property "LCSC" "C21190"
+			(at 176.53 167.64 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -17636,6 +17816,10 @@
 		(pin "1"
 			(uuid "215c13a0-dd65-4262-9cef-f8b83cdefefb")
 		)
+		(property "LCSC" "C22787"
+			(at 443.23 167.64 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -17789,6 +17973,10 @@
 		)
 		(pin "2"
 			(uuid "10b11868-65b9-40f9-bc4a-89fa89bebd7f")
+		)
+		(property "LCSC" "C1588"
+			(at 290.83 167.64 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -18020,6 +18208,10 @@
 		(pin "1"
 			(uuid "87849e24-76b0-4749-a577-693a920271af")
 		)
+		(property "LCSC" "C25803"
+			(at 633.73 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -18097,6 +18289,10 @@
 		)
 		(pin "2"
 			(uuid "42b19fca-e586-4b6d-956f-52b9c17b6740")
+		)
+		(property "LCSC" "C412002"
+			(at 367.03 167.64 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -18178,6 +18374,10 @@
 		)
 		(pin "2"
 			(uuid "ed5a412e-c2e2-41d2-b3e9-d86b0988555f")
+		)
+		(property "LCSC" "C7420339"
+			(at 715.01 204.47 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -18333,6 +18533,10 @@
 		(pin "2"
 			(uuid "058564a8-bf95-4809-9a97-accf872b88af")
 		)
+		(property "LCSC" "C25803"
+			(at 748.03 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -18410,6 +18614,10 @@
 		)
 		(pin "2"
 			(uuid "f86edf16-14cd-4a24-b55c-b86658a0f33f")
+		)
+		(property "LCSC" "C25803"
+			(at 595.63 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -18641,6 +18849,10 @@
 		(pin "1"
 			(uuid "6b01bd76-7110-4aeb-a8aa-e12c7a70b241")
 		)
+		(property "LCSC" "C4190"
+			(at 557.53 203.2 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -18719,6 +18931,10 @@
 		(pin "2"
 			(uuid "1c6e94ab-12d0-4e57-bedb-33d9d4ecce9a")
 		)
+		(property "LCSC" "C1588"
+			(at 138.43 238.76 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -18796,6 +19012,10 @@
 		)
 		(pin "2"
 			(uuid "ea4c7059-69f6-489e-bed4-aea37a6ffc61")
+		)
+		(property "LCSC" "C14663"
+			(at 328.93 96.52 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -18951,6 +19171,10 @@
 		(pin "2"
 			(uuid "7360f493-55ee-4dfb-bfee-3336dcec8ebe")
 		)
+		(property "LCSC" "C25803"
+			(at 709.93 60.96 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -19031,6 +19255,10 @@
 		)
 		(pin "1"
 			(uuid "4c4967f6-6f86-4097-be49-7aaf1e358122")
+		)
+		(property "LCSC" "C7420339"
+			(at 486.41 240.03 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -19189,6 +19417,10 @@
 		(pin "1"
 			(uuid "8b7184a3-ead0-4b4c-ab6f-65c5beeb6f78")
 		)
+		(property "LCSC" "C7420339"
+			(at 105.41 240.03 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -19266,6 +19498,10 @@
 		)
 		(pin "2"
 			(uuid "9f8a3916-7bfb-40e4-b37a-40cbd2890621")
+		)
+		(property "LCSC" "C25819"
+			(at 290.83 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -19576,6 +19812,10 @@
 		(pin "3"
 			(uuid "34929f51-0c71-44ab-8ffb-bbb49968bb53")
 		)
+		(property "LCSC" "C7420339"
+			(at 219.71 204.47 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -19653,6 +19893,10 @@
 		)
 		(pin "2"
 			(uuid "c5a9f069-80cc-449a-968c-39eaa38290d2")
+		)
+		(property "LCSC" "C107035"
+			(at 176.53 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -19885,6 +20129,10 @@
 		(pin "1"
 			(uuid "99fa6f53-0422-4fcc-b453-c9475bc19cc8")
 		)
+		(property "LCSC" "C22936"
+			(at 481.33 167.64 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -19966,6 +20214,10 @@
 		(pin "1"
 			(uuid "14731337-d877-4fcd-818a-7a7fff57b0a5")
 		)
+		(property "LCSC" "C7420339"
+			(at 791.21 204.47 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -20043,6 +20295,10 @@
 		)
 		(pin "2"
 			(uuid "cfa0ef9f-1dbd-473c-be33-1cf47de3a6d6")
+		)
+		(property "LCSC" "C14663"
+			(at 405.13 96.52 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -20127,6 +20383,10 @@
 		(pin "1"
 			(uuid "1a5d73fd-548d-4c9b-ad8c-674cf165af1b")
 		)
+		(property "LCSC" "C7420339"
+			(at 257.81 240.03 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -20204,6 +20464,10 @@
 		)
 		(pin "2"
 			(uuid "0f6e26e3-29c2-4d56-9a66-0d8fcaa3b38a")
+		)
+		(property "LCSC" "C25819"
+			(at 367.03 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -20359,6 +20623,10 @@
 		(pin "2"
 			(uuid "3a6da511-56d8-443b-8ff3-e157e401df07")
 		)
+		(property "LCSC" "C25803"
+			(at 671.83 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -20439,6 +20707,10 @@
 		)
 		(pin "1"
 			(uuid "d0114d2c-0f6b-4f58-873c-f3ca8196b2b4")
+		)
+		(property "LCSC" "C7420339"
+			(at 334.01 204.47 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -20597,6 +20869,10 @@
 		(pin "2"
 			(uuid "b30cdee6-4bb4-496c-b49b-f6b5c4bebcde")
 		)
+		(property "LCSC" "C7420339"
+			(at 334.01 240.03 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -20674,6 +20950,10 @@
 		)
 		(pin "1"
 			(uuid "ec37232d-254e-401f-a507-27d0cd0f7197")
+		)
+		(property "LCSC" "C14663"
+			(at 443.23 96.52 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -20905,6 +21185,10 @@
 		(pin "1"
 			(uuid "04220cbe-4f5e-4ac9-83c0-d41bcec9695e")
 		)
+		(property "LCSC" "C1623"
+			(at 633.73 96.52 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -20982,6 +21266,10 @@
 		)
 		(pin "1"
 			(uuid "7d3e47bf-b59e-45a1-8acb-4f4b872f5404")
+		)
+		(property "LCSC" "C106210"
+			(at 62.23 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -21061,6 +21349,10 @@
 		)
 		(pin "2"
 			(uuid "63f91240-a01d-4761-acc4-dffef208d7eb")
+		)
+		(property "LCSC" "C15850"
+			(at 595.63 96.52 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -21295,6 +21587,10 @@
 		(pin "1"
 			(uuid "fd039d49-dd0f-4381-832e-6c9c3ebb82ee")
 		)
+		(property "LCSC" "C7420339"
+			(at 181.61 204.47 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -21373,6 +21669,10 @@
 		(pin "2"
 			(uuid "48173259-c65d-40df-b505-3ee6aca06580")
 		)
+		(property "LCSC" "C107035"
+			(at 138.43 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -21450,6 +21750,10 @@
 		)
 		(pin "1"
 			(uuid "dee28b85-782e-4c18-8755-29d090b1e6aa")
+		)
+		(property "LCSC" "C25803"
+			(at 557.53 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -21683,6 +21987,10 @@
 		(pin "2"
 			(uuid "817bbc9b-e5b1-48ff-b045-efac724d117d")
 		)
+		(property "LCSC" "C25803"
+			(at 62.23 167.64 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -21840,6 +22148,10 @@
 		(pin "2"
 			(uuid "622bbe35-c215-4ab0-ac83-74af275444ea")
 		)
+		(property "LCSC" "C7420339"
+			(at 372.11 204.47 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -21917,6 +22229,10 @@
 		)
 		(pin "2"
 			(uuid "cd87ed2b-4a6b-4dde-af0a-11965aa1bc7b")
+		)
+		(property "LCSC" "C25819"
+			(at 519.43 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -21998,6 +22314,10 @@
 		)
 		(pin "2"
 			(uuid "c5865186-8446-4960-b716-451ab424012d")
+		)
+		(property "LCSC" "C6186"
+			(at 298.45 57.15 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -22152,6 +22472,10 @@
 		)
 		(pin "2"
 			(uuid "e8be0c1f-1648-4c73-b65c-36b92c1e907f")
+		)
+		(property "LCSC" "C21190"
+			(at 595.63 60.96 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -22309,6 +22633,10 @@
 		(pin "2"
 			(uuid "c0e37540-2a75-4d4f-8e53-52938de382b5")
 		)
+		(property "LCSC" "C25803"
+			(at 709.93 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -22463,6 +22791,10 @@
 		(pin "2"
 			(uuid "b68ec923-d9d6-4967-8fe8-475b44990008")
 		)
+		(property "LCSC" "C14663"
+			(at 519.43 96.52 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -22616,6 +22948,10 @@
 		)
 		(pin "2"
 			(uuid "07747d69-c884-4ec2-9bc5-b1ac08e885da")
+		)
+		(property "LCSC" "C1588"
+			(at 252.73 167.64 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -22847,6 +23183,10 @@
 		(pin "2"
 			(uuid "93679307-9145-4f52-8690-70d2889a8b06")
 		)
+		(property "LCSC" "C25819"
+			(at 328.93 132.08 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -22927,6 +23267,10 @@
 		)
 		(pin "3"
 			(uuid "7d5504a5-939e-45d2-9812-14e7e94037aa")
+		)
+		(property "LCSC" "C7420339"
+			(at 143.51 204.47 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
@@ -23161,6 +23505,10 @@
 		(pin "1"
 			(uuid "cf072431-4f4c-47e3-8244-731b6cf13686")
 		)
+		(property "LCSC" "C1588"
+			(at 290.83 238.76 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
 		(instances
 			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
@@ -23241,6 +23589,10 @@
 		)
 		(pin "2"
 			(uuid "c06aff7f-4dc5-48f9-9379-092d41ca6bd9")
+		)
+		(property "LCSC" "C7420339"
+			(at 257.81 204.47 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(instances
 			(project "spielbrett"
