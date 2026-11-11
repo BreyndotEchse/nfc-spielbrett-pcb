@@ -2,6 +2,7 @@
 ~*.lck
 fp-info-cache
 *-backups/
+production/
 _autosave-*
 \#auto_saved_files\#
 *.bak

@@ -6,8 +6,9 @@ Nach tools/route_hf.py ausfuehren, KiCad muss geschlossen sein:
 Alles landet gesperrt in der Gruppe "Power_Routing"; ein erneuter Lauf ersetzt nur diese Gruppe.
 GND wird NICHT verlegt -- das uebernimmt die B.Cu-Flaeche (Freerouting setzt die Vias).
 
-+5V   Ring am Platinenrand (0,8 mm) verbindet alle vier Modulstecker (Durchschleifen zwischen
-      Modulen), Abzweig zum Regler U4 und zur TVDD-Option R5.
+VBUS  Randleitung (0,8 mm, links-oben-rechts) zwischen West- und Ostkontakt (Durchschleifen
+      zwischen Modulen), TVS D2 am Westkontakt.
++5V   hinter der PTC-Sicherung F1: Abzweig zum Regler U4 und zur TVDD-Option R5.
 +3V3  vom Regler zu RS485-Treiber, Mikrocontroller (links) und NFC-Frontend (rechts).
 TVDD  R4/R5/C10 -> Via -> B.Cu -> C9 -> Pin 18.
 XTAL  Pins 19/20 parallel nach links zum Quarz Y1 und den Lastkondensatoren C14/C15.
@@ -44,17 +45,20 @@ def route(r):
         t([a, b], net, layer=B, w=w)
         r.via(b, net, PVIA)
 
-    # ---------------- +5V ----------------
-    j1, j2, j3, j4 = P("J1", 1), P("J2", 1), P("J3", 1), P("J4", 1)
-    top, left, bottom, right = 31.0, 31.0, 176.0, 176.1
-    t([j1, (j1[0], top)], "+5V", w=RING)
-    t([(left, top), (j1[0], top), (right, top), (right, j2[1]), j2], "+5V", w=RING)
-    t([(left, top), (left, bottom), (j3[0], bottom), j3], "+5V", w=RING)
-    t([j4, (left, j4[1])], "+5V", w=RING)
+    # ---------------- VBUS / +5V ----------------
+    # VBUS (durchgeschleifter Bus) am Platinenrand: West -> oben -> Ost. Ein zweiter Weg unten
+    # herum geht nicht, rechts unten laufen die Antennenbus-Senkrechten bei x = 175/176.
+    j2, j4 = P("J2", 1), P("J4", 6)
+    top, left, right = 31.0, 31.0, 176.1
+    t([j4, (left, j4[1]), (left, top), (right, top), (right, j2[1]), j2], "VBUS", w=RING)
+    # Modulzweig: VBUS -> PTC F1 -> +5V; TVS D2 direkt am Kontakt
+    f1a, f1b, d2k = P("F1", 1), P("F1", 2), P("D2", 1)
+    t([j4, f1a], "VBUS", w=RING)
+    t([d2k, (d2k[0], j4[1])], "VBUS", w=PWR)
     # Abzweig zum Regler: unter dem Bus-Stamm per B.Cu-Bruecke
     c1, u4_vi = P("C1", 1), P("U4", 3)
     a, b = (74.6, j4[1]), (79.0, j4[1])
-    t([j4, a], "+5V", w=RING)
+    t([f1b, a], "+5V", w=RING)
     bridge(a, b, "+5V", w=RING)
     t([b, (b[0], c1[1] + 0.45), (c1[0], c1[1])], "+5V")
     t([c1, u4_vi], "+5V")
@@ -76,12 +80,13 @@ def route(r):
     t([tab, c2], "+3V3")
     # Ostast: zum NFC-Frontend
     y3 = c2[1]
-    t([c2, (119.5, y3), (119.5, 98.8), (138.5, 98.8), (138.5, P("C7", 1)[1]), P("C7", 1)], "+3V3")
+    xe = 139.4      # ostwaerts aussen herum; laesst rechts neben C7/C11 Platz fuer GND-Vias
+    t([c2, (119.5, y3), (119.5, 98.8), (xe, 98.8), (xe, P("C7", 1)[1]), P("C7", 1)], "+3V3")
     c7, pin8 = P("C7", 1), P("U1", 8)
     t([c7, (c7[0] - 0.9, pin8[1]), pin8], "+3V3", w=NECK)
     r4, c8 = P("R4", 1), P("C8", 1)
     t([(133.2, 98.8), (133.2, r4[1]), r4], "+3V3")
-    t([(133.2, r4[1]), (133.2, c8[1]), c8], "+3V3")
+    t([r4, c8], "+3V3")      # direkt R4 -> C8, haelt den Raum unter den SPI-Pins frei
     p25, p27 = P("U1", 25), P("U1", 27)
     t([p27, (p27[0], c8[1] - 0.3)], "+3V3", w=NECK)
     t([p25, (p25[0], p25[1] + 0.86), (c8[0] - 0.38, c8[1] - 0.3)], "+3V3", w=NECK)

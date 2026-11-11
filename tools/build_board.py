@@ -99,14 +99,18 @@ def placement():
         "U1": (0, 0, 0),
         "C11": (-4.0, -1.1, 90),   # DVDD (Pin 7)
         "C7": (-4.0, 2.0, 90),     # VDD (Pin 8)
-        "C12": (-4.0, 5.2, 90),    # AVDD (Pin 9)
+        "C12": (-4.0, 5.2, 270),   # AVDD (Pin 9), AVDD-Pad zum Chip, GND-Pad aussen
         "C8": (1.9, -4.2, 0),      # PVDD (Pin 25)
         "C9": (6.0, 2.5, 270),     # TVDD (Pin 18), oberhalb der XTAL-Ausfuehrung
         "R4": (2.4, -6.6, 0), "R5": (2.4, -8.6, 0), "C10": (6.0, -8.0, 90),
         "Y1": (7.2, -2.6, 180), "C14": (10.4, -5.0, 90), "C15": (4.1, -0.9, 90),
-        # Empfangsteiler: Spalte A (x=-0,35) unter RXP, Spalte B (x=-1,9) mit VMID-Kondensator
-        "R7": (-0.35, 5.3, 90), "C22": (-0.35, 8.5, 90), "R6": (-0.35, 11.7, 90),
-        "C13": (-1.9, 5.3, 90), "R9": (-1.9, 8.5, 90), "C23": (-1.9, 11.7, 90), "R8": (-1.9, 14.9, 90),
+        # Empfangsteiler: Spalte A (x=-0,35) ueber RXN (Pin 13), Spalte B (x=-1,9) fuer RXP
+        # (Pin 12) -- gleiche Reihenfolge wie die Pins, sonst kreuzen sich RXP/RXN zwangslaeufig.
+        # Unten je der VMID-Widerstand (VMID-Pads chipnah, per Querbahn verbunden); RXN/RXP
+        # laufen per Via unter dem VMID-Pad hindurch auf B.Cu zum Knoten R.1/C.2 (route_escape.py).
+        "R9": (-0.35, 5.3, 90), "C23": (-0.35, 8.5, 90), "R8": (-0.35, 11.7, 90),
+        "R7": (-1.9, 5.3, 90), "C22": (-1.9, 8.5, 90), "R6": (-1.9, 11.7, 90),
+        "C13": (-5.9, 7.8, 270),   # VMID-Abblockung rechts neben C12, VMID-Pad unten
         # Anpassnetzwerk: EMV-Filter (L0/C0) -> Serien-C1 -> Parallel-C2 -> Ra -> Antennenbus
         "L2": (4.0, 6.0, 270), "C19": (4.0, 9.6, 270), "R11": (4.0, 12.8, 270),
         "L1": (7.6, 6.0, 270), "C18": (7.6, 9.6, 270), "R10": (7.6, 12.8, 270),
@@ -129,11 +133,24 @@ def placement():
         "U4": (0, -2, 0), "C1": (-5.6, 0.8, 90), "C2": (5.6, -2, 90),
         "U3": (0, 9, 0), "C6": (4.8, 7.1, 90), "R3": (5.0, 10.6, 90), "JP1": (3.0, 14.6, 90),
     })
-    # Modulstecker auf den Rasterlinien, gegenueberliegende Seiten fluchten
-    p["J1"] = (49.0 - 3.81, 3.0, 270)           # Nord, waagerecht
-    p["J3"] = (49.0 - 3.81, BOARD - 3.0, 270)   # Sued, waagerecht
-    p["J4"] = (3.0, 49.0 - 3.81, 0)             # West, senkrecht
-    p["J2"] = (BOARD - 3.0, 49.0 - 3.81, 0)     # Ost, senkrecht
+    # Modulkontakte nur Ost/West (Reihen-Verkettung, Rueckleitung ueber Endkappe).
+    # Gewinkelte 2,54-mm-Leisten, Kontakte zeigen ueber die Kante nach aussen. Ost = Federkontakte,
+    # West = Zielkontakte. Die West-Leiste ist um 180 deg gedreht -> Pinreihenfolge laeuft dort
+    # rueckwaerts; der Schaltplan ist entsprechend belegt (J2.k und J4.(7-k) liegen auf gleicher
+    # Hoehe, Pin 1 = VBUS oben). Absichtlich aussermittig: Module passen nur in einer Ausrichtung.
+    # Footprints und Varianten: tools/stecker.py (gemeinsames Lochbild, Ursprung Pin 1).
+    # Lochreihe EDGE_TO_PIN vom Rand: HC-CX-Kontaktflaeche ragt dann 1,5 mm ueber die Kante,
+    # also bis zur Aussenseite des 150-mm-Gehaeuses.
+    EDGE_TO_PIN = 4.15
+    yj = 49.0 - 3.81                            # oberster Kontakt (VBUS)
+    p["J2"] = (BOARD - EDGE_TO_PIN, yj, 0)      # Ost, Kontakte zeigen nach +x
+    p["J4"] = (EDGE_TO_PIN, yj + 5 * 2.54, 180)  # West, Kontakte zeigen nach -x
+    # Schutz an der West-Seite: TVS direkt am VBUS-Kontakt, dahinter die PTC-Sicherung in den
+    # Modulzweig (+5V). Der durchgeschleifte Bus-Strom laeuft am PTC vorbei ueber den Randring.
+    p["F1"] = (10.0, yj, 0)
+    p["D2"] = (7.0, yj - 4.0, 90)
+    p["D3"] = (54.0, 64.6, 0)                   # ESD RS485_A/B unter dem Treiber U3
+    p["D4"] = (128.0, 50.0, 0)                  # ESD Rueckleitung
     return p
 
 
@@ -178,21 +195,26 @@ def add_coil_stubs(board):
 
 
 def add_ground_plane(board, gnd):
-    """GND-Flaeche auf B.Cu ueber die ganze Platine. Unter den Spulen verhindern die
-    Sperrflaechen der Spulen-Footprints das Fuellen."""
-    z = pcbnew.ZONE(board)
-    z.SetLayer(pcbnew.B_Cu)
-    z.SetNet(gnd)
-    z.SetZoneName("GND_B")
-    z.SetLocalClearance(mm(0.3))
-    z.SetMinThickness(mm(0.25))
-    z.SetPadConnection(pcbnew.ZONE_CONNECTION_THERMAL)
-    ol = z.Outline()
-    ol.NewOutline()
-    m = 0.5
-    for x, y in [(m, m), (BOARD - m, m), (BOARD - m, BOARD - m), (m, BOARD - m)]:
-        ol.Append(mm(X0 + x), mm(Y0 + y))
-    board.Add(z)
+    """GND-Flaechen auf B.Cu und F.Cu ueber die ganze Platine. Unter den Spulen verhindern die
+    Sperrflaechen der Spulen-Footprints das Fuellen. Die F.Cu-Flaeche bindet die GND-Pads der
+    SMD-Bauteile direkt an; zusammen mit den GND-Vias (route_escape.py) bleibt GND auch dann
+    verbunden, wenn der Autorouter die B.Cu-Flaeche zerschneidet."""
+    for layer, name in [(pcbnew.B_Cu, "GND_B"), (pcbnew.F_Cu, "GND_F")]:
+        z = pcbnew.ZONE(board)
+        z.SetLayer(layer)
+        z.SetNet(gnd)
+        z.SetZoneName(name)
+        z.SetLocalClearance(mm(0.3))
+        z.SetMinThickness(mm(0.25))
+        # SMD-Pads voll angebunden (Reflow), nur Durchsteckpads mit Waermefalle (Handloeten).
+        # Volle Anbindung vermeidet "starved thermal" an engen Stellen.
+        z.SetPadConnection(pcbnew.ZONE_CONNECTION_THT_THERMAL)
+        ol = z.Outline()
+        ol.NewOutline()
+        m = 0.5
+        for x, y in [(m, m), (BOARD - m, m), (BOARD - m, BOARD - m), (m, BOARD - m)]:
+            ol.Append(mm(X0 + x), mm(Y0 + y))
+        board.Add(z)
 
 
 def main():

@@ -13,6 +13,891 @@
 		(comment 3 "L11-L19: Leiterbahnspule D24 N5 (tools/nfc_coil_gen.py), ca. 0,75-0,9 uH")
 	)
 	(lib_symbols
+	(symbol "Power_Protection:NUP2105L"
+		(pin_names
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "D"
+			(at 5.715 2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "NUP2105L"
+			(at 5.715 0.635 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 5.715 -1.27 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub_link/Collateral/NUP2105L-D.PDF"
+			(at 3.175 3.175 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Dual Line CAN Bus Protector, 24Vrwm"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "can esd protection suppression transient"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "SOT?23*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "NUP2105L_0_0"
+			(pin passive line
+				(at 0 -5.08 90)
+				(length 2.54)
+				(name "A"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(symbol "NUP2105L_0_1"
+			(rectangle
+				(start -4.445 2.54)
+				(end 4.445 -2.54)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+			(polyline
+				(pts
+					(xy -3.81 1.27) (xy -3.175 0.635) (xy -1.905 0.635) (xy -1.27 0)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.54 2.54) (xy -2.54 0.635)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.54 0.635) (xy -2.54 -1.27) (xy 2.54 -1.27) (xy 2.54 0.635)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.54 0.635) (xy -1.905 -0.635) (xy -3.175 -0.635) (xy -2.54 0.635)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.54 0.635) (xy -3.175 1.905) (xy -1.905 1.905) (xy -2.54 0.635) (xy -2.54 1.27)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0 -1.27) (xy 0 -2.54)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 1.27 1.27) (xy 1.905 0.635) (xy 2.54 0.635) (xy 3.175 0.635) (xy 3.81 0)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 2.54 2.54) (xy 2.54 0.635)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 2.54 0.635) (xy 1.905 -0.635) (xy 3.175 -0.635) (xy 2.54 0.635)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 2.54 0.635) (xy 3.175 1.905) (xy 1.905 1.905) (xy 2.54 0.635)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "NUP2105L_1_1"
+			(pin passive line
+				(at -2.54 5.08 270)
+				(length 2.54)
+				(name "K"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 2.54 5.08 270)
+				(length 2.54)
+				(name "K"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+	(symbol "Device:D_TVS"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 1.016)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "D"
+			(at 0 2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "D_TVS"
+			(at 0 -2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Bidirectional transient-voltage-suppression diode"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "diode TVS thyrector"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "D_TVS_0_1"
+			(polyline
+				(pts
+					(xy -2.54 1.27) (xy -2.54 -1.27) (xy 2.54 1.27) (xy 2.54 -1.27) (xy -2.54 1.27)
+				)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0.508 1.27) (xy 0 1.27) (xy 0 -1.27) (xy -0.508 -1.27)
+				)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 1.27 0) (xy -1.27 0)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "D_TVS_1_1"
+			(pin passive line
+				(at -3.81 0 0)
+				(length 2.54)
+				(name "A1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 3.81 0 180)
+				(length 2.54)
+				(name "A2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+	(symbol "Device:Polyfuse"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 0)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "F"
+			(at -2.54 0 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Polyfuse"
+			(at 2.54 0 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 1.27 -5.08 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resettable fuse, polymeric positive temperature coefficient"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "resettable fuse PTC PPTC polyfuse polyswitch"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "*polyfuse* *PTC*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "Polyfuse_0_1"
+			(polyline
+				(pts
+					(xy -1.524 2.54) (xy -1.524 1.524) (xy 1.524 -1.524) (xy 1.524 -2.54)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -0.762 2.54)
+				(end 0.762 -2.54)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0 2.54) (xy 0 -2.54)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "Polyfuse_1_1"
+			(pin passive line
+				(at 0 3.81 270)
+				(length 1.27)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -3.81 90)
+				(length 1.27)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+	(symbol "Connector_Generic:Conn_01x06"
+		(pin_names
+			(offset 1.016)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "J"
+			(at 0 7.62 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x06"
+			(at 0 -10.16 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "connector"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "Connector*:*_1x??_*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "Conn_01x06_1_1"
+			(rectangle
+				(start -1.27 6.35)
+				(end 1.27 -8.89)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+			(rectangle
+				(start -1.27 5.207)
+				(end 0 4.953)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -1.27 2.667)
+				(end 0 2.413)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -1.27 0.127)
+				(end 0 -0.127)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -1.27 -2.413)
+				(end 0 -2.667)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -1.27 -4.953)
+				(end 0 -5.207)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -1.27 -7.493)
+				(end 0 -7.747)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(pin passive line
+				(at -5.08 5.08 0)
+				(length 3.81)
+				(name "Pin_1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -5.08 2.54 0)
+				(length 3.81)
+				(name "Pin_2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -5.08 0 0)
+				(length 3.81)
+				(name "Pin_3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -5.08 -2.54 0)
+				(length 3.81)
+				(name "Pin_4"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "4"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -5.08 -5.08 0)
+				(length 3.81)
+				(name "Pin_5"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "5"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -5.08 -7.62 0)
+				(length 3.81)
+				(name "Pin_6"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "6"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
 		(symbol "Connector_Generic:Conn_01x04"
 			(pin_names
 				(offset 1.016)
@@ -4598,6 +5483,82 @@
 			(embedded_fonts no)
 		)
 	)
+	(no_connect
+		(at 62.23 100.33)
+		(uuid "0800e10c-2d34-4262-92f2-82c11cd1f686")
+	)
+	(no_connect
+		(at 82.55 102.87)
+		(uuid "0872803a-9f74-4fe6-9b56-a04d908a0085")
+	)
+	(no_connect
+		(at 173.99 77.47)
+		(uuid "2909cc58-a900-48f2-a43e-c3a3814ef8a2")
+	)
+	(no_connect
+		(at 173.99 74.93)
+		(uuid "2ee42a6d-db84-4e55-856e-c548a0573930")
+	)
+	(no_connect
+		(at 82.55 92.71)
+		(uuid "35e8463e-9586-4902-8eda-3e763414cd56")
+	)
+	(no_connect
+		(at 173.99 87.63)
+		(uuid "3a192632-0f5c-4d15-b1bc-116df60c64fb")
+	)
+	(no_connect
+		(at 173.99 90.17)
+		(uuid "63a98b66-7c6d-46a6-80e6-568d39b62a2a")
+	)
+	(no_connect
+		(at 62.23 72.39)
+		(uuid "6adc2941-0094-469e-8c73-a5624992a962")
+	)
+	(no_connect
+		(at 138.43 92.71)
+		(uuid "8afc3237-34af-4342-9085-ae01d0de8ffe")
+	)
+	(no_connect
+		(at 173.99 92.71)
+		(uuid "8eecbe2e-70c4-4b63-8ee1-cd07a1c6da9d")
+	)
+	(no_connect
+		(at 138.43 85.09)
+		(uuid "9e6f8677-5bd5-4fe8-97ea-77e39f139326")
+	)
+	(no_connect
+		(at 62.23 95.25)
+		(uuid "b646320b-3c3f-43b7-be2d-9762da76def3")
+	)
+	(no_connect
+		(at 173.99 82.55)
+		(uuid "ba65a62f-9d87-413e-8f5f-b25b28150b20")
+	)
+	(no_connect
+		(at 62.23 102.87)
+		(uuid "ba8865d4-caf4-43ca-8e44-c90817f390be")
+	)
+	(no_connect
+		(at 62.23 74.93)
+		(uuid "e24f1793-f150-4cea-8b8f-f322e793673c")
+	)
+	(no_connect
+		(at 173.99 85.09)
+		(uuid "e6dceaf0-769d-4497-a057-cfd2e01a331f")
+	)
+	(no_connect
+		(at 62.23 97.79)
+		(uuid "e82eea15-0630-41de-b035-b8de2f861f57")
+	)
+	(no_connect
+		(at 173.99 80.01)
+		(uuid "f458a941-9812-4b11-9853-402be20a4b67")
+	)
+	(no_connect
+		(at 138.43 82.55)
+		(uuid "fea81a04-5719-4a71-95c2-e7e9332d8a75")
+	)
 	
 	
 	
@@ -6095,28 +7056,7 @@
 			)
 		)
 	)
-	(global_label "RS485_A"
-		(shape bidirectional)
-		(at 360.68 59.69 180)
-		(effects
-			(font
-				(size 1.524 1.524)
-			)
-			(justify right)
-		)
-		(uuid "433fc3c4-2895-48c8-8156-3e4490c06bab")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 360.68 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
+	
 	(global_label "RC_VMID"
 		(shape bidirectional)
 		(at 176.53 177.8 90)
@@ -6249,28 +7189,7 @@
 			)
 		)
 	)
-	(global_label "RS485_B"
-		(shape bidirectional)
-		(at 360.68 62.23 180)
-		(effects
-			(font
-				(size 1.524 1.524)
-			)
-			(justify right)
-		)
-		(uuid "48c43124-50b0-4415-8a05-341ccadde6ac")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 360.68 62.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
+	
 	(global_label "GATE4"
 		(shape bidirectional)
 		(at 138.43 229.87 90)
@@ -7195,28 +8114,7 @@
 			)
 		)
 	)
-	(global_label "RS485_B"
-		(shape bidirectional)
-		(at 436.88 62.23 180)
-		(effects
-			(font
-				(size 1.524 1.524)
-			)
-			(justify right)
-		)
-		(uuid "755d0e57-73cc-4ea3-bbb4-7326d27b7049")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 436.88 62.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
+	
 	(global_label "RS485_TERM"
 		(shape bidirectional)
 		(at 443.23 179.07 90)
@@ -7723,28 +8621,7 @@
 			)
 		)
 	)
-	(global_label "RS485_A"
-		(shape bidirectional)
-		(at 398.78 59.69 180)
-		(effects
-			(font
-				(size 1.524 1.524)
-			)
-			(justify right)
-		)
-		(uuid "997eec3e-e8d1-4848-be0c-306006b09e17")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 398.78 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
+	
 	(global_label "TX1"
 		(shape bidirectional)
 		(at 328.93 158.75 90)
@@ -7943,28 +8820,7 @@
 			)
 		)
 	)
-	(global_label "RS485_A"
-		(shape bidirectional)
-		(at 474.98 59.69 180)
-		(effects
-			(font
-				(size 1.524 1.524)
-			)
-			(justify right)
-		)
-		(uuid "a3da1d1c-7e4b-4497-b83b-02eba54433ac")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 474.98 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
+	
 	(global_label "RC_AVDD"
 		(shape bidirectional)
 		(at 671.83 86.36 90)
@@ -8053,28 +8909,7 @@
 			)
 		)
 	)
-	(global_label "RS485_A"
-		(shape bidirectional)
-		(at 436.88 59.69 180)
-		(effects
-			(font
-				(size 1.524 1.524)
-			)
-			(justify right)
-		)
-		(uuid "aa54e39f-642e-464b-8885-217c646ee55b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 436.88 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
+	
 	(global_label "STATUS_LED"
 		(shape bidirectional)
 		(at 595.63 49.53 90)
@@ -8251,28 +9086,7 @@
 			)
 		)
 	)
-	(global_label "RS485_B"
-		(shape bidirectional)
-		(at 474.98 62.23 180)
-		(effects
-			(font
-				(size 1.524 1.524)
-			)
-			(justify right)
-		)
-		(uuid "b372a106-a868-4935-920b-7f5cf32f0345")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 474.98 62.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
+	
 	(global_label "SW8"
 		(shape bidirectional)
 		(at 786.13 176.53 90)
@@ -9769,28 +10583,7 @@
 			)
 		)
 	)
-	(global_label "RS485_B"
-		(shape bidirectional)
-		(at 398.78 62.23 180)
-		(effects
-			(font
-				(size 1.524 1.524)
-			)
-			(justify right)
-		)
-		(uuid "fca1f31a-f044-46c1-8643-e43394532057")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 398.78 62.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
+	
 	(global_label "MATCH_P"
 		(shape bidirectional)
 		(at 519.43 213.36 90)
@@ -9903,7 +10696,7 @@
 			(uuid "a1e3a705-cba1-4122-bb20-7d67c0a2974e")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR052")
 					(unit 1)
@@ -9981,7 +10774,7 @@
 			(uuid "0985ea2a-41cf-417a-90ca-4fa333c3d30b")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C2")
 					(unit 1)
@@ -10057,7 +10850,7 @@
 			(uuid "03e97e54-5fe9-4614-a072-23dce6ea1428")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR061")
 					(unit 1)
@@ -10135,7 +10928,7 @@
 			(uuid "245e95d2-e6e8-4fdf-b5ce-78888da27672")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R4")
 					(unit 1)
@@ -10213,7 +11006,7 @@
 			(uuid "c464b4fe-447c-4ffa-b54f-fdc52ac4852b")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R21")
 					(unit 1)
@@ -10291,7 +11084,7 @@
 			(uuid "d1f4738b-9686-4472-a04a-5578daf89a30")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C32")
 					(unit 1)
@@ -10378,7 +11171,7 @@
 			(uuid "251d91c0-5d06-46df-9b5e-c558f648adcd")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "J5")
 					(unit 1)
@@ -10557,7 +11350,7 @@
 			(uuid "6ed5d64c-9c8f-4df4-a713-a9e1433e7698")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "U2")
 					(unit 1)
@@ -10565,82 +11358,7 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "power:GND")
-		(at 476.25 64.77 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "0d6753fc-b7ec-4357-8f6a-e1804a830798")
-		(property "Reference" "#PWR011"
-			(at 476.25 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 476.25 69.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 476.25 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 476.25 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 476.25 64.77 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "92c98360-b4a2-4360-8e66-5207cc160947")
-		)
-		(instances
-			(project ""
-				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
-					(reference "#PWR011")
-					(unit 1)
-				)
-			)
-		)
-	)
+	
 	(symbol
 		(lib_id "Device:C")
 		(at 519.43 238.76 0)
@@ -10711,7 +11429,7 @@
 			(uuid "6046ec8a-949f-4e3e-87c7-aac3812dbf61")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C39")
 					(unit 1)
@@ -10789,7 +11507,7 @@
 			(uuid "95c3b136-4c11-4db3-95b3-51d02113ce7e")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "L19")
 					(unit 1)
@@ -10865,7 +11583,7 @@
 			(uuid "18bb07a1-4e54-4bda-be80-a6855bcbe48e")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR021")
 					(unit 1)
@@ -10943,7 +11661,7 @@
 			(uuid "77b6cf81-0b17-4c3d-8e70-da901c255dfe")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "L15")
 					(unit 1)
@@ -11021,7 +11739,7 @@
 			(uuid "5b81443c-008f-4c35-89f7-819f614366ed")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C14")
 					(unit 1)
@@ -11099,7 +11817,7 @@
 			(uuid "e8244e8d-348a-4274-ac83-a5a9542593e7")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "L11")
 					(unit 1)
@@ -11177,7 +11895,7 @@
 			(uuid "fc1ad115-bfb9-4339-ae48-3ac63a1f37e8")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C35")
 					(unit 1)
@@ -11255,7 +11973,7 @@
 			(uuid "308158b4-ba5f-4c0f-9736-0d05aa6d63a4")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "L17")
 					(unit 1)
@@ -11331,7 +12049,7 @@
 			(uuid "505b596d-28ca-418a-94c5-c35f8fe64808")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR062")
 					(unit 1)
@@ -11407,7 +12125,7 @@
 			(uuid "41ba175d-1d7b-4ef9-acea-b10f5fc23978")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR043")
 					(unit 1)
@@ -11488,7 +12206,7 @@
 			(uuid "bcf78079-db62-49ee-917f-a910ec017646")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Q1")
 					(unit 1)
@@ -11566,7 +12284,7 @@
 			(uuid "f72ff62c-0a20-4677-b2ca-a7ab49e771f8")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "JP1")
 					(unit 1)
@@ -11642,7 +12360,7 @@
 			(uuid "36196439-48e8-45a3-89cf-bde9b12320b6")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR022")
 					(unit 1)
@@ -11718,7 +12436,7 @@
 			(uuid "c87a895e-cf94-4b05-95e2-32d26ee9d364")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR018")
 					(unit 1)
@@ -11796,7 +12514,7 @@
 			(uuid "422e495b-919b-4c23-834e-63e79bdb2015")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C18")
 					(unit 1)
@@ -11872,7 +12590,7 @@
 			(uuid "b7158364-414b-4696-9223-5147693b30b5")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR012")
 					(unit 1)
@@ -11948,7 +12666,7 @@
 			(uuid "5ba67432-80d7-4c7e-afa8-9f1c19217e67")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR068")
 					(unit 1)
@@ -12024,7 +12742,7 @@
 			(uuid "9c6ca230-2ceb-498a-9fac-657851fe7548")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR057")
 					(unit 1)
@@ -12102,7 +12820,7 @@
 			(uuid "eededd14-8905-4d51-9b7b-77f816586baa")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "D1")
 					(unit 1)
@@ -12178,7 +12896,7 @@
 			(uuid "4e0f7417-14fc-4fc0-a137-c39590d16e0e")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR045")
 					(unit 1)
@@ -12254,7 +12972,7 @@
 			(uuid "c29b4feb-eb61-4cc6-9a08-a7af78e74b46")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR054")
 					(unit 1)
@@ -12332,7 +13050,7 @@
 			(uuid "26b0b6a9-0dab-4c54-bfb6-b00fe6c9d8b5")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C38")
 					(unit 1)
@@ -12410,7 +13128,7 @@
 			(uuid "b996e4b5-5d6b-4576-a943-092604309280")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R11")
 					(unit 1)
@@ -12488,7 +13206,7 @@
 			(uuid "d0f9b061-fec0-41c4-87ce-a1d2396cffd4")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "L13")
 					(unit 1)
@@ -12566,7 +13284,7 @@
 			(uuid "eb2def15-9a74-4937-b0bf-246eb2fc25b3")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C33")
 					(unit 1)
@@ -12644,7 +13362,7 @@
 			(uuid "c4e4cfa6-cfc6-45d1-a694-91d920a582d6")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R27")
 					(unit 1)
@@ -12722,7 +13440,7 @@
 			(uuid "4902048b-8e57-413a-83f0-353c749304d1")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C31")
 					(unit 1)
@@ -12798,7 +13516,7 @@
 			(uuid "5b7b6dcb-96c9-4972-bd47-036d87ce47f6")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR027")
 					(unit 1)
@@ -12876,7 +13594,7 @@
 			(uuid "7176745c-8e91-4a68-8224-32567a80152f")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C19")
 					(unit 1)
@@ -12884,158 +13602,8 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "power:GND")
-		(at 438.15 64.77 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "3c143704-9822-4f09-84e6-6a07892940d8")
-		(property "Reference" "#PWR010"
-			(at 438.15 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 438.15 69.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 438.15 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 438.15 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 438.15 64.77 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "90fff8e1-0825-455d-8a93-a3c15b344ad1")
-		)
-		(instances
-			(project ""
-				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
-					(reference "#PWR010")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 400.05 57.15 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "3c30b87d-075c-4779-b30d-a7b4ed856f82")
-		(property "Reference" "#PWR002"
-			(at 400.05 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 400.05 52.07 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 400.05 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 400.05 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 400.05 57.15 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "1caebccf-c7b5-4baf-8897-2c0cc98c18f1")
-		)
-		(instances
-			(project ""
-				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
-					(reference "#PWR002")
-					(unit 1)
-				)
-			)
-		)
-	)
+	
+	
 	(symbol
 		(lib_id "Transistor_FET:BSS138")
 		(at 448.31 204.47 0)
@@ -13109,7 +13677,7 @@
 			(uuid "6fa40069-9355-4c29-8b56-8f77032e6834")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Q19")
 					(unit 1)
@@ -13187,7 +13755,7 @@
 			(uuid "9599ff4f-b5f3-4f6b-840f-c9e71d052798")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R37")
 					(unit 1)
@@ -13265,7 +13833,7 @@
 			(uuid "16f5e8ee-fcee-4dc6-8a3d-89bafc79d8ce")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R28")
 					(unit 1)
@@ -13343,7 +13911,7 @@
 			(uuid "f640c154-958c-47c5-b544-940b910b7f4e")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R2")
 					(unit 1)
@@ -13419,7 +13987,7 @@
 			(uuid "d3f24a51-2424-49c2-9676-7783a8b071f3")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR056")
 					(unit 1)
@@ -13497,7 +14065,7 @@
 			(uuid "8c708a4a-93a8-4712-bc78-d89f2d56b399")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "L1")
 					(unit 1)
@@ -13575,7 +14143,7 @@
 			(uuid "5ad86444-51fd-44e7-b290-c63c18191a2c")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C1")
 					(unit 1)
@@ -13651,7 +14219,7 @@
 			(uuid "b0bbe9f8-e2b2-4904-8aa9-12c46d427fa7")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR005")
 					(unit 1)
@@ -13727,7 +14295,7 @@
 			(uuid "27e2b328-1573-446e-ba20-0558e543ec29")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR033")
 					(unit 1)
@@ -13805,7 +14373,7 @@
 			(uuid "e116fc58-051a-48cd-8c58-147ba53e8daf")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R13")
 					(unit 1)
@@ -13883,7 +14451,7 @@
 			(uuid "b0315624-0c47-4624-af02-236cdc0f7852")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C7")
 					(unit 1)
@@ -13961,7 +14529,7 @@
 			(uuid "615f5370-786b-49d7-af6c-46141f82b9c4")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C12")
 					(unit 1)
@@ -14037,7 +14605,7 @@
 			(uuid "bc7159f4-b135-43a6-aa66-07276a37b0a4")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR028")
 					(unit 1)
@@ -14118,7 +14686,7 @@
 			(uuid "839fd693-8e7f-4860-a36d-6512cbfc829c")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Q8")
 					(unit 1)
@@ -14311,7 +14879,7 @@
 			(uuid "9f451512-9e86-4be9-a96b-7c56321af759")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "U1")
 					(unit 1)
@@ -14389,7 +14957,7 @@
 			(uuid "14430c94-7ee1-44d7-a384-14b3827ac800")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R9")
 					(unit 1)
@@ -14465,7 +15033,7 @@
 			(uuid "530c4e6c-694f-4108-a26d-ec72e42f83ef")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR055")
 					(unit 1)
@@ -14473,82 +15041,7 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 476.25 57.15 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "59bebe03-f8c9-4e7a-9f29-52803ab4bf69")
-		(property "Reference" "#PWR004"
-			(at 476.25 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 476.25 52.07 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 476.25 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 476.25 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 476.25 57.15 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "40065695-0e39-4ee8-8a96-2718cc661323")
-		)
-		(instances
-			(project ""
-				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
-					(reference "#PWR004")
-					(unit 1)
-				)
-			)
-		)
-	)
+	
 	(symbol
 		(lib_id "Transistor_FET:BSS138")
 		(at 410.21 204.47 0)
@@ -14622,7 +15115,7 @@
 			(uuid "c4c9e91f-873f-4f7d-b4f1-52259a74cec0")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Q18")
 					(unit 1)
@@ -14630,90 +15123,7 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x04")
-		(at 486.41 59.69 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "5a3db4e2-a6cc-454f-b625-5aa8bbd9d8a2")
-		(property "Reference" "J4"
-			(at 486.41 55.88 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Modul_W"
-			(at 486.41 63.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
-			(at 486.41 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 486.41 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 486.41 59.69 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "3"
-			(uuid "e34b93a9-8759-49c1-b86b-a0c0c7ae1e43")
-		)
-		(pin "4"
-			(uuid "db2e8dcb-11e0-4ecb-8d3d-71ee883f0ef1")
-		)
-		(pin "2"
-			(uuid "218b4462-25fc-4ea8-a492-33b9e1fd5623")
-		)
-		(pin "1"
-			(uuid "b12e5651-cb39-4132-b5f0-8f65cae9c855")
-		)
-		(instances
-			(project ""
-				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
-					(reference "J4")
-					(unit 1)
-				)
-			)
-		)
-	)
+	
 	(symbol
 		(lib_id "power:GND")
 		(at 748.03 140.97 0)
@@ -14782,7 +15192,7 @@
 			(uuid "c0aedc36-3a39-4a0d-afb1-af24dc5a0a8d")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR048")
 					(unit 1)
@@ -14858,7 +15268,7 @@
 			(uuid "27bb15ac-2017-4058-8b97-acfd10995117")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR059")
 					(unit 1)
@@ -14936,7 +15346,7 @@
 			(uuid "27e977be-8090-4767-bee2-ed482678e477")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C17")
 					(unit 1)
@@ -15012,7 +15422,7 @@
 			(uuid "b3e0b14b-4dca-42fc-baed-c983e994e73b")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR031")
 					(unit 1)
@@ -15096,7 +15506,7 @@
 			(uuid "9d49b51a-d7dc-4a84-be25-e377aafff60b")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Y1")
 					(unit 1)
@@ -15172,7 +15582,7 @@
 			(uuid "71ffece0-e33a-417d-8562-8a2c0d16ea5d")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR060")
 					(unit 1)
@@ -15248,7 +15658,7 @@
 			(uuid "65be746b-c690-43ab-be04-209ce1515cdb")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR030")
 					(unit 1)
@@ -15326,7 +15736,7 @@
 			(uuid "e8f3be4d-3ec0-47d8-9021-ba43040f26e4")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C15")
 					(unit 1)
@@ -15404,7 +15814,7 @@
 			(uuid "1231a73c-3b71-4167-87c4-e3a31c1295c1")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C37")
 					(unit 1)
@@ -15412,82 +15822,7 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "power:GND")
-		(at 361.95 64.77 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "652925bb-bfc2-4b8b-97bc-d7fdeb3585d4")
-		(property "Reference" "#PWR008"
-			(at 361.95 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 361.95 69.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 361.95 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 361.95 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 361.95 64.77 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "3e9f3a7d-38e5-4fea-b7d7-cf6f0aa02918")
-		)
-		(instances
-			(project ""
-				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
-					(reference "#PWR008")
-					(unit 1)
-				)
-			)
-		)
-	)
+	
 	(symbol
 		(lib_id "power:GND")
 		(at 514.35 67.31 0)
@@ -15556,7 +15891,7 @@
 			(uuid "97430eb0-deb1-4870-bc74-8d88d2a03c3f")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR019")
 					(unit 1)
@@ -15634,7 +15969,7 @@
 			(uuid "239c6c66-cb7f-4b64-a1b8-7aa6557b745f")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C9")
 					(unit 1)
@@ -15710,7 +16045,7 @@
 			(uuid "277a635a-5b41-4366-b4b4-77126bcc886f")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR037")
 					(unit 1)
@@ -15788,7 +16123,7 @@
 			(uuid "ebeb45d0-d8d5-4bfe-8644-cbf9b44a9287")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R22")
 					(unit 1)
@@ -15864,7 +16199,7 @@
 			(uuid "82d24e7a-7ebf-43d1-9380-340b7c8fa7c5")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR006")
 					(unit 1)
@@ -15940,7 +16275,7 @@
 			(uuid "2ed16690-ded9-4174-a094-2f1c60d3dd68")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR016")
 					(unit 1)
@@ -16047,7 +16382,7 @@
 			(uuid "aa6cd81f-dca4-4e95-aab5-5992e1bc52db")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "U3")
 					(unit 1)
@@ -16128,7 +16463,7 @@
 			(uuid "e67471c4-dd0a-47bb-9a08-d90aa6b9d741")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Q5")
 					(unit 1)
@@ -16206,7 +16541,7 @@
 			(uuid "63d63953-b041-44db-95a2-b5c4b1668074")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C4")
 					(unit 1)
@@ -16284,7 +16619,7 @@
 			(uuid "aac039b4-0a8a-45eb-aa71-0298c4e42188")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R6")
 					(unit 1)
@@ -16362,7 +16697,7 @@
 			(uuid "901d5136-5315-4317-9eac-3c3ea80fe145")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R26")
 					(unit 1)
@@ -16440,7 +16775,7 @@
 			(uuid "4fb86b95-9b6d-4dea-8c52-2cefed692eff")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "L14")
 					(unit 1)
@@ -16518,7 +16853,7 @@
 			(uuid "a8e1f31f-4cba-4872-b959-d005306f5f64")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R39")
 					(unit 1)
@@ -16589,18 +16924,25 @@
 				)
 			)
 		)
+		(property "DNP Reason" "TVDD-Option 5 V, Standard ist 3,3 V ueber R4"
+			(at 138.43 167.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "56e6675d-b0dc-4dee-8ec9-664ab7b4e0db")
 		)
 		(pin "2"
 			(uuid "b6c7e1c0-7430-4299-b230-7739e5a81cf5")
 		)
-		(property "DNP Reason" "TVDD-Option 5 V, Standard ist 3,3 V ueber R4"
-			(at 138.43 167.64 0)
-			(effects (font (size 1.27 1.27)) (hide yes))
-		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R5")
 					(unit 1)
@@ -16678,7 +17020,7 @@
 			(uuid "866dc1f9-13d9-477d-91f6-66f19952ffbc")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C13")
 					(unit 1)
@@ -16754,7 +17096,7 @@
 			(uuid "9433a70f-3baf-4815-a541-af3321a214f7")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR058")
 					(unit 1)
@@ -16830,7 +17172,7 @@
 			(uuid "99ba3c73-1d35-4a34-bfdc-f175ae7e71ae")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR038")
 					(unit 1)
@@ -16906,7 +17248,7 @@
 			(uuid "0644a3ea-bba1-46e6-9247-61c25de18c05")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR064")
 					(unit 1)
@@ -16982,7 +17324,7 @@
 			(uuid "04e0e967-5313-4985-8613-4dc493c2c75a")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR017")
 					(unit 1)
@@ -17063,7 +17405,7 @@
 			(uuid "4aae580c-a267-470f-9f12-bca114204165")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Q15")
 					(unit 1)
@@ -17141,7 +17483,7 @@
 			(uuid "b00e90a9-8dd5-414d-89fa-8839b7e08a66")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R7")
 					(unit 1)
@@ -17217,7 +17559,7 @@
 			(uuid "3458e824-ddfb-4136-b102-75006a1bb770")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR013")
 					(unit 1)
@@ -17295,7 +17637,7 @@
 			(uuid "215c13a0-dd65-4262-9cef-f8b83cdefefb")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R3")
 					(unit 1)
@@ -17371,7 +17713,7 @@
 			(uuid "e7da4c86-9c4c-4070-901b-0151eecd2e28")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR051")
 					(unit 1)
@@ -17449,7 +17791,7 @@
 			(uuid "10b11868-65b9-40f9-bc4a-89fa89bebd7f")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C23")
 					(unit 1)
@@ -17525,7 +17867,7 @@
 			(uuid "6d6dd3eb-9fa4-477a-add4-382346898575")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR026")
 					(unit 1)
@@ -17601,7 +17943,7 @@
 			(uuid "9879d8bd-dce8-4bcc-81a4-5bab261f986f")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR063")
 					(unit 1)
@@ -17679,7 +18021,7 @@
 			(uuid "87849e24-76b0-4749-a577-693a920271af")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R33")
 					(unit 1)
@@ -17757,7 +18099,7 @@
 			(uuid "42b19fca-e586-4b6d-956f-52b9c17b6740")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "L2")
 					(unit 1)
@@ -17838,7 +18180,7 @@
 			(uuid "ed5a412e-c2e2-41d2-b3e9-d86b0988555f")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Q2")
 					(unit 1)
@@ -17914,7 +18256,7 @@
 			(uuid "43c18746-e348-43cf-9595-ddc2c989ef15")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR014")
 					(unit 1)
@@ -17992,7 +18334,7 @@
 			(uuid "058564a8-bf95-4809-9a97-accf872b88af")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R36")
 					(unit 1)
@@ -18070,7 +18412,7 @@
 			(uuid "f86edf16-14cd-4a24-b55c-b86658a0f33f")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R32")
 					(unit 1)
@@ -18146,7 +18488,7 @@
 			(uuid "a9c4cc32-473d-4c77-85a3-dd1243cf678a")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR041")
 					(unit 1)
@@ -18222,7 +18564,7 @@
 			(uuid "c5d47994-5358-46b7-ba11-20f31efbfa29")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR024")
 					(unit 1)
@@ -18300,7 +18642,7 @@
 			(uuid "6b01bd76-7110-4aeb-a8aa-e12c7a70b241")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R8")
 					(unit 1)
@@ -18378,7 +18720,7 @@
 			(uuid "1c6e94ab-12d0-4e57-bedb-33d9d4ecce9a")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C34")
 					(unit 1)
@@ -18456,7 +18798,7 @@
 			(uuid "ea4c7059-69f6-489e-bed4-aea37a6ffc61")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C3")
 					(unit 1)
@@ -18532,7 +18874,7 @@
 			(uuid "4abf6add-8287-4a80-b91b-2d755c40c472")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR036")
 					(unit 1)
@@ -18610,7 +18952,7 @@
 			(uuid "7360f493-55ee-4dfb-bfee-3336dcec8ebe")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R12")
 					(unit 1)
@@ -18691,7 +19033,7 @@
 			(uuid "4c4967f6-6f86-4097-be49-7aaf1e358122")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Q9")
 					(unit 1)
@@ -18767,7 +19109,7 @@
 			(uuid "2566d040-0afb-4609-ada3-f556091ea550")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR067")
 					(unit 1)
@@ -18848,7 +19190,7 @@
 			(uuid "8b7184a3-ead0-4b4c-ab6f-65c5beeb6f78")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Q4")
 					(unit 1)
@@ -18926,7 +19268,7 @@
 			(uuid "9f8a3916-7bfb-40e4-b37a-40cbd2890621")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R23")
 					(unit 1)
@@ -19002,7 +19344,7 @@
 			(uuid "1a7bd2d6-08e1-4c5a-8169-3ce08b235390")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR047")
 					(unit 1)
@@ -19078,7 +19420,7 @@
 			(uuid "aa405411-4ae1-4854-a48a-11479a1b4ef7")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR066")
 					(unit 1)
@@ -19154,7 +19496,7 @@
 			(uuid "b82b6724-c70d-438b-9734-24d9632793ac")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR023")
 					(unit 1)
@@ -19235,7 +19577,7 @@
 			(uuid "34929f51-0c71-44ab-8ffb-bbb49968bb53")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Q13")
 					(unit 1)
@@ -19313,7 +19655,7 @@
 			(uuid "c5a9f069-80cc-449a-968c-39eaa38290d2")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C21")
 					(unit 1)
@@ -19321,82 +19663,7 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "power:GND")
-		(at 400.05 64.77 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "bab1ed2e-ad33-4621-b0c6-6e33e950df4a")
-		(property "Reference" "#PWR009"
-			(at 400.05 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 400.05 69.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 400.05 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 400.05 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 400.05 64.77 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "9c897e7a-6b00-46f4-84ee-62f623efae3d")
-		)
-		(instances
-			(project ""
-				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
-					(reference "#PWR009")
-					(unit 1)
-				)
-			)
-		)
-	)
+	
 	(symbol
 		(lib_id "power:GND")
 		(at 552.45 57.15 0)
@@ -19465,7 +19732,7 @@
 			(uuid "a0110ea6-b539-45a8-b042-44571cf965e7")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR020")
 					(unit 1)
@@ -19541,7 +19808,7 @@
 			(uuid "4853f295-b4a8-443b-a620-03f5025f8b17")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR007")
 					(unit 1)
@@ -19619,7 +19886,7 @@
 			(uuid "99fa6f53-0422-4fcc-b453-c9475bc19cc8")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R10")
 					(unit 1)
@@ -19700,7 +19967,7 @@
 			(uuid "14731337-d877-4fcd-818a-7a7fff57b0a5")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Q3")
 					(unit 1)
@@ -19778,7 +20045,7 @@
 			(uuid "cfa0ef9f-1dbd-473c-be33-1cf47de3a6d6")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C5")
 					(unit 1)
@@ -19786,166 +20053,8 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 361.95 57.15 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "c7d8cdc2-21b6-42bc-a5bc-7bc616f7efaf")
-		(property "Reference" "#PWR001"
-			(at 361.95 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 361.95 52.07 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 361.95 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 361.95 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 361.95 57.15 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "f29f7f6b-5402-4797-b507-b03815c89959")
-		)
-		(instances
-			(project ""
-				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
-					(reference "#PWR001")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x04")
-		(at 448.31 59.69 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "ca0e609f-9059-4a9b-9757-44f5905d2dcb")
-		(property "Reference" "J3"
-			(at 448.31 55.88 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Modul_S"
-			(at 448.31 63.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
-			(at 448.31 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 448.31 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 448.31 59.69 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b3c46842-dd60-414d-98a8-900469f5ba6f")
-		)
-		(pin "2"
-			(uuid "382a2008-c6d4-4d36-8bf7-33b7949a8d21")
-		)
-		(pin "4"
-			(uuid "ebc6c71a-4877-46f2-b89d-c87dbddd7d53")
-		)
-		(pin "3"
-			(uuid "a1b853fe-91f4-4125-9acf-b8a52cbba142")
-		)
-		(instances
-			(project ""
-				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
-					(reference "J3")
-					(unit 1)
-				)
-			)
-		)
-	)
+	
+	
 	(symbol
 		(lib_id "Transistor_FET:BSS138")
 		(at 257.81 240.03 0)
@@ -20019,7 +20128,7 @@
 			(uuid "1a5d73fd-548d-4c9b-ad8c-674cf165af1b")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Q6")
 					(unit 1)
@@ -20097,7 +20206,7 @@
 			(uuid "0f6e26e3-29c2-4d56-9a66-0d8fcaa3b38a")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R25")
 					(unit 1)
@@ -20173,7 +20282,7 @@
 			(uuid "48cb8fc0-d315-46e3-acd1-f4cfb55c2e3b")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR050")
 					(unit 1)
@@ -20251,7 +20360,7 @@
 			(uuid "3a6da511-56d8-443b-8ff3-e157e401df07")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R34")
 					(unit 1)
@@ -20332,7 +20441,7 @@
 			(uuid "d0114d2c-0f6b-4f58-873c-f3ca8196b2b4")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Q16")
 					(unit 1)
@@ -20408,7 +20517,7 @@
 			(uuid "e6f7b82c-6f58-4bc2-9782-9f444ae6254e")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR029")
 					(unit 1)
@@ -20489,7 +20598,7 @@
 			(uuid "b30cdee6-4bb4-496c-b49b-f6b5c4bebcde")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Q7")
 					(unit 1)
@@ -20567,7 +20676,7 @@
 			(uuid "ec37232d-254e-401f-a507-27d0cd0f7197")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C6")
 					(unit 1)
@@ -20643,7 +20752,7 @@
 			(uuid "e8df25af-637d-4770-9a30-701377003afd")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR046")
 					(unit 1)
@@ -20719,7 +20828,7 @@
 			(uuid "92760d76-9cfa-4861-9a30-c1325698f00e")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR032")
 					(unit 1)
@@ -20797,7 +20906,7 @@
 			(uuid "04220cbe-4f5e-4ac9-83c0-d41bcec9695e")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C11")
 					(unit 1)
@@ -20875,7 +20984,7 @@
 			(uuid "7d3e47bf-b59e-45a1-8acb-4f4b872f5404")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C16")
 					(unit 1)
@@ -20883,90 +20992,7 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x04")
-		(at 372.11 59.69 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "d9a8056d-b75e-4de4-af46-fcbc89e172c6")
-		(property "Reference" "J1"
-			(at 372.11 55.88 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Modul_N"
-			(at 372.11 63.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
-			(at 372.11 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 372.11 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 372.11 59.69 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "4"
-			(uuid "21420a21-b5fd-42da-851f-f549d7bbd424")
-		)
-		(pin "2"
-			(uuid "61eeb170-01c7-4824-ab8d-f125fb6280e1")
-		)
-		(pin "1"
-			(uuid "2603e650-a99d-4b50-818c-2782e0c4519b")
-		)
-		(pin "3"
-			(uuid "afcd91fb-ac70-48e9-9b9d-f1dcc32a90f0")
-		)
-		(instances
-			(project ""
-				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
-					(reference "J1")
-					(unit 1)
-				)
-			)
-		)
-	)
+	
 	(symbol
 		(lib_id "Device:C")
 		(at 595.63 96.52 0)
@@ -21037,7 +21063,7 @@
 			(uuid "63f91240-a01d-4761-acc4-dffef208d7eb")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C10")
 					(unit 1)
@@ -21113,7 +21139,7 @@
 			(uuid "59fc0dff-3ee3-4f95-acad-eb8dbf9a69a9")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR039")
 					(unit 1)
@@ -21189,7 +21215,7 @@
 			(uuid "7db6b385-cc5b-47ae-b959-3cb173377e13")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR034")
 					(unit 1)
@@ -21270,7 +21296,7 @@
 			(uuid "fd039d49-dd0f-4381-832e-6c9c3ebb82ee")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Q12")
 					(unit 1)
@@ -21348,7 +21374,7 @@
 			(uuid "48173259-c65d-40df-b505-3ee6aca06580")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C20")
 					(unit 1)
@@ -21426,7 +21452,7 @@
 			(uuid "dee28b85-782e-4c18-8755-29d090b1e6aa")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R31")
 					(unit 1)
@@ -21502,7 +21528,7 @@
 			(uuid "3a881f8c-092b-41b3-ad2b-9939aa355440")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR035")
 					(unit 1)
@@ -21580,7 +21606,7 @@
 			(uuid "0b43fe1c-b0e5-4e7c-a399-222d580de27d")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "L12")
 					(unit 1)
@@ -21658,7 +21684,7 @@
 			(uuid "817bbc9b-e5b1-48ff-b045-efac724d117d")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R38")
 					(unit 1)
@@ -21734,7 +21760,7 @@
 			(uuid "df2f2cc4-f7d5-4254-84a0-ff07900431c8")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR015")
 					(unit 1)
@@ -21815,7 +21841,7 @@
 			(uuid "622bbe35-c215-4ab0-ac83-74af275444ea")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Q17")
 					(unit 1)
@@ -21893,7 +21919,7 @@
 			(uuid "cd87ed2b-4a6b-4dde-af0a-11965aa1bc7b")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R29")
 					(unit 1)
@@ -21974,7 +22000,7 @@
 			(uuid "c5865186-8446-4960-b716-451ab424012d")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "U4")
 					(unit 1)
@@ -22050,7 +22076,7 @@
 			(uuid "4a93ca25-0e85-4bda-8af4-e5a056d7bf33")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR042")
 					(unit 1)
@@ -22128,7 +22154,7 @@
 			(uuid "e8be0c1f-1648-4c73-b65c-36b92c1e907f")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R1")
 					(unit 1)
@@ -22206,7 +22232,7 @@
 			(uuid "1ff7b213-98fe-49ec-a8fc-7f4d454b4b60")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "L18")
 					(unit 1)
@@ -22284,7 +22310,7 @@
 			(uuid "c0e37540-2a75-4d4f-8e53-52938de382b5")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R35")
 					(unit 1)
@@ -22360,7 +22386,7 @@
 			(uuid "c1722f9c-317f-4686-8f02-eec19c711cd7")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR069")
 					(unit 1)
@@ -22438,7 +22464,7 @@
 			(uuid "b68ec923-d9d6-4967-8fe8-475b44990008")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C8")
 					(unit 1)
@@ -22514,7 +22540,7 @@
 			(uuid "e840ae06-a313-471c-91a3-fffca8817e9f")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR049")
 					(unit 1)
@@ -22592,7 +22618,7 @@
 			(uuid "07747d69-c884-4ec2-9bc5-b1ac08e885da")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C22")
 					(unit 1)
@@ -22668,7 +22694,7 @@
 			(uuid "7bc7d75e-4eac-409b-84ec-4046704e70a7")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR025")
 					(unit 1)
@@ -22744,7 +22770,7 @@
 			(uuid "9187a588-c510-4647-befc-a795147ebaa2")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR065")
 					(unit 1)
@@ -22822,7 +22848,7 @@
 			(uuid "93679307-9145-4f52-8690-70d2889a8b06")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "R24")
 					(unit 1)
@@ -22903,7 +22929,7 @@
 			(uuid "7d5504a5-939e-45d2-9812-14e7e94037aa")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Q11")
 					(unit 1)
@@ -22911,90 +22937,7 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x04")
-		(at 410.21 59.69 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "f4b6f1fa-341b-4891-b063-64d822cd39ce")
-		(property "Reference" "J2"
-			(at 410.21 55.88 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Modul_O"
-			(at 410.21 63.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
-			(at 410.21 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 410.21 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 410.21 59.69 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "4"
-			(uuid "4ee8ffe2-2e6b-4eba-848f-a31f5ad4a840")
-		)
-		(pin "3"
-			(uuid "c790f194-89ce-4116-b200-8e41f7faf237")
-		)
-		(pin "1"
-			(uuid "3afc71af-3976-45a2-9d33-6dd95c132533")
-		)
-		(pin "2"
-			(uuid "830b50cb-005a-452a-b18d-c955a12c052e")
-		)
-		(instances
-			(project ""
-				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
-					(reference "J2")
-					(unit 1)
-				)
-			)
-		)
-	)
+	
 	(symbol
 		(lib_id "Device:L")
 		(at 709.93 167.64 0)
@@ -23065,7 +23008,7 @@
 			(uuid "006056c9-38dd-42ee-bc7f-7dd1bcdf699d")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "L16")
 					(unit 1)
@@ -23141,7 +23084,7 @@
 			(uuid "e33ce1b5-356a-4606-b05b-d6ae75b11456")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR040")
 					(unit 1)
@@ -23219,7 +23162,7 @@
 			(uuid "cf072431-4f4c-47e3-8244-731b6cf13686")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "C36")
 					(unit 1)
@@ -23300,7 +23243,7 @@
 			(uuid "c06aff7f-4dc5-48f9-9379-092d41ca6bd9")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "Q14")
 					(unit 1)
@@ -23376,7 +23319,7 @@
 			(uuid "22de1fd5-88b1-4d5a-a4f7-41d1c1bafee8")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR053")
 					(unit 1)
@@ -23384,82 +23327,7 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 438.15 57.15 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "fe3ea878-f6c6-4e39-9381-ec3a04079fbe")
-		(property "Reference" "#PWR003"
-			(at 438.15 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 438.15 52.07 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 438.15 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 438.15 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 438.15 57.15 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6a4ecb05-d3c1-47a7-93d6-12aec4a7b1b0")
-		)
-		(instances
-			(project ""
-				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
-					(reference "#PWR003")
-					(unit 1)
-				)
-			)
-		)
-	)
+	
 	(symbol
 		(lib_id "power:GND")
 		(at 595.63 140.97 0)
@@ -23528,7 +23396,7 @@
 			(uuid "3d0c3c4e-218d-403f-b7a4-76e19e657f11")
 		)
 		(instances
-			(project ""
+			(project "spielbrett"
 				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
 					(reference "#PWR044")
 					(unit 1)
@@ -23536,7 +23404,6 @@
 			)
 		)
 	)
-	(no_connect (at 173.99 85.09) (uuid "e6dceaf0-769d-4497-a057-cfd2e01a331f"))
 	
 	
 	
@@ -23824,7 +23691,6 @@
 	
 	
 	
-	(no_connect (at 173.99 87.63) (uuid "3a192632-0f5c-4d15-b1bc-116df60c64fb"))
 	
 	
 	
@@ -24112,7 +23978,6 @@
 	
 	
 	
-	(no_connect (at 173.99 90.17) (uuid "63a98b66-7c6d-46a6-80e6-568d39b62a2a"))
 	
 	
 	
@@ -24400,7 +24265,6 @@
 	
 	
 	
-	(no_connect (at 173.99 92.71) (uuid "8eecbe2e-70c4-4b63-8ee1-cd07a1c6da9d"))
 	
 	
 	
@@ -24688,7 +24552,6 @@
 	
 	
 	
-	(no_connect (at 173.99 80.01) (uuid "f458a941-9812-4b11-9853-402be20a4b67"))
 	
 	
 	
@@ -24976,7 +24839,6 @@
 	
 	
 	
-	(no_connect (at 173.99 82.55) (uuid "ba65a62f-9d87-413e-8f5f-b25b28150b20"))
 	
 	
 	
@@ -25264,7 +25126,6 @@
 	
 	
 	
-	(no_connect (at 173.99 74.93) (uuid "2ee42a6d-db84-4e55-856e-c548a0573930"))
 	
 	
 	
@@ -25552,7 +25413,6 @@
 	
 	
 	
-	(no_connect (at 173.99 77.47) (uuid "2909cc58-a900-48f2-a43e-c3a3814ef8a2"))
 	
 	
 	
@@ -25840,7 +25700,6 @@
 	
 	
 	
-	(no_connect (at 138.43 92.71) (uuid "8afc3237-34af-4342-9085-ae01d0de8ffe"))
 	
 	
 	
@@ -26128,7 +25987,6 @@
 	
 	
 	
-	(no_connect (at 138.43 82.55) (uuid "fea81a04-5719-4a71-95c2-e7e9332d8a75"))
 	
 	
 	
@@ -26416,7 +26274,6 @@
 	
 	
 	
-	(no_connect (at 138.43 85.09) (uuid "9e6f8677-5bd5-4fe8-97ea-77e39f139326"))
 	
 	
 	
@@ -26704,7 +26561,6 @@
 	
 	
 	
-	(no_connect (at 62.23 102.87) (uuid "ba8865d4-caf4-43ca-8e44-c90817f390be"))
 	
 	
 	
@@ -26992,7 +26848,6 @@
 	
 	
 	
-	(no_connect (at 62.23 72.39) (uuid "6adc2941-0094-469e-8c73-a5624992a962"))
 	
 	
 	
@@ -27280,7 +27135,6 @@
 	
 	
 	
-	(no_connect (at 62.23 74.93) (uuid "e24f1793-f150-4cea-8b8f-f322e793673c"))
 	
 	
 	
@@ -27568,7 +27422,6 @@
 	
 	
 	
-	(no_connect (at 82.55 92.71) (uuid "35e8463e-9586-4902-8eda-3e763414cd56"))
 	
 	
 	
@@ -27856,7 +27709,6 @@
 	
 	
 	
-	(no_connect (at 82.55 102.87) (uuid "0872803a-9f74-4fe6-9b56-a04d908a0085"))
 	
 	
 	
@@ -28144,7 +27996,6 @@
 	
 	
 	
-	(no_connect (at 62.23 95.25) (uuid "b646320b-3c3f-43b7-be2d-9762da76def3"))
 	
 	
 	
@@ -28432,7 +28283,6 @@
 	
 	
 	
-	(no_connect (at 62.23 97.79) (uuid "e82eea15-0630-41de-b035-b8de2f861f57"))
 	
 	
 	
@@ -28720,7 +28570,6 @@
 	
 	
 	
-	(no_connect (at 62.23 100.33) (uuid "0800e10c-2d34-4262-92f2-82c11cd1f686"))
 	
 	
 	
@@ -28999,6 +28848,47 @@
 	
 	
 	
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x06")
+		(at 410.21 62.23 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "53312d3b-6e22-43cc-8ced-c79374239e27")
+		(property "Reference" "J2"
+			(at 410.21 58.42 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Value" "Modul_O_Feder"
+			(at 410.21 66.04 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" "spielbrett:HC-CX-PH254-1x6PW-4050B-E"
+			(at 410.21 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Datasheet" "~"
+			(at 410.21 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "MPN" "HC-CX-PH254-1x6PW-4050B-E"
+			(at 410.21 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "LCSC" "C56314391"
+			(at 410.21 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(instances
+			(project "spielbrett"
+				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
+					(reference "J2") (unit 1)
+				)
+			)
+		)
+	)
 	
 	
 	
@@ -29270,6 +29160,47 @@
 	
 	
 	
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x06")
+		(at 486.41 62.23 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9a8b8eae-c21c-4a23-9f95-3920dbc4d803")
+		(property "Reference" "J4"
+			(at 486.41 58.42 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Value" "Modul_W_Ziel"
+			(at 486.41 66.04 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" "spielbrett:HC-CX-FH254-1x6PW-4040B-E"
+			(at 486.41 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Datasheet" "~"
+			(at 486.41 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "MPN" "HC-CX-FH254-1x6PW-4040B-E"
+			(at 486.41 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "LCSC" "C56314419"
+			(at 486.41 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(instances
+			(project "spielbrett"
+				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
+					(reference "J4") (unit 1)
+				)
+			)
+		)
+	)
 	
 	
 	
@@ -29541,6 +29472,43 @@
 	
 	
 	
+	(symbol
+		(lib_id "Device:Polyfuse")
+		(at 372.11 62.23 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2fa4c3f5-9e26-4725-afe1-539445aceb90")
+		(property "Reference" "F1"
+			(at 372.11 58.42 90)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Value" "PTC_0.5A_hold"
+			(at 372.11 66.04 90)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" "Fuse:Fuse_1206_3216Metric"
+			(at 372.11 62.23 90)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Datasheet" "~"
+			(at 372.11 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "LCSC" "C7542947"
+			(at 372.11 62.23 90)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(instances
+			(project "spielbrett"
+				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
+					(reference "F1") (unit 1)
+				)
+			)
+		)
+	)
 	
 	
 	
@@ -29812,6 +29780,43 @@
 	
 	
 	
+	(symbol
+		(lib_id "Device:D_TVS")
+		(at 389.89 62.23 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "98bb4647-7014-4cee-a459-a49756bc2e64")
+		(property "Reference" "D2"
+			(at 389.89 58.42 90)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Value" "SMF5.0A"
+			(at 389.89 66.04 90)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" "Diode_SMD:D_SOD-123F"
+			(at 389.89 62.23 90)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Datasheet" "~"
+			(at 389.89 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "LCSC" "C19077497"
+			(at 389.89 62.23 90)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(instances
+			(project "spielbrett"
+				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
+					(reference "D2") (unit 1)
+				)
+			)
+		)
+	)
 	
 	
 	
@@ -30083,6 +30088,43 @@
 	
 	
 	
+	(symbol
+		(lib_id "Power_Protection:NUP2105L")
+		(at 444.5 62.23 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "09155e20-8320-467b-8f5e-6524b877e69c")
+		(property "Reference" "D3"
+			(at 444.5 58.42 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Value" "SM712"
+			(at 444.5 66.04 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 444.5 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Datasheet" "~"
+			(at 444.5 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "LCSC" "C521963"
+			(at 444.5 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(instances
+			(project "spielbrett"
+				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
+					(reference "D3") (unit 1)
+				)
+			)
+		)
+	)
 	
 	
 	
@@ -30354,6 +30396,43 @@
 	
 	
 	
+	(symbol
+		(lib_id "Power_Protection:NUP2105L")
+		(at 462.28 62.23 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0a4901f0-4653-4211-8e35-8e0a5df13a0c")
+		(property "Reference" "D4"
+			(at 462.28 58.42 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Value" "SM712"
+			(at 462.28 66.04 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 462.28 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Datasheet" "~"
+			(at 462.28 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "LCSC" "C521963"
+			(at 462.28 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(instances
+			(project "spielbrett"
+				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
+					(reference "D4") (unit 1)
+				)
+			)
+		)
+	)
 	
 	
 	
@@ -31866,6 +31945,15005 @@
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(global_label "VBUS"
+		(shape bidirectional)
+		(at 400.05 57.15 180)
+		(effects (font (size 1.524 1.524)) (justify right))
+		(uuid "a112d523-f26c-46be-bda3-66d3ef4b573d")
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(global_label "RS485_A"
+		(shape bidirectional)
+		(at 400.05 59.69 180)
+		(effects (font (size 1.524 1.524)) (justify right))
+		(uuid "83ce4033-37e2-4b00-bd55-25047e3d1ded")
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(global_label "RS485_B"
+		(shape bidirectional)
+		(at 400.05 62.23 180)
+		(effects (font (size 1.524 1.524)) (justify right))
+		(uuid "a8de94e0-1073-41d4-a38f-a32b1a670f7c")
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(global_label "RS485_B_RET"
+		(shape bidirectional)
+		(at 400.05 64.77 180)
+		(effects (font (size 1.524 1.524)) (justify right))
+		(uuid "c6766687-8a5d-459e-bc4c-03d4621458ff")
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(global_label "RS485_A_RET"
+		(shape bidirectional)
+		(at 400.05 67.31 180)
+		(effects (font (size 1.524 1.524)) (justify right))
+		(uuid "bfcab6d9-3ae7-4182-b716-f96e1e6b2a7b")
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(global_label "RS485_A_RET"
+		(shape bidirectional)
+		(at 476.25 59.69 180)
+		(effects (font (size 1.524 1.524)) (justify right))
+		(uuid "9bbb2af1-c3af-4572-8d2b-d18ea099bb6f")
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(global_label "RS485_B_RET"
+		(shape bidirectional)
+		(at 476.25 62.23 180)
+		(effects (font (size 1.524 1.524)) (justify right))
+		(uuid "c04034a2-7bd9-4353-b3cd-ee617e4d0240")
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(global_label "RS485_B"
+		(shape bidirectional)
+		(at 476.25 64.77 180)
+		(effects (font (size 1.524 1.524)) (justify right))
+		(uuid "c4f28d1b-1e79-4384-a39e-36d7440d2d72")
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(global_label "RS485_A"
+		(shape bidirectional)
+		(at 476.25 67.31 180)
+		(effects (font (size 1.524 1.524)) (justify right))
+		(uuid "33b661c6-141f-4286-ab89-1a3298fc4950")
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(global_label "VBUS"
+		(shape bidirectional)
+		(at 365.76 62.23 180)
+		(effects (font (size 1.524 1.524)) (justify right))
+		(uuid "ab8511f8-14b4-4613-a944-8335421daa4c")
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(global_label "VBUS"
+		(shape bidirectional)
+		(at 389.89 68.58 270)
+		(effects (font (size 1.524 1.524)) (justify top))
+		(uuid "2c88decc-8645-4b83-9773-5c7bf6095c77")
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(global_label "RS485_A"
+		(shape bidirectional)
+		(at 441.96 54.61 90)
+		(effects (font (size 1.524 1.524)) (justify bottom))
+		(uuid "3f016b20-4483-4fb5-b4e9-e48f6afff60e")
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(global_label "RS485_B"
+		(shape bidirectional)
+		(at 447.04 54.61 90)
+		(effects (font (size 1.524 1.524)) (justify bottom))
+		(uuid "3d2749ee-243c-41ff-b24f-c791a9a73cce")
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(global_label "RS485_A_RET"
+		(shape bidirectional)
+		(at 459.74 54.61 90)
+		(effects (font (size 1.524 1.524)) (justify bottom))
+		(uuid "02048dd0-f0ae-41e3-892a-50bf33652f12")
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(global_label "RS485_B_RET"
+		(shape bidirectional)
+		(at 464.82 54.61 90)
+		(effects (font (size 1.524 1.524)) (justify bottom))
+		(uuid "54d9e72d-b9f3-4aae-a1a7-c16c65ccbd2e")
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(global_label "VBUS"
+		(shape bidirectional)
+		(at 165.1 283.21 0)
+		(effects (font (size 1.524 1.524)) (justify left))
+		(uuid "ed9cb88b-6a40-4069-aa66-fd6878b45c14")
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 165.1 283.21 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "066c12cc-e7a1-4bdc-b2ed-e31cc37485c4")
+		(property "Reference" "#PWR075"
+			(at 165.1 276.86 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Value" "PWR_FLAG"
+			(at 165.1 278.13 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" ""
+			(at 165.1 283.21 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Datasheet" "~"
+			(at 165.1 283.21 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(instances
+			(project "spielbrett"
+				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
+					(reference "#PWR075") (unit 1)
+				)
+			)
+		)
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(symbol
+		(lib_id "power:GND")
+		(at 402.59 69.85 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e8231868-2b35-4ce2-a7f7-673c21daf996")
+		(property "Reference" "#PWR070"
+			(at 402.59 76.2 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Value" "GND"
+			(at 402.59 74.93 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" ""
+			(at 402.59 69.85 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Datasheet" "~"
+			(at 402.59 69.85 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(instances
+			(project "spielbrett"
+				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
+					(reference "#PWR070") (unit 1)
+				)
+			)
+		)
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(symbol
+		(lib_id "power:+5V")
+		(at 378.46 62.23 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b5f4ce91-a6b9-4125-8f76-6eee614429a0")
+		(property "Reference" "#PWR072"
+			(at 378.46 55.88 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Value" "+5V"
+			(at 378.46 57.15 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" ""
+			(at 378.46 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Datasheet" "~"
+			(at 378.46 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(instances
+			(project "spielbrett"
+				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
+					(reference "#PWR072") (unit 1)
+				)
+			)
+		)
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(symbol
+		(lib_id "power:GND")
+		(at 389.89 55.88 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9d850460-cbea-4bc8-9ddf-443c825acbae")
+		(property "Reference" "#PWR074"
+			(at 389.89 62.23 180)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Value" "GND"
+			(at 389.89 60.96 180)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" ""
+			(at 389.89 55.88 180)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Datasheet" "~"
+			(at 389.89 55.88 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(instances
+			(project "spielbrett"
+				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
+					(reference "#PWR074") (unit 1)
+				)
+			)
+		)
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(symbol
+		(lib_id "power:GND")
+		(at 444.5 69.85 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ce5c537b-8a76-4706-a1ef-2334d6c974d2")
+		(property "Reference" "#PWR076"
+			(at 444.5 76.2 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Value" "GND"
+			(at 444.5 74.93 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" ""
+			(at 444.5 69.85 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Datasheet" "~"
+			(at 444.5 69.85 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(instances
+			(project "spielbrett"
+				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
+					(reference "#PWR076") (unit 1)
+				)
+			)
+		)
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(symbol
+		(lib_id "power:GND")
+		(at 462.28 69.85 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ab25ef8e-9780-4995-8b2d-2fb70c1eddf6")
+		(property "Reference" "#PWR071"
+			(at 462.28 76.2 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Value" "GND"
+			(at 462.28 74.93 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" ""
+			(at 462.28 69.85 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Datasheet" "~"
+			(at 462.28 69.85 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(instances
+			(project "spielbrett"
+				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
+					(reference "#PWR071") (unit 1)
+				)
+			)
+		)
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(global_label "VBUS"
+		(shape bidirectional)
+		(at 476.25 69.85 180)
+		(effects (font (size 1.524 1.524)) (justify right))
+		(uuid "b512d92d-1311-4b98-a774-2cb9d530f48f")
+	)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	(symbol
+		(lib_id "power:GND")
+		(at 476.25 57.15 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "602f5985-828e-4f8a-b7f4-e3f10ba7b870")
+		(property "Reference" "#PWR073"
+			(at 476.25 63.5 180)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Value" "GND"
+			(at 476.25 62.23 180)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" ""
+			(at 476.25 57.15 180)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Datasheet" "~"
+			(at 476.25 57.15 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(instances
+			(project "spielbrett"
+				(path "/7f60a0a4-340c-4ead-ba77-87e7787f9c6f"
+					(reference "#PWR073") (unit 1)
+				)
+			)
+		)
+	)
 	
 	
 	
@@ -32468,16 +47546,6 @@
 		(uuid "01218c33-34cf-4a7c-b770-d43bc50eb4c9")
 	)
 	(wire
-		(pts (xy 398.78 59.69) (xy 405.13 59.69))
-		(stroke (width 0) (type solid))
-		(uuid "0201120e-3b69-43b9-84a3-798234ab78ec")
-	)
-	(wire
-		(pts (xy 361.95 64.77) (xy 367.03 64.77))
-		(stroke (width 0) (type solid))
-		(uuid "02ca8386-dcd1-438d-ada9-94f375c9ca47")
-	)
-	(wire
 		(pts (xy 146.05 209.55) (xy 151.13 209.55))
 		(stroke (width 0) (type solid))
 		(uuid "054770e2-e0c8-4c89-a262-415815ac3377")
@@ -32491,11 +47559,6 @@
 		(pts (xy 367.03 121.92) (xy 367.03 128.27))
 		(stroke (width 0) (type solid))
 		(uuid "08344bb8-c73e-48ae-80e0-ac394a5d9607")
-	)
-	(wire
-		(pts (xy 474.98 62.23) (xy 481.33 62.23))
-		(stroke (width 0) (type solid))
-		(uuid "0a0bd753-5551-4e35-90ad-a00cf3743fc4")
 	)
 	(wire
 		(pts (xy 481.33 135.89) (xy 481.33 140.97))
@@ -32703,11 +47766,6 @@
 		(uuid "342cdf67-007f-4a2f-a8bf-e0a0ecdd5b19")
 	)
 	(wire
-		(pts (xy 436.88 59.69) (xy 443.23 59.69))
-		(stroke (width 0) (type solid))
-		(uuid "344c5e62-134d-48dd-adf5-c0ee896bca64")
-	)
-	(wire
 		(pts (xy 323.85 57.15) (xy 328.93 57.15))
 		(stroke (width 0) (type solid))
 		(uuid "364db14a-d207-4479-a356-8ef429d0c005")
@@ -32736,11 +47794,6 @@
 		(pts (xy 367.03 135.89) (xy 367.03 140.97))
 		(stroke (width 0) (type solid))
 		(uuid "39b84b3a-3ba8-44fe-9612-9327bc740648")
-	)
-	(wire
-		(pts (xy 438.15 57.15) (xy 443.23 57.15))
-		(stroke (width 0) (type solid))
-		(uuid "3a59c29e-66fb-4ede-a95e-ceeaf2d2535c")
 	)
 	(wire
 		(pts (xy 62.23 229.87) (xy 62.23 234.95))
@@ -32808,11 +47861,6 @@
 		(uuid "4356bf8b-3862-4e8a-a3e7-7298089ee78f")
 	)
 	(wire
-		(pts (xy 438.15 64.77) (xy 443.23 64.77))
-		(stroke (width 0) (type solid))
-		(uuid "4374b1a1-c802-4b58-a75e-fbbb6f8416f9")
-	)
-	(wire
 		(pts (xy 671.83 100.33) (xy 671.83 105.41))
 		(stroke (width 0) (type solid))
 		(uuid "43d38240-1b47-4bf8-b33a-26141eb80d37")
@@ -32866,11 +47914,6 @@
 		(pts (xy 132.08 69.85) (xy 138.43 69.85))
 		(stroke (width 0) (type solid))
 		(uuid "4815f56b-221f-4df1-a8c6-f0793f6e15ed")
-	)
-	(wire
-		(pts (xy 474.98 59.69) (xy 481.33 59.69))
-		(stroke (width 0) (type solid))
-		(uuid "48846a5c-e311-4c64-b3c0-67c0d469b4f1")
 	)
 	(wire
 		(pts (xy 709.93 135.89) (xy 709.93 140.97))
@@ -32978,11 +48021,6 @@
 		(uuid "5e71ae53-a78b-45c5-b4d8-1b51872e0aee")
 	)
 	(wire
-		(pts (xy 360.68 59.69) (xy 367.03 59.69))
-		(stroke (width 0) (type solid))
-		(uuid "5f42e1b6-ed0a-4d04-be8d-fe4d42b86533")
-	)
-	(wire
 		(pts (xy 488.95 234.95) (xy 494.03 234.95))
 		(stroke (width 0) (type solid))
 		(uuid "5fae9172-f600-4b56-9fe9-4bc726e2ad47")
@@ -33033,11 +48071,6 @@
 		(uuid "646bea74-36fe-4353-96a7-30f5c207e301")
 	)
 	(wire
-		(pts (xy 476.25 57.15) (xy 481.33 57.15))
-		(stroke (width 0) (type solid))
-		(uuid "64bc7901-c810-4031-9ccd-42168c6f67dd")
-	)
-	(wire
 		(pts (xy 748.03 135.89) (xy 748.03 140.97))
 		(stroke (width 0) (type solid))
 		(uuid "64ed2a17-c16d-4066-91fc-9ed877f85a9c")
@@ -33076,11 +48109,6 @@
 		(pts (xy 332.74 62.23) (xy 332.74 67.31))
 		(stroke (width 0) (type solid))
 		(uuid "6bdb1521-68ed-4c4b-86d2-f363f6ecd328")
-	)
-	(wire
-		(pts (xy 476.25 64.77) (xy 481.33 64.77))
-		(stroke (width 0) (type solid))
-		(uuid "6c039933-7889-4a0f-a069-9e90b9a4855d")
 	)
 	(wire
 		(pts (xy 222.25 209.55) (xy 227.33 209.55))
@@ -33223,11 +48251,6 @@
 		(uuid "8c36dde8-705d-4f0a-acbf-517d2a787a96")
 	)
 	(wire
-		(pts (xy 361.95 57.15) (xy 367.03 57.15))
-		(stroke (width 0) (type solid))
-		(uuid "8e8aa319-0ee4-4f35-a255-8b87238fe47b")
-	)
-	(wire
 		(pts (xy 709.93 64.77) (xy 709.93 69.85))
 		(stroke (width 0) (type solid))
 		(uuid "8f7584c4-a668-4d97-aa6a-c3008a5c13d5")
@@ -33283,11 +48306,6 @@
 		(uuid "9870340b-972e-4377-aede-109e6830461b")
 	)
 	(wire
-		(pts (xy 436.88 62.23) (xy 443.23 62.23))
-		(stroke (width 0) (type solid))
-		(uuid "98ab768a-5641-4455-9e57-36677847c31d")
-	)
-	(wire
 		(pts (xy 158.75 50.8) (xy 158.75 57.15))
 		(stroke (width 0) (type solid))
 		(uuid "98e3acd4-30eb-4f2f-b21f-2d0fdd3b8b5a")
@@ -33323,11 +48341,6 @@
 		(uuid "9b6b3d5f-203f-41ff-8aa1-5189655504a3")
 	)
 	(wire
-		(pts (xy 360.68 62.23) (xy 367.03 62.23))
-		(stroke (width 0) (type solid))
-		(uuid "9c8d8c63-85ae-4cd8-bd2f-a51476391e1c")
-	)
-	(wire
 		(pts (xy 519.43 121.92) (xy 519.43 128.27))
 		(stroke (width 0) (type solid))
 		(uuid "9cdd1df5-5ca3-4eb1-85fc-b80e5493b3ca")
@@ -33351,11 +48364,6 @@
 		(pts (xy 176.53 121.92) (xy 176.53 128.27))
 		(stroke (width 0) (type solid))
 		(uuid "a2f3ef47-1739-4050-b8bc-8c84bbe1b898")
-	)
-	(wire
-		(pts (xy 400.05 57.15) (xy 405.13 57.15))
-		(stroke (width 0) (type solid))
-		(uuid "a47a69dd-fe3b-44a9-aa55-55e8cd2229e6")
 	)
 	(wire
 		(pts (xy 595.63 171.45) (xy 595.63 176.53))
@@ -33416,11 +48424,6 @@
 		(pts (xy 786.13 52.07) (xy 786.13 57.15))
 		(stroke (width 0) (type solid))
 		(uuid "ae10d324-2f09-4cfb-abe7-038675406bfa")
-	)
-	(wire
-		(pts (xy 398.78 62.23) (xy 405.13 62.23))
-		(stroke (width 0) (type solid))
-		(uuid "ae1fa17f-5510-4756-9acb-0dac3988241b")
 	)
 	(wire
 		(pts (xy 748.03 64.77) (xy 748.03 69.85))
@@ -33728,11 +48731,6 @@
 		(uuid "df64b926-b98a-4c49-af50-80da9691cbe8")
 	)
 	(wire
-		(pts (xy 400.05 64.77) (xy 405.13 64.77))
-		(stroke (width 0) (type solid))
-		(uuid "dfb040bb-fdb4-4a01-855b-ef49d980ac71")
-	)
-	(wire
 		(pts (xy 82.55 82.55) (xy 88.9 82.55))
 		(stroke (width 0) (type solid))
 		(uuid "dfbe6fe1-411e-459c-8c7e-7731c4ee87dc")
@@ -33887,9 +48885,120 @@
 		(stroke (width 0) (type solid))
 		(uuid "fdf94a10-467b-47fd-bcbf-ee3ac241c14d")
 	)
+	(wire
+		(pts (xy 400.05 57.15) (xy 405.13 57.15))
+		(stroke (width 0) (type solid))
+		(uuid "7ac2eb71-a77d-4bd6-ae19-1919ae113ec8")
+	)
+	(wire
+		(pts (xy 400.05 59.69) (xy 405.13 59.69))
+		(stroke (width 0) (type solid))
+		(uuid "c7cfbda6-8464-4ba4-8b52-184643b324a2")
+	)
+	(wire
+		(pts (xy 400.05 62.23) (xy 405.13 62.23))
+		(stroke (width 0) (type solid))
+		(uuid "5f296397-0952-49e1-8cf3-3402c143f1d1")
+	)
+	(wire
+		(pts (xy 400.05 64.77) (xy 405.13 64.77))
+		(stroke (width 0) (type solid))
+		(uuid "408f50ea-8ab7-4b7e-bab8-d0554ffba7d5")
+	)
+	(wire
+		(pts (xy 400.05 67.31) (xy 405.13 67.31))
+		(stroke (width 0) (type solid))
+		(uuid "72b9b040-4dc4-456d-9e09-9de57ecd50d1")
+	)
+	(wire
+		(pts (xy 402.59 69.85) (xy 405.13 69.85))
+		(stroke (width 0) (type solid))
+		(uuid "daf74019-8623-4849-9d90-3d01bef2d9d2")
+	)
+	(wire
+		(pts (xy 476.25 57.15) (xy 481.33 57.15))
+		(stroke (width 0) (type solid))
+		(uuid "4bf359f1-dec4-4e10-8699-35f9afbdc033")
+	)
+	(wire
+		(pts (xy 476.25 59.69) (xy 481.33 59.69))
+		(stroke (width 0) (type solid))
+		(uuid "6dff82e2-118f-4863-b398-a310bd96aee5")
+	)
+	(wire
+		(pts (xy 476.25 62.23) (xy 481.33 62.23))
+		(stroke (width 0) (type solid))
+		(uuid "7f3cf36e-4955-42ff-ae31-0b922ef590a2")
+	)
+	(wire
+		(pts (xy 476.25 64.77) (xy 481.33 64.77))
+		(stroke (width 0) (type solid))
+		(uuid "fac11d69-3f63-4080-b98f-e073f12d206d")
+	)
+	(wire
+		(pts (xy 476.25 67.31) (xy 481.33 67.31))
+		(stroke (width 0) (type solid))
+		(uuid "2c858443-0f58-4213-b7bc-e269c2596c4c")
+	)
+	(wire
+		(pts (xy 365.76 62.23) (xy 368.3 62.23))
+		(stroke (width 0) (type solid))
+		(uuid "710b625d-3f6c-4855-83b3-15add47d1d34")
+	)
+	(wire
+		(pts (xy 375.92 62.23) (xy 378.46 62.23))
+		(stroke (width 0) (type solid))
+		(uuid "7221362a-1b28-4ed4-8a71-f1077f3173e6")
+	)
+	(wire
+		(pts (xy 389.89 66.04) (xy 389.89 68.58))
+		(stroke (width 0) (type solid))
+		(uuid "aed9a268-2fa5-4ec4-b1cd-40402a7cd84a")
+	)
+	(wire
+		(pts (xy 389.89 55.88) (xy 389.89 58.42))
+		(stroke (width 0) (type solid))
+		(uuid "33245348-ccbf-47d8-bc44-1c5b4bf4e994")
+	)
+	(wire
+		(pts (xy 441.96 54.61) (xy 441.96 57.15))
+		(stroke (width 0) (type solid))
+		(uuid "125b30e6-04a2-4f8e-8752-cca0e8ee61a1")
+	)
+	(wire
+		(pts (xy 447.04 54.61) (xy 447.04 57.15))
+		(stroke (width 0) (type solid))
+		(uuid "250a8185-506d-45ef-83f4-da495914bb8d")
+	)
+	(wire
+		(pts (xy 444.5 67.31) (xy 444.5 69.85))
+		(stroke (width 0) (type solid))
+		(uuid "c164e12d-d300-4d66-ab61-8a521276cb56")
+	)
+	(wire
+		(pts (xy 459.74 54.61) (xy 459.74 57.15))
+		(stroke (width 0) (type solid))
+		(uuid "253838eb-a161-4e84-9e8b-7e828c59b993")
+	)
+	(wire
+		(pts (xy 464.82 54.61) (xy 464.82 57.15))
+		(stroke (width 0) (type solid))
+		(uuid "ddd55448-5150-48aa-9144-e6d94dc399d1")
+	)
+	(wire
+		(pts (xy 462.28 67.31) (xy 462.28 69.85))
+		(stroke (width 0) (type solid))
+		(uuid "4918a489-586b-49e0-9d74-4003a4e12b13")
+	)
+	(wire
+		(pts (xy 476.25 69.85) (xy 481.33 69.85))
+		(stroke (width 0) (type solid))
+		(uuid "8799d2ae-8168-4615-90e4-dd967b853a4a")
+	)
 	(sheet_instances
 		(path "/"
 			(page "1")
 		)
 	)
+	(embedded_fonts no)
 )

@@ -15,8 +15,8 @@ PRO = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().paren
 CLASSES = {
     "HF": (0.4, 0.2, 0.6, 0.3,   # Abstand 0,2: CLRC663-Pins haben selbst nur 0,23 mm Luft
            ["TX1", "TX2", "EMC_P", "EMC_N", "MATCH_P", "MATCH_N", "ANT_P", "ANT_N", "SW*"], 1),
-    "Versorgung": (0.5, 0.2, 0.8, 0.4, ["+5V", "+3V3", "GND", "TVDD"], 2),
-    "RS485": (0.3, 0.2, 0.6, 0.3, ["RS485_A", "RS485_B"], 3),
+    "Versorgung": (0.5, 0.2, 0.8, 0.4, ["VBUS", "+5V", "+3V3", "GND", "TVDD"], 2),
+    "RS485": (0.3, 0.2, 0.6, 0.3, ["RS485_A", "RS485_B", "RS485_A_RET", "RS485_B_RET"], 3),
 }
 
 
@@ -40,7 +40,7 @@ def main():
     rules = d["board"]["design_settings"]["rules"]
     rules.update({
         "min_clearance": 0.15,
-        "min_track_width": 0.15,
+        "min_track_width": 0.125,   # 5 mil: Standardfertigung, Freerouting nutzt das an engen Pins
         "min_copper_edge_clearance": 0.5,
         "min_through_hole_diameter": 0.3,
         "min_via_diameter": 0.5,
