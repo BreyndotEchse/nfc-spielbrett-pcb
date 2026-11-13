@@ -21,14 +21,14 @@ from pathlib import Path
 
 import pcbnew
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from geometrie import BUS_N, BUS_N3, BUS_P, CX, X0, Y0  # noqa: E402,F401
+
 PRJ = Path(__file__).resolve().parent.parent
 PCB = PRJ / "spielbrett.kicad_pcb"
 OUT = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else PCB
 SRC = OUT if OUT.exists() else PCB
 
-X0 = Y0 = 30.0
-PITCH = 49.0
-CX = [X0 + 24.5 + PITCH * i for i in range(3)]       # Spulenmitten (absolut, mm)
 Y_A = (71.0, 72.0)                                    # (N, P) Ast A
 Y_B = (135.0, 136.0)                                  # (N, P) Ast B
 HF_W = 0.4
@@ -163,8 +163,8 @@ def route_bus(r, feeds):
             p_via = (cx + 15.0, cy - 3.5)                     # vom Aufbauskript gesetzte Via
             drain = r.pad(f"Q1{k}", 3)                        # ANT_N-Schalter
             yN, yP = Y_A if j == 0 else Y_B
-            px = cx + 22.5
-            nx = cx + 21.5 if j < 2 else cx + 23.5
+            px = cx + BUS_P
+            nx = cx + BUS_N if j < 2 else cx + BUS_N3
             # P: Via -> B.Cu nach rechts -> Via -> F.Cu senkrecht zum Ast -> Via
             r.track([p_via, (px, p_via[1])], "ANT_P", layer=pcbnew.B_Cu)
             r.via((px, p_via[1]), "ANT_P")
@@ -177,14 +177,14 @@ def route_bus(r, feeds):
         r.via(p, "ANT_P")
 
     # Stamm links: verbindet Ast A und Ast B (F.Cu)
-    r.track([(CX[0] + 21.5, Y_A[0]), (CX[0] + 21.5, CX[1] + 8.0)], "ANT_N")
-    r.track([(CX[0] + 22.5, Y_A[1]), (CX[0] + 22.5, CX[1] - 3.5)], "ANT_P")
+    r.track([(CX[0] + BUS_N, Y_A[0]), (CX[0] + BUS_N, CX[1] + 8.0)], "ANT_N")
+    r.track([(CX[0] + BUS_P, Y_A[1]), (CX[0] + BUS_P, CX[1] - 3.5)], "ANT_P")
 
     # Aeste (B.Cu)
     for (yN, yP) in (Y_A, Y_B):
-        n_xs = [CX[0] + 21.5] + [cx + 21.5 for cx in CX] + ([cx + 23.5 for cx in CX] if yN == Y_B[0] else [])
+        n_xs = [cx + BUS_N for cx in CX] + ([cx + BUS_N3 for cx in CX] if yN == Y_B[0] else [])
         r.track([(min(n_xs), yN), (max(n_xs), yN)], "ANT_N", layer=pcbnew.B_Cu)
-        r.track([(CX[0] + 22.5, yP), (CX[2] + 22.5, yP)], "ANT_P", layer=pcbnew.B_Cu)
+        r.track([(CX[0] + BUS_P, yP), (CX[2] + BUS_P, yP)], "ANT_P", layer=pcbnew.B_Cu)
 
     # Einspeisung vom Anpassnetzwerk auf Ast A
     for side, ext in feeds:
@@ -193,7 +193,7 @@ def route_bus(r, feeds):
             r.track([ext, tgt], "ANT_N")
             r.via(tgt, "ANT_N")
         else:
-            r.track([ext, (CX[1] + 22.5, Y_A[1])], "ANT_P")   # auf die vorhandene P-Via der Mitte
+            r.track([ext, (CX[1] + BUS_P, Y_A[1])], "ANT_P")   # auf die vorhandene P-Via der Mitte
 
 
 def _blocks(s):

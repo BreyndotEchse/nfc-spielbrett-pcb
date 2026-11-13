@@ -7,7 +7,7 @@ Ablauf:
   1. Netzliste aus spielbrett.kicad_sch exportieren (kicad-cli)
   2. Alle Footprints laden, Referenz/Wert/Netze/Schaltplan-Verknuepfung setzen
   3. Platinenumriss 147 x 147 mm zeichnen
-  4. Spulen in die Feldmitten (49-mm-Raster), Schaltergruppen rechts daneben,
+  4. Spulen in die Feldmitten (50-mm-Raster, tools/geometrie.py), Schaltergruppen rechts daneben,
      Elektronik-Gruppen in die Freiraeume zwischen den Spulen
 
 Die Schaltplan-Verknuepfung (KIID-Pfad) ist gesetzt, damit "Platine aus Schaltplan
@@ -20,6 +20,9 @@ from pathlib import Path
 
 import pcbnew
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from geometrie import BOARD, SW_Q, SW_RC, X0, Y0, coil_center  # noqa: E402,F401
+
 PRJ = Path(__file__).resolve().parent.parent
 KICAD = Path("C:/Program Files/KiCad/10.0")
 SYS_FP = KICAD / "share/kicad/footprints"
@@ -28,9 +31,6 @@ PCB = PRJ / "spielbrett.kicad_pcb"
 OUT = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else PCB   # optional: Testausgabe
 NET = PRJ / "output/spielbrett.net"
 
-BOARD = 147.0
-X0, Y0 = 30.0, 30.0          # linke obere Platinenecke auf dem Blatt
-PITCH = 49.0                 # Feldraster
 
 
 def mm(v):
@@ -62,10 +62,6 @@ def lib_path(nick):
     return str(PRJ_FP.get(nick, SYS_FP / f"{nick}.pretty"))
 
 
-def coil_center(k):
-    return 24.5 + PITCH * ((k - 1) % 3), 24.5 + PITCH * ((k - 1) // 3)
-
-
 def placement():
     """Ref -> (x, y, rot) in Platinenkoordinaten (relativ zur oberen linken Ecke)."""
     p = {}
@@ -74,11 +70,11 @@ def placement():
         p[f"L1{k}"] = (cx, cy, 0)
         # Schaltergruppe kompakt rechts der Spulenanschluesse (Pads bei x = +13,4 mm).
         # SOT-23 um 180 deg gedreht: Drain (Pin 3) zeigt zur Spule, Gate/Source nach rechts.
-        p[f"Q{k}"] = (cx + 17.2, cy + 1.1, 180)    # Drain fluchtet mit Spulen-Pad 2
-        p[f"Q1{k}"] = (cx + 17.2, cy + 4.6, 180)   # Drain -> ANT_N
-        p[f"R3{k}"] = (cx + 20.4, cy - 0.6, 90)    # Source-Bezug
-        p[f"C3{k}"] = (cx + 20.4, cy + 2.6, 90)    # Gate-Source-Kondensator
-        p[f"R2{k}"] = (cx + 20.4, cy + 5.8, 90)    # Gate-Widerstand
+        p[f"Q{k}"] = (cx + SW_Q, cy + 1.1, 180)    # Drain fluchtet mit Spulen-Pad 2
+        p[f"Q1{k}"] = (cx + SW_Q, cy + 4.6, 180)   # Drain -> ANT_N
+        p[f"R3{k}"] = (cx + SW_RC, cy - 0.6, 90)    # Source-Bezug
+        p[f"C3{k}"] = (cx + SW_RC, cy + 2.6, 90)    # Gate-Source-Kondensator
+        p[f"R2{k}"] = (cx + SW_RC, cy + 5.8, 90)    # Gate-Widerstand
 
     def group(ox, oy, items, turn=0):
         """Gruppe mit lokalen Offsets; turn=180 dreht die ganze Gruppe um ihren Ursprung."""

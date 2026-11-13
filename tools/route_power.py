@@ -12,7 +12,7 @@ VBUS  Randleitung (0,8 mm, links-oben-rechts) zwischen West- und Ostkontakt (Dur
 +3V3  vom Regler zu RS485-Treiber, Mikrocontroller (links) und NFC-Frontend (rechts).
 TVDD  R4/R5/C10 -> Via -> B.Cu -> C9 -> Pin 18.
 XTAL  Pins 19/20 parallel nach links zum Quarz Y1 und den Lastkondensatoren C14/C15.
-Kreuzungen mit dem Antennenbus-Stamm (x = 76/77 mm) und untereinander laufen als kurze
+Kreuzungen mit dem Antennenbus-Stamm (x = STAMM_N/STAMM_P, 74/75 mm) und untereinander laufen als kurze
 B.Cu-Bruecken.
 """
 import sys
@@ -22,6 +22,7 @@ import pcbnew
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from route_hf import Router, strip_group  # noqa: E402
+from geometrie import BUS_P, CX, STAMM_N, STAMM_P  # noqa: E402
 
 PRJ = Path(__file__).resolve().parent.parent
 PCB = PRJ / "spielbrett.kicad_pcb"
@@ -47,9 +48,9 @@ def route(r):
 
     # ---------------- VBUS / +5V ----------------
     # VBUS (durchgeschleifter Bus) am Platinenrand: West -> oben -> Ost. Ein zweiter Weg unten
-    # herum geht nicht, rechts unten laufen die Antennenbus-Senkrechten bei x = 175/176.
+    # herum geht nicht, rechts unten laufen die Antennenbus-Senkrechten der rechten Spalte.
     j2, j4 = P("J2", 1), P("J4", 6)
-    top, left, right = 31.0, 31.0, 176.1
+    top, left, right = 31.0, 31.0, CX[2] + BUS_P + 1.1
     t([j4, (left, j4[1]), (left, top), (right, top), (right, j2[1]), j2], "VBUS", w=RING)
     # Modulzweig: VBUS -> PTC F1 -> +5V; TVS D2 direkt am Kontakt
     f1a, f1b, d2k = P("F1", 1), P("F1", 2), P("D2", 1)
@@ -57,7 +58,7 @@ def route(r):
     t([d2k, (d2k[0], j4[1])], "VBUS", w=PWR)
     # Abzweig zum Regler: unter dem Bus-Stamm per B.Cu-Bruecke
     c1, u4_vi = P("C1", 1), P("U4", 3)
-    a, b = (74.6, j4[1]), (79.0, j4[1])
+    a, b = (STAMM_N - 1.4, j4[1]), (STAMM_P + 2.0, j4[1])
     t([f1b, a], "+5V", w=RING)
     bridge(a, b, "+5V", w=RING)
     t([b, (b[0], c1[1] + 0.45), (c1[0], c1[1])], "+5V")
@@ -98,7 +99,7 @@ def route(r):
     t([v2, c6], "+3V3")
     t([c6, (c6[0] - 0.9, c6[1]), (c6[0] - 1.2, u3_vcc[1]), u3_vcc], "+3V3")
     # Westast: zum Mikrocontroller (unter dem Bus-Stamm per B.Cu-Bruecke)
-    w1, w2 = (u4_vo[0] - 1.85, u4_vo[1]), (74.6, u4_vo[1])
+    w1, w2 = (u4_vo[0] - 1.85, u4_vo[1]), (STAMM_N - 1.4, u4_vo[1])
     t([u4_vo, w1], "+3V3")
     bridge(w1, w2, "+3V3")
     c4, c3, pin4, j5, r2 = P("C4", 1), P("C3", 1), P("U2", 4), P("J5", 1), P("R2", 1)
