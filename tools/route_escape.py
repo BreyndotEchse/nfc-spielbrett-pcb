@@ -21,9 +21,10 @@ import pcbnew
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from route_hf import Router, strip_group, xy  # noqa: E402
+from geometrie import BOARD, NAME, X0, Y0  # noqa: E402
 
 PRJ = Path(__file__).resolve().parent.parent
-PCB = PRJ / "spielbrett.kicad_pcb"
+PCB = PRJ / f"{NAME}.kicad_pcb"
 OUT = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else PCB
 SRC = OUT if OUT.exists() else PCB
 
@@ -107,7 +108,7 @@ class Obstacles:
                 self.items.append(("keep", None, {F, B}, z.Outline()))
         for tr in board.GetTracks():
             self.add_track(tr)
-        self.edge = (30.0, 30.0, 177.0, 177.0)
+        self.edge = (X0, Y0, X0 + BOARD, Y0 + BOARD)
 
     def add_track(self, tr):
         if tr.GetClass() == "PCB_VIA":

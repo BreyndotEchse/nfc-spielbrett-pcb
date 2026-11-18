@@ -14,6 +14,7 @@ import json
 import math
 import os
 import re
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -23,8 +24,15 @@ import pcbnew
 PRJ = Path(__file__).resolve().parent.parent
 ARGS = [a for a in sys.argv[1:] if not a.startswith("--")]
 POST = "--post" in sys.argv          # interner Zweitprozess fuer die Nacharbeit
-PCB = Path(ARGS[0]).resolve() if ARGS else PRJ / "spielbrett.kicad_pcb"
+GNDRUN = next((int(a.split("=")[1]) for a in sys.argv if a.startswith("--gndrun=")), 0)
+MAX_GNDRUN = 3                       # hoechstens so viele Wiederholungen mit GND-Korridoren
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from geometrie import NAME  # noqa: E402
+
+PCB = Path(ARGS[0]).resolve() if ARGS else PRJ / f"{NAME}.kicad_pcb"
 PASSES = ARGS[1] if len(ARGS) > 1 else "100"
+BACKUP = PRJ / "output/_vor_autoroute.kicad_pcb"
+PAIRS = PRJ / "output/_gnd_korridore.json"
 JAR = next((Path.home() / "OneDrive/Dokumente/KiCad/10.0/3rdparty/plugins"
             / "app_freerouting_kicad-plugin/jar").glob("freerouting-*.jar"), None)
 JAVA_CANDIDATES = sorted(Path("C:/Program Files/OpenJDK").glob("jdk-*/bin/java.exe"), reverse=True)
@@ -216,13 +224,96 @@ def stitch_gnd_islands(board, rounds=4):
     return added
 
 
-def main():
+def freerouting(dsn, ses, passes):
     if JAR is None:
         raise SystemExit("Freerouting-JAR nicht gefunden (KiCad-Plugin installiert?)")
     java = str(JAVA_CANDIDATES[0]) if JAVA_CANDIDATES else "java"
+    ses.unlink(missing_ok=True)
+    cmd = [java, "-jar", str(JAR), "-de", str(dsn), "-do", str(ses), "-mp", str(passes),
+           "--gui.enabled=false", "--api_server.enabled=false", "--mcp_server.enabled=false"]
+    res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    tail = [ln for ln in res.stdout.splitlines() + res.stderr.splitlines()
+            if any(w in ln.lower() for w in ("unrouted", "completed", "error", "optimiz"))]
+    print("\n".join(tail[-8:]), flush=True)
+    if not ses.exists():
+        raise SystemExit(f"Freerouting hat keine SES geschrieben (Exit {res.returncode})")
+
+
+def gnd_groups(board):
+    """GND-Pads je zusammenhaengender Kupfergruppe (Flaecheninseln beider Lagen, verbunden ueber
+    GND-Vias, -Bahnen und -Durchsteckpads). Rueckgabe: (Pads der Hauptgruppe, [Pads je
+    abgeschnittener Gruppe]) -- Pads als (DSN-Pinname, x, y)."""
+    F, B = pcbnew.F_Cu, pcbnew.B_Cu
+    nodes = []
+    for z in board.Zones():
+        if z.GetNetname() != "GND" or z.GetIsRuleArea():
+            continue
+        for L in z.GetLayerSet().Seq():
+            polys = z.GetFilledPolysList(L)
+            nodes += [(L, polys.Outline(i)) for i in range(polys.OutlineCount())]
+    parent = list(range(len(nodes)))
+
+    def find(k):
+        while parent[k] != k:
+            parent[k] = parent[parent[k]]
+            k = parent[k]
+        return k
+
+    def touch(points, layers):
+        hit = [n for n, (L, o) in enumerate(nodes) if L in layers and any(o.PointInside(p) for p in points)]
+        for h in hit[1:]:
+            parent[find(h)] = find(hit[0])
+        return hit
+
+    for t in board.GetTracks():
+        if t.GetNetname() != "GND":
+            continue
+        if t.GetClass() == "PCB_VIA":
+            touch([t.GetPosition()], {F, B})
+        else:
+            touch([t.GetStart(), t.GetEnd()], {t.GetLayer()})
+    pads = []
+    for fp in board.GetFootprints():
+        for p in fp.Pads():
+            if p.GetNetname() == "GND":
+                hit = touch([p.GetPosition()], {L for L in (F, B) if p.IsOnLayer(L)})
+                if hit:
+                    pads.append((f"{fp.GetReference()}-{p.GetNumber()}", *to_mm(p.GetPosition()), hit[0]))
+    area = {}
+    for n, (L, o) in enumerate(nodes):
+        area[find(n)] = area.get(find(n), 0) + o.Area()
+    main = max(area, key=area.get)
+    groups = {}
+    for name, x, y, n in pads:
+        groups.setdefault(find(n), []).append((name, x, y))
+    return groups.pop(main, []), list(groups.values())
+
+
+def add_gnd_pairs(dsn: str, pairs) -> str:
+    """Je abgeschnittener GND-Gruppe ein Hilfsnetz GND__k mit genau zwei Pins (Pad der Gruppe,
+    naechstes Pad der Hauptflaeche). Freerouting verlegt diese Verbindungen zusammen mit allen
+    Signalen und haelt so einen Korridor frei; vor dem Import heissen sie wieder GND."""
+    if not pairs:
+        return dsn
+    nets = "".join(f"\n    (net GND__{k}\n      (pins {a} {b})\n    )" for k, (a, b) in enumerate(pairs, 1))
+    i = dsn.index("\n    (class ")
+    dsn = dsn[:i] + nets + dsn[i:]
+    names = " ".join(f"GND__{k}" for k in range(1, len(pairs) + 1))
+    return re.sub(r"(\(class kicad_default)", r"\1 " + names, dsn, count=1)
+
+
+def main():
     work = PRJ / "output"
     work.mkdir(exist_ok=True)
     dsn, ses = work / "autoroute.dsn", work / "autoroute.ses"
+    if GNDRUN == 0:
+        shutil.copyfile(PCB, BACKUP)                  # Ausgangsstand fuer Wiederholungen
+        PAIRS.unlink(missing_ok=True)
+    else:
+        shutil.copyfile(BACKUP, PCB)
+    pairs = json.loads(PAIRS.read_text(encoding="utf-8")) if PAIRS.exists() else []
+    if pairs:
+        print(f"Wiederholung {GNDRUN} mit GND-Korridoren: {pairs}", flush=True)
 
     # Netze, die die Skripte davor schon vollstaendig verlegt haben, aus der Netzliste nehmen
     # (ihre Bahnen bleiben als feste Hindernisse in der DSN). Freerouting erkennt manche dieser
@@ -234,18 +325,13 @@ def main():
     if not pcbnew.ExportSpecctraDSN(board, str(dsn)):
         raise SystemExit("DSN-Export fehlgeschlagen")
     text = inset_boundary(strip_nets(dsn.read_text(encoding="utf-8"), SKIP_NETS + done))
-    dsn.write_text(text, encoding="utf-8")
+    dsn.write_text(add_gnd_pairs(text, pairs), encoding="utf-8")
 
-    ses.unlink(missing_ok=True)
-    cmd = [java, "-jar", str(JAR), "-de", str(dsn), "-do", str(ses), "-mp", PASSES,
-           "--gui.enabled=false", "--api_server.enabled=false", "--mcp_server.enabled=false"]
     print("Freerouting laeuft ...", flush=True)
-    res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
-    tail = [ln for ln in res.stdout.splitlines() + res.stderr.splitlines()
-            if any(w in ln.lower() for w in ("unrouted", "completed", "error", "optimiz"))]
-    print("\n".join(tail[-8:]), flush=True)
-    if not ses.exists():
-        raise SystemExit(f"Freerouting hat keine SES geschrieben (Exit {res.returncode})")
+    freerouting(dsn, ses, PASSES)
+    if pairs:
+        ses.write_text(re.sub(r"\(net GND__\d+", "(net GND", ses.read_text(encoding="utf-8")),
+                       encoding="utf-8")
 
     if not pcbnew.ImportSpecctraSES(board, str(ses)):
         raise SystemExit("SES-Import fehlgeschlagen")
@@ -253,7 +339,7 @@ def main():
     print(f"Autorouting importiert -> {PCB.name}", flush=True)
     # Nacharbeit in einem frischen Prozess: nach dem SES-Import ist pcbnew intern nicht mehr
     # stabil (jeder spaetere Zonenzugriff stuerzt ab, auch auf einer neu geladenen Platine).
-    subprocess.run([sys.executable, __file__, str(PCB), "--post"], check=True)
+    subprocess.run([sys.executable, __file__, str(PCB), "--post", f"--gndrun={GNDRUN}"], check=True)
 
 
 def save(board):
@@ -424,6 +510,27 @@ def post():
     gone += remove_dangling_vias()
     print(f"Nacharbeit: {smoothed} Knicke begradigt, {thin} zu duenne Bahnen verbreitert, {len(gone)} ungenutzte Vias entfernt, "
           f"{stitched} GND-Vias fuer abgeschnittene Flaecheninseln", flush=True)
+    # GND-Gruppen, die sich auch per Via nicht anbinden liessen (ringsum auf beiden Lagen von
+    # Signalbahnen eingeschlossen): Autorouting vom Ausgangsstand wiederholen, diesmal mit einem
+    # GND-Korridor je Gruppe (add_gnd_pairs).
+    board = pcbnew.LoadBoard(str(PCB))
+    main_pads, cut = gnd_groups(board)
+    if not cut:
+        return
+    names = [[g[0] for g in grp] for grp in cut]
+    if GNDRUN >= MAX_GNDRUN:
+        print(f"WARNUNG: GND-Gruppen weiter abgeschnitten: {names}", flush=True)
+        return
+    pairs = json.loads(PAIRS.read_text(encoding="utf-8")) if PAIRS.exists() else []
+    used = {p for pr in pairs for p in pr}
+    for grp in cut:
+        a, b = min(((g, m) for g in grp for m in main_pads if g[0] not in used and m[0] not in used),
+                   key=lambda gm: math.dist(gm[0][1:], gm[1][1:]))
+        pairs.append([a[0], b[0]])
+        used |= {a[0], b[0]}
+    PAIRS.write_text(json.dumps(pairs), encoding="utf-8")
+    print(f"Abgeschnittene GND-Gruppen {names} -> Autorouting wird mit Korridoren wiederholt", flush=True)
+    subprocess.run([sys.executable, __file__, str(PCB), f"--gndrun={GNDRUN + 1}"], check=True)
 
 
 if __name__ == "__main__":

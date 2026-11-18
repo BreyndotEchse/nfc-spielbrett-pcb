@@ -22,12 +22,12 @@ import pcbnew
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from route_hf import Router, strip_group  # noqa: E402
-from geometrie import BOARD, STAMM_N, STAMM_P, X0  # noqa: E402
+from geometrie import BOARD, NAME, STAMM_N, STAMM_P, X0, Y0  # noqa: E402
 
 STAMM_L, STAMM_R = min(STAMM_N, STAMM_P), max(STAMM_N, STAMM_P)   # Bus-Stamm (B.Cu) links/rechts
 
 PRJ = Path(__file__).resolve().parent.parent
-PCB = PRJ / "spielbrett.kicad_pcb"
+PCB = PRJ / f"{NAME}.kicad_pcb"
 OUT = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else PCB
 SRC = OUT if OUT.exists() else PCB
 
@@ -52,7 +52,7 @@ def route(r):
     # VBUS (durchgeschleifter Bus) am Platinenrand: West -> oben -> Ost. Der rechte Abschnitt
     # laeuft auf B.Cu, weil auf F.Cu die Schaltergruppen der rechten Spalte bis an die Kante reichen.
     j2, j4 = P("J2", 1), P("J4", 6)
-    top, left, right = 31.0, 31.0, X0 + BOARD - 0.9
+    top, left, right = Y0 + 1.0, X0 + 1.0, X0 + BOARD - 0.9
     t([j4, (left, j4[1]), (left, top), (right, top)], "VBUS", w=RING)
     r.via((right, top), "VBUS", PVIA)
     t([(right, top), (right, j2[1]), j2], "VBUS", layer=B, w=RING)

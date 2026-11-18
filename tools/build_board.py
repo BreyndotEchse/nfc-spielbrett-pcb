@@ -1,4 +1,4 @@
-"""Erstaufbau der Modul-Platine (147 x 147 mm) aus der Schaltplan-Netzliste.
+"""Erstaufbau der Modul-Platine (147 bzw. 197 mm, siehe geometrie.py) aus der Schaltplan-Netzliste.
 
 Mit KiCads eigenem Python ausfuehren, waehrend die Platine NICHT im PCB-Editor offen ist:
   "C:/Program Files/KiCad/10.0/bin/python.exe" tools/build_board.py
@@ -21,15 +21,18 @@ from pathlib import Path
 import pcbnew
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from geometrie import BOARD, BUS_P, P_VIA_DY, SW_Q, SW_RC, X0, Y0, coil_center  # noqa: E402,F401
+from geometrie import (BOARD, BUS_P, FIELDS, NAME, P_VIA_DY, SW_Q, SW_RC, X0, XF, Y0, YF,  # noqa: E402,F401
+                       coil_center, refs)
+
+OX, OY = XF - X0, YF - Y0     # Kernrahmen (Elektronik) relativ zur Platinenecke
 
 PRJ = Path(__file__).resolve().parent.parent
 KICAD = Path("C:/Program Files/KiCad/10.0")
 SYS_FP = KICAD / "share/kicad/footprints"
 PRJ_FP = {"spielbrett": PRJ / "lib/spielbrett.pretty"}
-PCB = PRJ / "spielbrett.kicad_pcb"
+PCB = PRJ / f"{NAME}.kicad_pcb"
 OUT = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else PCB   # optional: Testausgabe
-NET = PRJ / "output/spielbrett.net"
+NET = PRJ / f"output/{NAME}.net"
 
 
 
@@ -40,7 +43,7 @@ def mm(v):
 def export_netlist():
     NET.parent.mkdir(exist_ok=True)
     subprocess.run([str(KICAD / "bin/kicad-cli.exe"), "sch", "export", "netlist", "--format", "kicadsexpr",
-                    "-o", str(NET), str(PRJ / "spielbrett.kicad_sch")], check=True, capture_output=True)
+                    "-o", str(NET), str(PRJ / f"{NAME}.kicad_sch")], check=True, capture_output=True)
     s = NET.read_text(encoding="utf-8")
     comps = {}
     std = {"Footprint", "Datasheet", "Description", "Reference", "Value"}
@@ -65,24 +68,26 @@ def lib_path(nick):
 def placement():
     """Ref -> (x, y, rot) in Platinenkoordinaten (relativ zur oberen linken Ecke)."""
     p = {}
-    for k in range(1, 10):
+    for k in range(1, FIELDS * FIELDS + 1):
         cx, cy = coil_center(k)
-        p[f"L1{k}"] = (cx, cy, 0)
+        r = refs(k)
+        p[r["L"]] = (cx, cy, 0)
         # Schaltergruppe kompakt rechts der Spulenanschluesse (Pads bei x = +16,4 mm).
         # Darunter (B.Cu) laufen die Antennenbus-Senkrechten, siehe route_hf.py.
         # SOT-23 um 180 deg gedreht: Drain (Pin 3) zeigt zur Spule, Gate/Source nach rechts.
-        p[f"Q{k}"] = (cx + SW_Q, cy + 1.1, 180)    # Drain fluchtet mit Spulen-Pad 2
-        p[f"Q1{k}"] = (cx + SW_Q, cy + 4.6, 180)   # Drain -> ANT_N
-        p[f"R3{k}"] = (cx + SW_RC, cy - 0.6, 90)    # Source-Bezug
-        p[f"C3{k}"] = (cx + SW_RC, cy + 2.6, 90)    # Gate-Source-Kondensator
-        p[f"R2{k}"] = (cx + SW_RC, cy + 5.8, 90)    # Gate-Widerstand
+        p[r["Q"]] = (cx + SW_Q, cy + 1.1, 180)     # Drain fluchtet mit Spulen-Pad 2
+        p[r["QN"]] = (cx + SW_Q, cy + 4.6, 180)    # Drain -> ANT_N
+        p[r["RS"]] = (cx + SW_RC, cy - 0.6, 90)    # Source-Bezug
+        p[r["C"]] = (cx + SW_RC, cy + 2.6, 90)     # Gate-Source-Kondensator
+        p[r["RG"]] = (cx + SW_RC, cy + 5.8, 90)    # Gate-Widerstand
 
     def group(ox, oy, items, turn=0):
-        """Gruppe mit lokalen Offsets; turn=180 dreht die ganze Gruppe um ihren Ursprung."""
+        """Gruppe mit lokalen Offsets (Ursprung im Kernrahmen); turn=180 dreht die ganze Gruppe
+        um ihren Ursprung."""
         for ref, (dx, dy, rot) in items.items():
             if turn == 180:
                 dx, dy = -dx, -dy
-            p[ref] = (ox + dx, oy + dy, (rot + turn) % 360)
+            p[ref] = (OX + ox + dx, OY + oy + dy, (rot + turn) % 360)
 
     # NFC-Frontend. HVQFN32 bei 0 deg: Pins 1-8 links, 9-16 unten, 17-24 rechts, 25-32 oben.
     # TX2 (15) unten rechts, TX1 (17) rechts unten -> Anpassnetzwerk als zwei senkrechte,
@@ -140,15 +145,15 @@ def placement():
     # Lochreihe EDGE_TO_PIN vom Rand: HC-CX-Kontaktflaeche ragt dann 1,5 mm ueber die Kante,
     # also bis zur Aussenseite des 150-mm-Gehaeuses.
     EDGE_TO_PIN = 4.15
-    yj = 49.0 - 3.81                            # oberster Kontakt (VBUS)
+    yj = OY + 49.0 - 3.81                       # oberster Kontakt (VBUS), Kernrahmen
     p["J2"] = (BOARD - EDGE_TO_PIN, yj, 0)      # Ost, Kontakte zeigen nach +x
     p["J4"] = (EDGE_TO_PIN, yj + 5 * 2.54, 180)  # West, Kontakte zeigen nach -x
     # Schutz an der West-Seite: TVS direkt am VBUS-Kontakt, dahinter die PTC-Sicherung in den
     # Modulzweig (+5V). Der durchgeschleifte Bus-Strom laeuft am PTC vorbei ueber den Randring.
-    p["F1"] = (10.0, yj, 0)
-    p["D2"] = (7.0, yj - 4.0, 90)
-    p["D3"] = (50.5, 64.6, 0)                   # ESD RS485_A/B unter dem Treiber U3
-    p["D4"] = (128.0, 50.0, 0)                  # ESD Rueckleitung
+    p["F1"] = (OX + 10.0, yj, 0)
+    p["D2"] = (OX + 7.0, yj - 4.0, 90)
+    p["D3"] = (OX + 50.5, OY + 64.6, 0)                   # ESD RS485_A/B unter dem Treiber U3
+    p["D4"] = (OX + 128.0, OY + 50.0, 0)                  # ESD Rueckleitung
     return p
 
 
@@ -170,9 +175,9 @@ def add_coil_stubs(board):
        * F.Cu: aeusseres Pad 2 -> Drain des spulenseitigen Schalters Qk
        * F.Cu: Pad 1 -> Via ausserhalb der Spule (Anschlusspunkt fuer den ANT_P-Bus)
     """
-    for k in range(1, 10):
-        coil = board.FindFootprintByReference(f"L1{k}")
-        q = board.FindFootprintByReference(f"Q{k}")
+    for k in range(1, FIELDS * FIELDS + 1):
+        coil = board.FindFootprintByReference(refs(k)["L"])
+        q = board.FindFootprintByReference(refs(k)["Q"])
         p1 = [p for p in coil.Pads() if p.GetNumber() == "1"][0]
         p2 = sorted([p for p in coil.Pads() if p.GetNumber() == "2"], key=lambda p: p.GetPosition().x)
         inner, outer = p2[0], p2[-1]
@@ -192,6 +197,38 @@ def add_coil_stubs(board):
         v.SetNet(p1.GetNet())
         v.SetLocked(True)
         board.Add(v)
+
+
+def add_routing_keepouts(board, pos):
+    """4x4-Brett: Bereiche ohne Leiterbahnen auf B.Cu (Pads, Vias und GND-Flaeche erlaubt), damit
+    der Autorouter mit den 16 Auswahlleitungen keine GND-Anbindung abschnuert:
+      * zwischen den Kontakten des West-Steckers J4 -- sonst laufen die Leitungen zur obersten
+        Reihe am linken Rand durch den Stecker, sein GND-Kontakt bekommt zu wenige Waermefallen-
+        Stege (am Ost-Stecker J2 endet die VBUS-Randleitung auf B.Cu, dort keine Sperre)
+      * Kanal unter den GND-Vias des Mikrocontrollers (U2.5, C3, C4) nach unten zur Flaeche --
+        sonst schliessen die Signalbahnen die MCU-Masse auf beiden Lagen ringsum ein"""
+    if FIELDS == 3:
+        return                      # 3x3: dort tritt das nicht auf, Board bleibt unveraendert
+    x, y, rot = pos["J4"]
+    y0, y1 = (y, y + 5 * 2.54) if rot == 0 else (y - 5 * 2.54, y)
+    areas = [("J4", (0.5, y0 - 2.5, x + 4.0, y1 + 2.5))]
+    ux, uy, _ = pos["U2"]
+    areas.append(("U2_GND", (ux - 7.4, uy + 0.4, ux - 5.0, uy + 9.0)))
+    for name, (x0, ya, x1, yb) in areas:
+        z = pcbnew.ZONE(board)
+        z.SetIsRuleArea(True)
+        z.SetDoNotAllowTracks(True)
+        z.SetDoNotAllowVias(False)
+        z.SetDoNotAllowPads(False)
+        z.SetDoNotAllowZoneFills(False)
+        z.SetDoNotAllowFootprints(False)
+        z.SetLayer(pcbnew.B_Cu)
+        z.SetZoneName(f"Keine_Bahnen_{name}")
+        ol = z.Outline()
+        ol.NewOutline()
+        for px, py in [(x0, ya), (x1, ya), (x1, yb), (x0, yb)]:
+            ol.Append(mm(X0 + px), mm(Y0 + py))
+        board.Add(z)
 
 
 def add_ground_plane(board, gnd):
@@ -255,7 +292,7 @@ def main():
                 if fld.GetName() == fname:
                     fld.SetVisible(False)          # MPN/LCSC usw. nicht auf den Bestueckungsdruck
         fp.SetDNP(c["dnp"])
-        is_coil = len(ref) == 3 and ref.startswith("L1")   # L11..L19 (nicht L1!)
+        is_coil = "NFC_Coil" in c["footprint"]
         if not is_coil and not ref.startswith("J"):
             fp.Value().SetVisible(False)               # Werte stehen in Stueckliste/Schaltplan
         if ref == "U1":                                # Druck-Bezeichner kollidiert mit C8
@@ -292,6 +329,7 @@ def main():
         board.Add(s)
 
     add_coil_stubs(board)
+    add_routing_keepouts(board, pos)
     add_ground_plane(board, net("GND"))
 
     board.BuildConnectivity()

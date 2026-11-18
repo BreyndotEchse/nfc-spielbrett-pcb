@@ -1,4 +1,4 @@
-"""HF-Routing des Spielbrett-Moduls: Anpassnetzwerk am CLRC663 + Antennenbus zu den 9 Spulen.
+"""HF-Routing des Spielbrett-Moduls: Anpassnetzwerk am CLRC663 + Antennenbus zu den Spulen.
 
 Mit KiCads Python ausfuehren, waehrend die Platine NICHT im PCB-Editor offen ist:
   "C:/Program Files/KiCad/10.0/bin/python.exe" tools/route_hf.py [ausgabe.kicad_pcb]
@@ -10,9 +10,12 @@ Leiterbahnen ausserhalb der Gruppe bleiben unberuehrt.
 Topologie Antennenbus (ANT_P / ANT_N als Paar, 1 mm Raster, Lagen siehe route_bus):
   * Ast A (B.Cu) waagerecht zwischen Spulenreihe 1 und 2: N bei y=71, P bei y=72 (absolut)
   * Ast B (B.Cu) waagerecht zwischen Spulenreihe 2 und 3: N bei y=135, P bei y=136
+  * 4x4-Brett: zusaetzlich Ast 0 unter der neuen obersten Reihe (17,5/18,5 mm unter deren
+    Spulenmitte, wie Ast A), die Spulen der rechten Zusatzspalte haengen an den verlaengerten Aesten
   * je Spule: P von der Anschluss-Via, N von einer Via unter dem ANT_N-Schalter senkrecht auf
     B.Cu UNTER der Schaltergruppe zum Ast (rechts daneben ist in der rechten Spalte kein Platz)
-  * Stamm (B.Cu) in Spalte 1 verbindet Ast A mit den Senkrechten von Reihe 2 und damit Ast B
+  * Stamm (B.Cu) in Spalte 1 verbindet jeden Ast mit den Senkrechten der naechsten Reihe und
+    damit mit dem naechsten Ast
   * Einspeisung: Ausgang des Anpassnetzwerks (R10/R11) senkrecht auf Ast A
 """
 import math
@@ -22,15 +25,17 @@ from pathlib import Path
 import pcbnew
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from geometrie import BUS_N, BUS_P, CX, N_DY, P_VIA_DY, X0, Y0  # noqa: E402,F401
+from geometrie import BUS_N, BUS_P, CX, CY, EXTRA, FIELDS, N_DY, NAME, P_VIA_DY, X0, Y0, refs  # noqa: E402,F401
 
 PRJ = Path(__file__).resolve().parent.parent
-PCB = PRJ / "spielbrett.kicad_pcb"
+PCB = PRJ / f"{NAME}.kicad_pcb"
 OUT = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else PCB
 SRC = OUT if OUT.exists() else PCB
 
-Y_A = (71.0, 72.0)                                    # (N, P) Ast A
-Y_B = (135.0, 136.0)                                  # (N, P) Ast B
+# (N, P) je Ast. Ast A/B wie beim 3x3-Brett (71/72 und 135/136), beim 4x4-Brett davor Ast 0.
+BRANCHES = [(CY[j] + 17.5, CY[j] + 18.5) for j in range(EXTRA + 1)] + [(CY[-1] - 18.5, CY[-1] - 17.5)]
+Y_A = BRANCHES[EXTRA]                                 # Einspeisung vom Anpassnetzwerk
+Y_B = BRANCHES[-1]
 HF_W = 0.4
 NECK_W = 0.25                                         # Einschnuerung an 0,5-mm-Pins
 VIA = (0.6, 0.3)
@@ -164,17 +169,17 @@ def route_bus(r, feeds):
     B, F = pcbnew.B_Cu, pcbnew.F_Cu
     HOP = 1.2
     for i, cx in enumerate(CX):
-        for j, cy in enumerate(CX):
-            k = 3 * j + i + 1
-            yN, yP = Y_A if j == 0 else Y_B
+        for j, cy in enumerate(CY):
+            k = FIELDS * j + i + 1
+            yN, yP = BRANCHES[min(j, len(BRANCHES) - 1)]   # vorletzte + letzte Reihe: Ast B
             px, nx = cx + BUS_P, cx + BUS_N
             p_via = (px, cy + P_VIA_DY)                       # vom Aufbauskript gesetzte Via
             n_via = (nx, cy + N_DY)
-            drain = r.pad(f"Q1{k}", 3)                        # ANT_N-Schalter
+            drain = r.pad(refs(k)["QN"], 3)                   # ANT_N-Schalter
             r.track([drain, (drain[0], cy + N_DY), n_via], "ANT_N", layer=F)
             r.via(n_via, "ANT_N")
             if yN > cy:
-                # Ast unterhalb (Reihe 1 -> A, Reihe 2 -> B): N-Linie liegt oben -> N direkt,
+                # Ast unterhalb (z. B. Reihe 1 -> A, Reihe 2 -> B): N-Linie liegt oben -> N direkt,
                 # P springt ueber die N-Linie
                 r.track([n_via, (nx, yN)], "ANT_N", layer=B)
                 r.track([p_via, (px, yN - HOP)], "ANT_P", layer=B)
@@ -182,25 +187,28 @@ def route_bus(r, feeds):
                 r.track([(px, yN - HOP), (px, yP)], "ANT_P", layer=F)
                 r.via((px, yP), "ANT_P")
             else:
-                # Reihe 3, Ast oberhalb: P-Linie liegt unten -> P direkt, N springt ueber P
+                # unterste Reihe, Ast oberhalb: P-Linie liegt unten -> P direkt, N springt ueber P
                 r.track([p_via, (px, yP)], "ANT_P", layer=B)
                 r.track([n_via, (nx, yP + HOP)], "ANT_N", layer=B)
                 r.via((nx, yP + HOP), "ANT_N")
                 r.track([(nx, yP + HOP), (nx, yN)], "ANT_N", layer=F)
                 r.via((nx, yN), "ANT_N")
 
-    # Stamm links (Spalte 1): verbindet Ast A mit den Senkrechten von Reihe 2 (und damit Ast B)
+    # Stamm links (Spalte 1): verbindet jeden Ast mit den Senkrechten der naechsten Reihe
+    # (und damit mit deren Ast)
     nx0, px0 = CX[0] + BUS_N, CX[0] + BUS_P
-    r.via((nx0, Y_A[0]), "ANT_N")
-    r.track([(nx0, Y_A[0]), (nx0, Y_A[1] + HOP)], "ANT_N", layer=F)     # ueber die P-Linie
-    r.via((nx0, Y_A[1] + HOP), "ANT_N")
-    r.track([(nx0, Y_A[1] + HOP), (nx0, CX[1] + N_DY)], "ANT_N", layer=B)
-    r.track([(px0, Y_A[1]), (px0, CX[1] + P_VIA_DY)], "ANT_P", layer=B)
+    for m, (yN, yP) in enumerate(BRANCHES[:-1]):
+        nxt = CY[m + 1]
+        r.via((nx0, yN), "ANT_N")
+        r.track([(nx0, yN), (nx0, yP + HOP)], "ANT_N", layer=F)            # ueber die P-Linie
+        r.via((nx0, yP + HOP), "ANT_N")
+        r.track([(nx0, yP + HOP), (nx0, nxt + N_DY)], "ANT_N", layer=B)
+        r.track([(px0, yP), (px0, nxt + P_VIA_DY)], "ANT_P", layer=B)
 
     # Aeste (B.Cu)
-    for (yN, yP) in (Y_A, Y_B):
-        r.track([(CX[0] + BUS_N, yN), (CX[2] + BUS_N, yN)], "ANT_N", layer=B)
-        r.track([(CX[0] + BUS_P, yP), (CX[2] + BUS_P, yP)], "ANT_P", layer=B)
+    for (yN, yP) in BRANCHES:
+        r.track([(CX[0] + BUS_N, yN), (CX[-1] + BUS_N, yN)], "ANT_N", layer=B)
+        r.track([(CX[0] + BUS_P, yP), (CX[-1] + BUS_P, yP)], "ANT_P", layer=B)
 
     # Einspeisung vom Anpassnetzwerk: je Seite senkrecht (F.Cu) hoch auf ihre Ast-A-Linie
     for side, ext in feeds:

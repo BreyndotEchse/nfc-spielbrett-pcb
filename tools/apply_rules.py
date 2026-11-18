@@ -9,7 +9,10 @@ import json
 import sys
 from pathlib import Path
 
-PRO = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent / "spielbrett.kicad_pro"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from geometrie import NAME  # noqa: E402
+
+PRO = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent / f"{NAME}.kicad_pro"
 
 # name: (Leiterbahn, Abstand, Via-Durchmesser, Via-Bohrung, Netzmuster, Prioritaet)
 CLASSES = {
