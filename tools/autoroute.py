@@ -11,6 +11,7 @@ Gesperrte Vorverdrahtung (HF, Versorgung, Ausfaecherung) exportiert KiCad als "f
 laesst sie liegen.
 """
 import json
+import math
 import os
 import re
 import subprocess
@@ -29,6 +30,20 @@ JAR = next((Path.home() / "OneDrive/Dokumente/KiCad/10.0/3rdparty/plugins"
 JAVA_CANDIDATES = sorted(Path("C:/Program Files/OpenJDK").glob("jdk-*/bin/java.exe"), reverse=True)
 SKIP_NETS = ["GND"]
 KICAD_CLI = Path(sys.executable).parent / "kicad-cli.exe"
+
+
+def complete_nets():
+    """Netze mit mindestens zwei Pads, fuer die KiCads DRC keine offene Verbindung meldet."""
+    d = drc()
+    open_nets = {m for u in d["unconnected_items"] for i in u["items"]
+                 for m in re.findall(r"\[([^\]]+)\]", i["description"])}
+    board = pcbnew.LoadBoard(str(PCB))
+    count = {}
+    for p in board.GetPads():
+        n = p.GetNetname()
+        if n and not n.startswith("unconnected-"):
+            count[n] = count.get(n, 0) + 1
+    return sorted(n for n, c in count.items() if c >= 2 and n not in open_nets and n not in SKIP_NETS)
 
 
 def strip_nets(dsn: str, nets) -> str:
@@ -209,10 +224,16 @@ def main():
     work.mkdir(exist_ok=True)
     dsn, ses = work / "autoroute.dsn", work / "autoroute.ses"
 
+    # Netze, die die Skripte davor schon vollstaendig verlegt haben, aus der Netzliste nehmen
+    # (ihre Bahnen bleiben als feste Hindernisse in der DSN). Freerouting erkennt manche dieser
+    # vorverlegten Verbindungen nicht als verbunden, haelt das Board dann fuer unvollstaendig und
+    # ueberspringt seine Optimierung -> Zickzack-Reste und unnoetige Vias bleiben stehen.
+    done = complete_nets()
+    print(f"Bereits fertig verlegt (nicht an Freerouting): {len(done)} Netze", flush=True)
     board = pcbnew.LoadBoard(str(PCB))
     if not pcbnew.ExportSpecctraDSN(board, str(dsn)):
         raise SystemExit("DSN-Export fehlgeschlagen")
-    text = inset_boundary(strip_nets(dsn.read_text(encoding="utf-8"), SKIP_NETS))
+    text = inset_boundary(strip_nets(dsn.read_text(encoding="utf-8"), SKIP_NETS + done))
     dsn.write_text(text, encoding="utf-8")
 
     ses.unlink(missing_ok=True)
@@ -221,7 +242,7 @@ def main():
     print("Freerouting laeuft ...", flush=True)
     res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
     tail = [ln for ln in res.stdout.splitlines() + res.stderr.splitlines()
-            if "unrouted" in ln.lower() or "completed" in ln.lower() or "error" in ln.lower()]
+            if any(w in ln.lower() for w in ("unrouted", "completed", "error", "optimiz"))]
     print("\n".join(tail[-8:]), flush=True)
     if not ses.exists():
         raise SystemExit(f"Freerouting hat keine SES geschrieben (Exit {res.returncode})")
@@ -259,19 +280,149 @@ def remove_dangling_vias():
     return gone
 
 
+def _segments(text):
+    """uuid -> (start, end, Blockanfang, Blockende) aller (segment ...)-Bloecke im Dateitext."""
+    out = {}
+    for m in re.finditer(r"\n\t\(segment\n(.*?)\n\t\)", text, re.S):
+        blk = m.group(1)
+        st = re.search(r"\(start ([-\d.]+) ([-\d.]+)\)", blk)
+        en = re.search(r"\(end ([-\d.]+) ([-\d.]+)\)", blk)
+        u = re.search(r'\(uuid "([^"]+)"\)', blk)
+        out[u.group(1)] = ((float(st.group(1)), float(st.group(2))),
+                           (float(en.group(1)), float(en.group(2))), m.start(), m.end())
+    return out
+
+
+def smooth_kinks(board, tol=0.3):
+    """Kleine Zickzack-Knicke in den Autorouter-Bahnen begradigen.
+
+    Freerouting hinterlaesst an Rasterspruengen V-foermige Knicke von wenigen Zehntel Millimetern.
+    Seine eigene Optimierung, die das glaettet, laeuft nur bei aus seiner Sicht vollstaendig
+    verlegtem Board -- und es haelt (anders als KiCad) fast immer 1-2 Verbindungen fuer offen.
+    Hier: Stossen genau zwei ungesperrte Bahnen derselben Lage an einem Punkt ohne Via/Pad
+    zusammen und weicht dieser Punkt weniger als `tol` mm von der Geraden zwischen den beiden
+    Aussenenden ab, werden sie zu einer Bahn verschmolzen. Wiederholt bis nichts mehr geht.
+    Liefert Liste der Verschmelzungen [(behaltene uuid, neue Enden, entfernte uuid)]."""
+    key = lambda p: (round(p[0], 4), round(p[1], 4))      # noqa: E731
+    segs, locked = {}, set()
+    for t in board.GetTracks():
+        if t.GetClass() == "PCB_TRACK":
+            u = t.m_Uuid.AsString()
+            segs[u] = [to_mm(t.GetStart()), to_mm(t.GetEnd()), t.GetLayer(), t.GetNetCode(),
+                       pcbnew.ToMM(t.GetWidth())]
+            if t.IsLocked():
+                locked.add(u)
+    blocked = set()                                       # Punkte mit Via oder Pad
+    for t in board.GetTracks():
+        if t.GetClass() == "PCB_VIA":
+            blocked.add(key(to_mm(t.GetPosition())))
+    pads = list(board.GetPads())
+    merges = []
+    changed = True
+    while changed:
+        changed = False
+        ends = {}
+        for u, (a, b, lay, net, w) in segs.items():
+            for i, p in enumerate((a, b)):
+                ends.setdefault((key(p), lay, net), []).append((u, i))
+        for (pk, lay, net), lst in ends.items():
+            if len(lst) != 2 or pk in blocked:
+                continue
+            (u1, i1), (u2, i2) = lst
+            if u1 == u2 or u1 in locked or u2 in locked:
+                continue
+            s1, s2 = segs[u1], segs[u2]
+            if s1[4] != s2[4]:
+                continue
+            q0, q2, pm = s1[1 - i1], s2[1 - i2], s1[i1]
+            dx, dy = q2[0] - q0[0], q2[1] - q0[1]
+            ln = math.hypot(dx, dy)
+            if ln < 1e-6:
+                continue
+            dev = abs(dx * (pm[1] - q0[1]) - dy * (pm[0] - q0[0])) / ln
+            if dev >= tol:
+                continue
+            v = pcbnew.VECTOR2I(mm(pm[0]), mm(pm[1]))
+            if any(pd.HitTest(v) and pd.IsOnLayer(lay) for pd in pads):
+                blocked.add(pk)
+                continue
+            segs[u1] = [q0, q2, lay, net, s1[4]]
+            del segs[u2]
+            merges.append((u1, (q0, q2), u2))
+            changed = True
+            break
+    return merges
+
+
+def apply_merges(text, merges):
+    """Verschmelzungen in den Dateitext schreiben (Bahn u1 neue Enden, Bahn u2 entfernen)."""
+    final, gone = {}, set()
+    for u1, ends, u2 in merges:
+        final[u1] = ends
+        gone.add(u2)
+        final.pop(u2, None)
+    segs = _segments(text)
+    edits = []
+    for u, (q0, q2) in final.items():
+        if u in gone or u not in segs:
+            continue
+        _, _, a, b = segs[u]
+        blk = text[a:b]
+        blk = re.sub(r"\(start [-\d.]+ [-\d.]+\)", f"(start {q0[0]:.6g} {q0[1]:.6g})", blk, count=1)
+        blk = re.sub(r"\(end [-\d.]+ [-\d.]+\)", f"(end {q2[0]:.6g} {q2[1]:.6g})", blk, count=1)
+        edits.append((a, b, blk))
+    for u in gone:
+        if u in segs:
+            _, _, a, b = segs[u]
+            edits.append((a, b, ""))
+    for a, b, blk in sorted(edits, reverse=True):
+        text = text[:a] + blk + text[b:]
+    return text
+
+
+def smooth_with_check():
+    """Glaetten, per DRC pruefen; Verschmelzungen an Problemstellen zuruecknehmen."""
+    board = pcbnew.LoadBoard(str(PCB))
+    merges = smooth_kinks(board)
+    if not merges:
+        return 0
+    # Vergleichsstand mit frisch gefuellten Flaechen (nach dem SES-Import sind sie veraltet und
+    # die DRC meldete sonst schon vorher viele Abstandsfehler -> Pruefung waere wirkungslos)
+    pcbnew.ZONE_FILLER(board).Fill(board.Zones())
+    save(board)
+    orig = PCB.read_text(encoding="utf-8")
+    ref = drc()
+    n_ref = len(ref["violations"]) + len(ref["unconnected_items"])
+    for _ in range(4):
+        PCB.write_text(apply_merges(orig, merges), encoding="utf-8")
+        b2 = pcbnew.LoadBoard(str(PCB))                  # Flaechen an die neuen Bahnen anpassen
+        pcbnew.ZONE_FILLER(b2).Fill(b2.Zones())
+        save(b2)
+        d = drc()
+        if len(d["violations"]) + len(d["unconnected_items"]) <= n_ref:
+            return len(merges)
+        bad = {i.get("uuid") for v in d["violations"] + d["unconnected_items"] for i in v["items"]}
+        keep = [m for m in merges if m[0] not in bad and m[2] not in bad]
+        if len(keep) == len(merges):
+            break
+        merges = keep
+    PCB.write_text(orig, encoding="utf-8")
+    return 0
+
+
 def post():
     board = pcbnew.LoadBoard(str(PCB))
     thin = fix_thin_tracks(board)
     save(board)
     gone = remove_dangling_vias()
-    if gone:
-        board = pcbnew.LoadBoard(str(PCB))
+    smoothed = smooth_with_check()                     # vor dem Nachheften: Inseln danach final
+    board = pcbnew.LoadBoard(str(PCB))
     stitched = stitch_gnd_islands(board)
     save(board)
     # Nach dem GND-Nachheften meldet die DRC haeufig weitere einseitig angeschlossene Vias
     # (Freerouting-Knotenpunkte), die der erste Durchgang noch nicht erfasst -> zweiter Durchgang.
     gone += remove_dangling_vias()
-    print(f"Nacharbeit: {thin} zu duenne Bahnen verbreitert, {len(gone)} ungenutzte Vias entfernt, "
+    print(f"Nacharbeit: {smoothed} Knicke begradigt, {thin} zu duenne Bahnen verbreitert, {len(gone)} ungenutzte Vias entfernt, "
           f"{stitched} GND-Vias fuer abgeschnittene Flaecheninseln", flush=True)
 
 

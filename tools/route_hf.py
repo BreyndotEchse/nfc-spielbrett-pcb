@@ -137,11 +137,14 @@ def route_matching(r):
     ):
         lc, cc, rc = chain
         emc, match, ant = f"EMC_{side}", f"MATCH_{side}", f"ANT_{side}"
-        r.track([P(lc, 2), P(cc, 1)], emc)                     # L0 -> C1
-        r.track([P(cc, 2), P(rc, 1)], match)                   # C1 -> Ra
         c0, c2, rb = shunts
-        r.track([P(c0, 1), on_chain(P(c0, 1), P(lc, 2))], emc)     # C0 an EMC-Knoten
-        r.track([P(c2, 1), on_chain(P(c2, 1), P(cc, 2))], match)   # C2 an MATCH-Knoten
+        # Kettenbahnen am Abzweig der Querglieder teilen: Freerouting erkennt nur Verbindungen
+        # zwischen Bahnenden, ein T-Abzweig mitten auf eine Bahn gilt dort als unverlegt.
+        j_emc, j_match = on_chain(P(c0, 1), P(lc, 2)), on_chain(P(c2, 1), P(cc, 2))
+        r.track([P(lc, 2), j_emc, P(cc, 1)], emc)              # L0 -> C1
+        r.track([P(cc, 2), j_match, P(rc, 1)], match)          # C1 -> Ra
+        r.track([P(c0, 1), j_emc], emc)                        # C0 an EMC-Knoten
+        r.track([P(c2, 1), j_match], match)                    # C2 an MATCH-Knoten
         ext = on_chain(P(rb, 1), P(rc, 2))                          # Ausgang + Vorspannwiderstand
         r.track([P(rc, 2), ext], ant)
         r.track([P(rb, 1), ext], ant)
