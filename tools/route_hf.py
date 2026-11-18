@@ -7,13 +7,13 @@ Alle hier erzeugten Leiterbahnen/Vias liegen in der Gruppe "HF_Routing" und sind
 Ein erneuter Lauf loescht genau diese Gruppe und legt sie neu an -- von Hand verlegte
 Leiterbahnen ausserhalb der Gruppe bleiben unberuehrt.
 
-Topologie Antennenbus (ANT_P / ANT_N als Paar, 1 mm Raster):
+Topologie Antennenbus (ANT_P / ANT_N als Paar, 1 mm Raster, Lagen siehe route_bus):
   * Ast A (B.Cu) waagerecht zwischen Spulenreihe 1 und 2: N bei y=71, P bei y=72 (absolut)
   * Ast B (B.Cu) waagerecht zwischen Spulenreihe 2 und 3: N bei y=135, P bei y=136
-  * Stamm (F.Cu) senkrecht rechts neben Spaltengruppe 1 (x=76 N / 77 P) verbindet A und B
-  * je Spule: P von der Anschluss-Via ueber B.Cu nach rechts, dann senkrecht (F.Cu) zum Ast;
-    N vom Drain des ANT_N-Schalters nach unten, rechts, dann senkrecht zum Ast
-  * Einspeisung: Ausgang des Anpassnetzwerks (R10/R11) direkt auf Ast A
+  * je Spule: P von der Anschluss-Via, N von einer Via unter dem ANT_N-Schalter senkrecht auf
+    B.Cu UNTER der Schaltergruppe zum Ast (rechts daneben ist in der rechten Spalte kein Platz)
+  * Stamm (B.Cu) in Spalte 1 verbindet Ast A mit den Senkrechten von Reihe 2 und damit Ast B
+  * Einspeisung: Ausgang des Anpassnetzwerks (R10/R11) senkrecht auf Ast A
 """
 import math
 import sys
@@ -22,7 +22,7 @@ from pathlib import Path
 import pcbnew
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from geometrie import BUS_N, BUS_N3, BUS_P, CX, X0, Y0  # noqa: E402,F401
+from geometrie import BUS_N, BUS_P, CX, N_DY, P_VIA_DY, X0, Y0  # noqa: E402,F401
 
 PRJ = Path(__file__).resolve().parent.parent
 PCB = PRJ / "spielbrett.kicad_pcb"
@@ -156,44 +156,54 @@ def route_matching(r):
 
 
 def route_bus(r, feeds):
-    p_ast_vias = set()
+    """Antennenbus. Senkrechte auf B.Cu unter den Schaltergruppen, Aeste auf B.Cu; wo eine
+    Senkrechte den anderen Ast kreuzen muss, springt sie kurz (HOP) per Via auf F.Cu."""
+    B, F = pcbnew.B_Cu, pcbnew.F_Cu
+    HOP = 1.2
     for i, cx in enumerate(CX):
         for j, cy in enumerate(CX):
             k = 3 * j + i + 1
-            p_via = (cx + 15.0, cy - 3.5)                     # vom Aufbauskript gesetzte Via
-            drain = r.pad(f"Q1{k}", 3)                        # ANT_N-Schalter
             yN, yP = Y_A if j == 0 else Y_B
-            px = cx + BUS_P
-            nx = cx + BUS_N if j < 2 else cx + BUS_N3
-            # P: Via -> B.Cu nach rechts -> Via -> F.Cu senkrecht zum Ast -> Via
-            r.track([p_via, (px, p_via[1])], "ANT_P", layer=pcbnew.B_Cu)
-            r.via((px, p_via[1]), "ANT_P")
-            r.track([(px, p_via[1]), (px, yP)], "ANT_P")
-            # N: Drain -> nach unten -> nach rechts -> senkrecht zum Ast
-            r.track([drain, (drain[0], cy + 8.0), (nx, cy + 8.0), (nx, yN)], "ANT_N")
-            r.via((nx, yN), "ANT_N")
-            p_ast_vias.add((px, yP))                          # Reihe 2+3 teilen sich eine Via
-    for p in sorted(p_ast_vias):
-        r.via(p, "ANT_P")
+            px, nx = cx + BUS_P, cx + BUS_N
+            p_via = (px, cy + P_VIA_DY)                       # vom Aufbauskript gesetzte Via
+            n_via = (nx, cy + N_DY)
+            drain = r.pad(f"Q1{k}", 3)                        # ANT_N-Schalter
+            r.track([drain, (drain[0], cy + N_DY), n_via], "ANT_N", layer=F)
+            r.via(n_via, "ANT_N")
+            if yN > cy:
+                # Ast unterhalb (Reihe 1 -> A, Reihe 2 -> B): N-Linie liegt oben -> N direkt,
+                # P springt ueber die N-Linie
+                r.track([n_via, (nx, yN)], "ANT_N", layer=B)
+                r.track([p_via, (px, yN - HOP)], "ANT_P", layer=B)
+                r.via((px, yN - HOP), "ANT_P")
+                r.track([(px, yN - HOP), (px, yP)], "ANT_P", layer=F)
+                r.via((px, yP), "ANT_P")
+            else:
+                # Reihe 3, Ast oberhalb: P-Linie liegt unten -> P direkt, N springt ueber P
+                r.track([p_via, (px, yP)], "ANT_P", layer=B)
+                r.track([n_via, (nx, yP + HOP)], "ANT_N", layer=B)
+                r.via((nx, yP + HOP), "ANT_N")
+                r.track([(nx, yP + HOP), (nx, yN)], "ANT_N", layer=F)
+                r.via((nx, yN), "ANT_N")
 
-    # Stamm links: verbindet Ast A und Ast B (F.Cu)
-    r.track([(CX[0] + BUS_N, Y_A[0]), (CX[0] + BUS_N, CX[1] + 8.0)], "ANT_N")
-    r.track([(CX[0] + BUS_P, Y_A[1]), (CX[0] + BUS_P, CX[1] - 3.5)], "ANT_P")
+    # Stamm links (Spalte 1): verbindet Ast A mit den Senkrechten von Reihe 2 (und damit Ast B)
+    nx0, px0 = CX[0] + BUS_N, CX[0] + BUS_P
+    r.via((nx0, Y_A[0]), "ANT_N")
+    r.track([(nx0, Y_A[0]), (nx0, Y_A[1] + HOP)], "ANT_N", layer=F)     # ueber die P-Linie
+    r.via((nx0, Y_A[1] + HOP), "ANT_N")
+    r.track([(nx0, Y_A[1] + HOP), (nx0, CX[1] + N_DY)], "ANT_N", layer=B)
+    r.track([(px0, Y_A[1]), (px0, CX[1] + P_VIA_DY)], "ANT_P", layer=B)
 
     # Aeste (B.Cu)
     for (yN, yP) in (Y_A, Y_B):
-        n_xs = [cx + BUS_N for cx in CX] + ([cx + BUS_N3 for cx in CX] if yN == Y_B[0] else [])
-        r.track([(min(n_xs), yN), (max(n_xs), yN)], "ANT_N", layer=pcbnew.B_Cu)
-        r.track([(CX[0] + BUS_P, yP), (CX[2] + BUS_P, yP)], "ANT_P", layer=pcbnew.B_Cu)
+        r.track([(CX[0] + BUS_N, yN), (CX[2] + BUS_N, yN)], "ANT_N", layer=B)
+        r.track([(CX[0] + BUS_P, yP), (CX[2] + BUS_P, yP)], "ANT_P", layer=B)
 
-    # Einspeisung vom Anpassnetzwerk auf Ast A
+    # Einspeisung vom Anpassnetzwerk: je Seite senkrecht (F.Cu) hoch auf ihre Ast-A-Linie
     for side, ext in feeds:
-        if side == "N":
-            tgt = (ext[0], Y_A[0])
-            r.track([ext, tgt], "ANT_N")
-            r.via(tgt, "ANT_N")
-        else:
-            r.track([ext, (CX[1] + BUS_P, Y_A[1])], "ANT_P")   # auf die vorhandene P-Via der Mitte
+        tgt = (ext[0], Y_A[0] if side == "N" else Y_A[1])
+        r.track([ext, tgt], "ANT_" + side, layer=F)
+        r.via(tgt, "ANT_" + side)
 
 
 def _blocks(s):

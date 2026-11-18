@@ -12,8 +12,8 @@ VBUS  Randleitung (0,8 mm, links-oben-rechts) zwischen West- und Ostkontakt (Dur
 +3V3  vom Regler zu RS485-Treiber, Mikrocontroller (links) und NFC-Frontend (rechts).
 TVDD  R4/R5/C10 -> Via -> B.Cu -> C9 -> Pin 18.
 XTAL  Pins 19/20 parallel nach links zum Quarz Y1 und den Lastkondensatoren C14/C15.
-Kreuzungen mit dem Antennenbus-Stamm (x = STAMM_N/STAMM_P, 74/75 mm) und untereinander laufen als kurze
-B.Cu-Bruecken.
+Der Antennenbus-Stamm (x = STAMM_P/STAMM_N, 71,5/74 mm) liegt auf B.Cu und wird auf F.Cu gekreuzt;
+Kreuzungen untereinander laufen als kurze B.Cu-Bruecken.
 """
 import sys
 from pathlib import Path
@@ -22,7 +22,9 @@ import pcbnew
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from route_hf import Router, strip_group  # noqa: E402
-from geometrie import BUS_P, CX, STAMM_N, STAMM_P  # noqa: E402
+from geometrie import BOARD, STAMM_N, STAMM_P, X0  # noqa: E402
+
+STAMM_L, STAMM_R = min(STAMM_N, STAMM_P), max(STAMM_N, STAMM_P)   # Bus-Stamm (B.Cu) links/rechts
 
 PRJ = Path(__file__).resolve().parent.parent
 PCB = PRJ / "spielbrett.kicad_pcb"
@@ -47,27 +49,30 @@ def route(r):
         r.via(b, net, PVIA)
 
     # ---------------- VBUS / +5V ----------------
-    # VBUS (durchgeschleifter Bus) am Platinenrand: West -> oben -> Ost. Ein zweiter Weg unten
-    # herum geht nicht, rechts unten laufen die Antennenbus-Senkrechten der rechten Spalte.
+    # VBUS (durchgeschleifter Bus) am Platinenrand: West -> oben -> Ost. Der rechte Abschnitt
+    # laeuft auf B.Cu, weil auf F.Cu die Schaltergruppen der rechten Spalte bis an die Kante reichen.
     j2, j4 = P("J2", 1), P("J4", 6)
-    top, left, right = 31.0, 31.0, CX[2] + BUS_P + 1.1
-    t([j4, (left, j4[1]), (left, top), (right, top), (right, j2[1]), j2], "VBUS", w=RING)
+    top, left, right = 31.0, 31.0, X0 + BOARD - 0.9
+    t([j4, (left, j4[1]), (left, top), (right, top)], "VBUS", w=RING)
+    r.via((right, top), "VBUS", PVIA)
+    t([(right, top), (right, j2[1]), j2], "VBUS", layer=B, w=RING)
     # Modulzweig: VBUS -> PTC F1 -> +5V; TVS D2 direkt am Kontakt
     f1a, f1b, d2k = P("F1", 1), P("F1", 2), P("D2", 1)
     t([j4, f1a], "VBUS", w=RING)
     t([d2k, (d2k[0], j4[1])], "VBUS", w=PWR)
     # Abzweig zum Regler: unter dem Bus-Stamm per B.Cu-Bruecke
     c1, u4_vi = P("C1", 1), P("U4", 3)
-    a, b = (STAMM_N - 1.4, j4[1]), (STAMM_P + 2.0, j4[1])
-    t([f1b, a], "+5V", w=RING)
-    bridge(a, b, "+5V", w=RING)
+    # kreuzt den Bus-Stamm (B.Cu) auf F.Cu
+    a, b = (STAMM_L - 1.4, j4[1]), (STAMM_R + 3.0, j4[1])
+    t([f1b, a, b], "+5V", w=RING)
     t([b, (b[0], c1[1] + 0.45), (c1[0], c1[1])], "+5V")
     t([c1, u4_vi], "+5V")
     # zur TVDD-Option R5 (unbestueckt): ostwaerts unter dem Regler, dann B.Cu-Bruecke ueber +3V3
     r5 = P("R5", 1)
     y5 = 82.6
-    t([(b[0], c1[1] + 0.45), (b[0] + 0.4, y5), (117.5, y5), (117.5, 97.6)], "+5V")
-    bridge((117.5, 97.6), (121.0, 97.6), "+5V")
+    xt = 118.5      # 1 mm Abstand zur +3V3-Senkrechten (119,5), 1 mm mehr zur Spule 5
+    t([(b[0], c1[1] + 0.45), (b[0] + 0.4, y5), (xt, y5), (xt, 97.6)], "+5V")
+    bridge((xt, 97.6), (121.0, 97.6), "+5V")
     t([(121.0, 97.6), (r5[0], 97.6), r5], "+5V")
 
     # ---------------- +3V3 ----------------
@@ -82,7 +87,9 @@ def route(r):
     # Ostast: zum NFC-Frontend
     y3 = c2[1]
     xe = 139.4      # ostwaerts aussen herum; laesst rechts neben C7/C11 Platz fuer GND-Vias
-    t([c2, (119.5, y3), (119.5, 98.8), (xe, 98.8), (xe, P("C7", 1)[1]), P("C7", 1)], "+3V3")
+    # unten rechts schraeg abgeschnitten: haelt Abstand zur Wicklung von Spule 6
+    t([c2, (119.5, y3), (119.5, 98.8), (xe - 3.4, 98.8), (xe, 95.4), (xe, P("C7", 1)[1]), P("C7", 1)],
+      "+3V3")
     c7, pin8 = P("C7", 1), P("U1", 8)
     t([c7, (c7[0] - 0.9, pin8[1]), pin8], "+3V3", w=NECK)
     r4, c8 = P("R4", 1), P("C8", 1)
@@ -98,16 +105,21 @@ def route(r):
     bridge(v1, v2, "+3V3")
     t([v2, c6], "+3V3")
     t([c6, (c6[0] - 0.9, c6[1]), (c6[0] - 1.2, u3_vcc[1]), u3_vcc], "+3V3")
-    # Westast: zum Mikrocontroller (unter dem Bus-Stamm per B.Cu-Bruecke)
-    w1, w2 = (u4_vo[0] - 1.85, u4_vo[1]), (STAMM_N - 1.4, u4_vo[1])
+    # Westast: zum Mikrocontroller. B.Cu-Bruecke unter dem +5V-Abzweig (x = b) hindurch, dann
+    # auf F.Cu ueber den Bus-Stamm (der Stamm liegt auf B.Cu)
+    w1, wm, w2 = (u4_vo[0] - 1.85, u4_vo[1]), (STAMM_R + 1.4, u4_vo[1]), (STAMM_L - 1.4, u4_vo[1])
     t([u4_vo, w1], "+3V3")
-    bridge(w1, w2, "+3V3")
+    bridge(w1, wm, "+3V3")
+    t([wm, w2], "+3V3")
     c4, c3, pin4, j5, r2 = P("C4", 1), P("C3", 1), P("U2", 4), P("J5", 1), P("R2", 1)
-    xw = 38.0
-    t([w2, (xw, w2[1]), (xw, j5[1]), j5], "+3V3")
-    t([(xw, c4[1]), c4, c3], "+3V3")
+    # Weg zwischen Spule 4 und Spule 5 hinunter (rechts an der Schaltergruppe von Spule 4 vorbei),
+    # dann oberhalb des Mikrocontrollers nach Westen. Der fruehere Weg am linken Rand liefe jetzt
+    # zu dicht an der Wicklung von Spule 4 entlang.
+    xs, yd, yw, xw = 77.8, 95.0, 121.0, 41.0
+    t([w2, (w2[0], yd), (xs, yd), (xs, yw), (xw, yw), (xw, j5[1]), j5], "+3V3")
+    t([j5, (c4[0] - 1.2, j5[1]), c4, c3], "+3V3")       # von J5.1 aus (J5 liegt hoeher als C4)
     t([(c3[0] + 0.47, c3[1] + 0.08), (pin4[0] - 0.73, pin4[1]), pin4], "+3V3", w=NECK)
-    t([(xw, 121.0), (r2[0] + 1.1, 121.0), (r2[0] + 1.1, r2[1]), r2], "+3V3")
+    t([(r2[0] + 1.1, yw), (r2[0] + 1.1, r2[1]), r2], "+3V3")      # Abzweig von der Querbahn
 
     # ---------------- TVDD ----------------
     c9, p18, c10, r4b, r5b = P("C9", 1), P("U1", 18), P("C10", 1), P("R4", 2), P("R5", 2)

@@ -11492,7 +11492,7 @@
 				)
 			)
 		)
-		(property "Footprint" "spielbrett:NFC_Coil_D24_N5_W0.4_S0.4"
+		(property "Footprint" "spielbrett:NFC_Coil_D30_N4_W0.4_S0.4"
 			(at 62.23 203.2 0)
 			(hide yes)
 			(show_name no)
@@ -11646,7 +11646,7 @@
 				)
 			)
 		)
-		(property "Footprint" "spielbrett:NFC_Coil_D24_N5_W0.4_S0.4"
+		(property "Footprint" "spielbrett:NFC_Coil_D30_N4_W0.4_S0.4"
 			(at 671.83 167.64 0)
 			(hide yes)
 			(show_name no)
@@ -11806,7 +11806,7 @@
 				)
 			)
 		)
-		(property "Footprint" "spielbrett:NFC_Coil_D24_N5_W0.4_S0.4"
+		(property "Footprint" "spielbrett:NFC_Coil_D30_N4_W0.4_S0.4"
 			(at 519.43 167.64 0)
 			(hide yes)
 			(show_name no)
@@ -11966,7 +11966,7 @@
 				)
 			)
 		)
-		(property "Footprint" "spielbrett:NFC_Coil_D24_N5_W0.4_S0.4"
+		(property "Footprint" "spielbrett:NFC_Coil_D30_N4_W0.4_S0.4"
 			(at 748.03 167.64 0)
 			(hide yes)
 			(show_name no)
@@ -13219,7 +13219,7 @@
 				)
 			)
 		)
-		(property "Footprint" "spielbrett:NFC_Coil_D24_N5_W0.4_S0.4"
+		(property "Footprint" "spielbrett:NFC_Coil_D30_N4_W0.4_S0.4"
 			(at 595.63 167.64 0)
 			(hide yes)
 			(show_name no)
@@ -16896,7 +16896,7 @@
 				)
 			)
 		)
-		(property "Footprint" "spielbrett:NFC_Coil_D24_N5_W0.4_S0.4"
+		(property "Footprint" "spielbrett:NFC_Coil_D30_N4_W0.4_S0.4"
 			(at 633.73 167.64 0)
 			(hide yes)
 			(show_name no)
@@ -21871,7 +21871,7 @@
 				)
 			)
 		)
-		(property "Footprint" "spielbrett:NFC_Coil_D24_N5_W0.4_S0.4"
+		(property "Footprint" "spielbrett:NFC_Coil_D30_N4_W0.4_S0.4"
 			(at 557.53 167.64 0)
 			(hide yes)
 			(show_name no)
@@ -22517,7 +22517,7 @@
 				)
 			)
 		)
-		(property "Footprint" "spielbrett:NFC_Coil_D24_N5_W0.4_S0.4"
+		(property "Footprint" "spielbrett:NFC_Coil_D30_N4_W0.4_S0.4"
 			(at 786.13 167.64 0)
 			(hide yes)
 			(show_name no)
@@ -23313,7 +23313,7 @@
 				)
 			)
 		)
-		(property "Footprint" "spielbrett:NFC_Coil_D24_N5_W0.4_S0.4"
+		(property "Footprint" "spielbrett:NFC_Coil_D30_N4_W0.4_S0.4"
 			(at 709.93 167.64 0)
 			(hide yes)
 			(show_name no)

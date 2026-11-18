@@ -12,7 +12,7 @@ Erzeugt eine runde (archimedische) Leiterbahnspule als KiCad-Footprint:
 
 Aufruf:
   python nfc_coil_gen.py                       # Standardwerte
-  python nfc_coil_gen.py --d-out 24 --turns 5 --width 0.4 --gap 0.4
+  python nfc_coil_gen.py --d-out 30 --turns 4 --width 0.4 --gap 0.4
 """
 import argparse
 import math
@@ -145,8 +145,8 @@ def build(args):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--d-out", type=float, default=24.0, help="Aussendurchmesser Kupfer [mm]")
-    ap.add_argument("--turns", type=float, default=5, help="Windungszahl (ganzzahlig empfohlen)")
+    ap.add_argument("--d-out", type=float, default=30.0, help="Aussendurchmesser Kupfer [mm]")
+    ap.add_argument("--turns", type=float, default=4, help="Windungszahl (ganzzahlig empfohlen)")
     ap.add_argument("--width", type=float, default=0.4, help="Leiterbahnbreite [mm]")
     ap.add_argument("--gap", type=float, default=0.4, help="Abstand zwischen Windungen [mm]")
     ap.add_argument("--segments", type=int, default=96, help="Segmente pro Windung")

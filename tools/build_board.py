@@ -21,7 +21,7 @@ from pathlib import Path
 import pcbnew
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from geometrie import BOARD, SW_Q, SW_RC, X0, Y0, coil_center  # noqa: E402,F401
+from geometrie import BOARD, BUS_P, P_VIA_DY, SW_Q, SW_RC, X0, Y0, coil_center  # noqa: E402,F401
 
 PRJ = Path(__file__).resolve().parent.parent
 KICAD = Path("C:/Program Files/KiCad/10.0")
@@ -68,7 +68,8 @@ def placement():
     for k in range(1, 10):
         cx, cy = coil_center(k)
         p[f"L1{k}"] = (cx, cy, 0)
-        # Schaltergruppe kompakt rechts der Spulenanschluesse (Pads bei x = +13,4 mm).
+        # Schaltergruppe kompakt rechts der Spulenanschluesse (Pads bei x = +16,4 mm).
+        # Darunter (B.Cu) laufen die Antennenbus-Senkrechten, siehe route_hf.py.
         # SOT-23 um 180 deg gedreht: Drain (Pin 3) zeigt zur Spule, Gate/Source nach rechts.
         p[f"Q{k}"] = (cx + SW_Q, cy + 1.1, 180)    # Drain fluchtet mit Spulen-Pad 2
         p[f"Q1{k}"] = (cx + SW_Q, cy + 4.6, 180)   # Drain -> ANT_N
@@ -121,13 +122,14 @@ def placement():
         "C4": (-7.6, 0.0, 270),    # 4,7 uF
         "C5": (-6.0, 3.2, 90),     # NRST
         "R2": (7.5, -4, 90),
-        "J5": (-10.5, 4.0, 0), "R1": (6, 7, 0), "D1": (9.5, 7, 0),
+        # J5 so hoch wie moeglich: darunter beginnt die Sperrzone von Spule 7
+        "J5": (-10.5, -2.0, 0), "R1": (6, 7, 0), "D1": (9.5, 7, 0),
     })
     # Versorgung + RS485. SOT-223: VI/GND links, VO rechts (Lasche). SOIC-8: A/B rechts.
-    # Lage: linker Senkrechtstreifen rechts neben dem Bus-Stamm.
-    group(56.0, 50.0, {
+    # Lage: linker Senkrechtstreifen rechts neben dem Bus-Stamm (Abstand zur Sperrzone von Spule 5).
+    group(54.0, 50.0, {
         "U4": (0, -2, 0), "C1": (-5.6, 0.8, 90), "C2": (5.6, -2, 90),
-        "U3": (0, 9, 0), "C6": (4.8, 7.1, 90), "R3": (5.0, 10.6, 90), "JP1": (3.0, 14.6, 90),
+        "U3": (0, 9, 0), "C6": (4.8, 7.1, 90), "R3": (5.0, 10.6, 90), "JP1": (1.0, 14.6, 90),
     })
     # Modulkontakte nur Ost/West (Reihen-Verkettung, Rueckleitung ueber Endkappe).
     # Gewinkelte 2,54-mm-Leisten, Kontakte zeigen ueber die Kante nach aussen. Ost = Federkontakte,
@@ -145,7 +147,7 @@ def placement():
     # Modulzweig (+5V). Der durchgeschleifte Bus-Strom laeuft am PTC vorbei ueber den Randring.
     p["F1"] = (10.0, yj, 0)
     p["D2"] = (7.0, yj - 4.0, 90)
-    p["D3"] = (54.0, 64.6, 0)                   # ESD RS485_A/B unter dem Treiber U3
+    p["D3"] = (50.5, 64.6, 0)                   # ESD RS485_A/B unter dem Treiber U3
     p["D4"] = (128.0, 50.0, 0)                  # ESD Rueckleitung
     return p
 
@@ -180,7 +182,8 @@ def add_coil_stubs(board):
         _track(board, outer.GetPosition(), drain.GetPosition(), pcbnew.F_Cu, sw)
 
         a = p1.GetPosition()
-        via_pos = pcbnew.VECTOR2I(a.x + mm(1.6), a.y - mm(2.4))
+        c = coil.GetPosition()
+        via_pos = pcbnew.VECTOR2I(c.x + mm(BUS_P), c.y + mm(P_VIA_DY))
         _track(board, a, via_pos, pcbnew.F_Cu, p1.GetNet())
         v = pcbnew.PCB_VIA(board)
         v.SetPosition(via_pos)

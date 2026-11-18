@@ -10,14 +10,19 @@ FIELDS = 3                     # Felder je Seite
 PITCH = 50.0                   # Feldraster im Gehaeuse
 FIELD0 = PITCH / 2 - (FIELDS * PITCH - BOARD) / 2    # erste Feldmitte auf der Platine (23,5)
 
+# Spule (tools/nfc_coil_gen.py): 30 mm Aussendurchmesser, 4 Windungen, Anschlusspads rechts
+COIL = "NFC_Coil_D30_N4_W0.4_S0.4"
+COIL_PAD = 16.4                # Anschlusspads bei x = +16,4 mm, y = -1,1 (Pad 1) / +1,1 (Pad 2)
+
 # Schaltergruppe rechts neben jeder Spule (Abstand der Bauteile zur Spulenmitte).
-# Gegenueber dem ersten Entwurf 1 mm naeher an der Spule, damit der Antennenbus neben der
-# rechten Spalte noch vor die Platinenkante passt.
-SW_Q = 16.2                    # BSS138 (Drain fluchtet mit Spulen-Pad 2)
-SW_RC = 19.4                   # R3k / C3k / R2k
-BUS_N = 20.5                   # Antennenbus-Senkrechte ANT_N (Reihe 1+2)
-BUS_P = 21.5                   # Antennenbus-Senkrechte ANT_P
-BUS_N3 = 22.5                  # ANT_N der Reihe 3 (eigene Spur neben P)
+# Die rechte Spalte endet 23,5 mm neben der Spulenmitte an der Platinenkante, deshalb laufen
+# die Antennenbus-Senkrechten auf B.Cu UNTER der Schaltergruppe (nicht mehr rechts daneben).
+SW_Q = 19.2                    # BSS138 (Drain fluchtet mit Spulen-Pad 2)
+SW_RC = 22.4                   # R3k / C3k / R2k
+BUS_P = 18.0                   # ANT_P-Senkrechte (B.Cu) = x der Anschluss-Via an Pad 1
+P_VIA_DY = -3.5                # y der Anschluss-Via relativ zur Spulenmitte
+BUS_N = 20.5                   # ANT_N-Senkrechte (B.Cu), Via unterhalb des ANT_N-Schalters
+N_DY = 8.0                     # y der ANT_N-Querbahn/Via unter der Schaltergruppe
 
 
 def field_center(i):
@@ -31,5 +36,5 @@ def coil_center(k):
 
 
 CX = [X0 + field_center(i) for i in range(FIELDS)]    # Spulenmitten absolut (x, gleich fuer y)
-STAMM_N = CX[0] + BUS_N        # Bus-Stamm links (absolut), Kreuzungen per B.Cu-Bruecke
+STAMM_N = CX[0] + BUS_N        # Bus-Stamm links (absolut, B.Cu)
 STAMM_P = CX[0] + BUS_P
