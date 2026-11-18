@@ -2,8 +2,9 @@
 """NFC-Spulen-Footprint-Generator fuer das Spielbrett-Modul.
 
 Erzeugt eine runde (archimedische) Leiterbahnspule als KiCad-Footprint:
-  * Spirale auf F.Cu (Oberseite, Richtung Spielfigur)
-  * Rueckleitung vom inneren Ende auf B.Cu zum aeusseren Anschluss (als Leiterbahn auf der
+  * Spirale auf B.Cu: Die Platine wird kopfueber eingebaut (Bauteile nach unten), die Spirale
+    liegt so direkt unter der Decke des Spielfeldbodens, ohne Luftspalt durch die Bauteilhoehe
+  * Rueckleitung vom inneren Ende auf F.Cu zum aeusseren Anschluss (als Leiterbahn auf der
     Platine, angelegt von tools/build_board.py)
   * Pad 1 = aeusseres Spiralende, Pad 2 = Rueckleitung (aussen) + Durchkontaktierung innen
   * net_tie_pad_groups "1,2", damit DRC die Kupfergrafik zwischen den Pads akzeptiert
@@ -16,6 +17,14 @@ Aufruf:
 import argparse
 import math
 import uuid
+
+_N = [0]
+
+
+def _uid(name):
+    """Reproduzierbare UUIDs (gleicher Aufruf -> identische Datei)."""
+    _N[0] += 1
+    return uuid.uuid5(uuid.NAMESPACE_URL, f"spielbrett/{name}/{_N[0]}")
 from pathlib import Path
 
 MU0 = 4e-7 * math.pi
@@ -50,12 +59,13 @@ def build(args):
         raise SystemExit("Zu viele Windungen fuer diesen Durchmesser")
     d_in_edge = 2 * (r_in - w / 2)
 
+    name = args.name or f"NFC_Coil_D{fmt(args.d_out)}_N{fmt(args.turns)}_W{fmt(w)}_S{fmt(gap)}"
     lines = []
 
     def seg(x1, y1, x2, y2, layer):
         lines.append(
             f'\t(fp_line (start {fmt(x1)} {fmt(y1)}) (end {fmt(x2)} {fmt(y2)})'
-            f' (stroke (width {fmt(w)}) (type solid)) (layer "{layer}") (uuid "{uuid.uuid4()}"))'
+            f' (stroke (width {fmt(w)}) (type solid)) (layer "{layer}") (uuid "{_uid(name)}"))'
         )
 
     # Spirale: r(theta) = r_out - pitch * theta / 2pi
@@ -66,7 +76,7 @@ def build(args):
         r = r_out - pitch * th / (2 * math.pi)
         pts.append((r * math.cos(th), r * math.sin(th)))
     for (x1, y1), (x2, y2) in zip(pts, pts[1:]):
-        seg(x1, y1, x2, y2, "F.Cu")
+        seg(x1, y1, x2, y2, args.layer)
 
     pad_r_out = r_out + args.lead            # Abstand der Anschlusspads nach aussen
     via_x = r_in - args.lead_in              # innere Durchkontaktierung
@@ -74,15 +84,15 @@ def build(args):
     p2 = (pad_r_out, +args.pad_offset)
     pv = (via_x, 0.0)
 
-    seg(pts[0][0], pts[0][1], *p1, "F.Cu")    # Zuleitung aussen -> Pad 1
-    seg(pts[-1][0], pts[-1][1], *pv, "F.Cu")  # inneres Ende -> Via
-    # Die Rueckleitung (Via innen -> Pad 2 aussen, B.Cu) ist bewusst KEINE Footprint-Grafik:
+    seg(pts[0][0], pts[0][1], *p1, args.layer)    # Zuleitung aussen -> Pad 1
+    seg(pts[-1][0], pts[-1][1], *pv, args.layer)  # inneres Ende -> Via
+    # Die Rueckleitung (Via innen -> Pad 2 aussen, Gegenlage) ist bewusst KEINE Footprint-Grafik:
     # Grafik zaehlt nicht als Verbindung und blockiert Router. tools/build_board.py legt sie
     # als echte, gesperrte Leiterbahn im Netz von Pad 2 an.
 
     pad = lambda num, x, y: (
         f'\t(pad "{num}" thru_hole circle (at {fmt(x)} {fmt(y)}) (size {fmt(args.pad)} {fmt(args.pad)})'
-        f' (drill {fmt(args.drill)}) (layers "*.Cu") (remove_unused_layers no) (uuid "{uuid.uuid4()}"))'
+        f' (drill {fmt(args.drill)}) (layers "*.Cu") (remove_unused_layers no) (uuid "{_uid(name)}"))'
     )
 
     keep_r = args.d_out / 2 + args.keepout_margin
@@ -93,23 +103,22 @@ def build(args):
     crt_r = pad_r_out + args.pad / 2 + 0.25
     l_mohan = inductance_mohan_circular(args.d_out, d_in_edge, args.turns)
     l_nxp = inductance_nxp((args.d_out + d_in_edge) / 2, w, args.turns)
-    name = args.name or f"NFC_Coil_D{fmt(args.d_out)}_N{fmt(args.turns)}_W{fmt(w)}_S{fmt(gap)}"
 
     body = "\n".join([
         f'(footprint "{name}" (version 20240108) (generator "nfc_coil_gen") (layer "F.Cu")',
         f'\t(descr "NFC-Leiterbahnspule rund, Da={fmt(args.d_out)}mm, Di={fmt(d_in_edge)}mm, N={fmt(args.turns)},'
         f' b={fmt(w)}mm, s={fmt(gap)}mm, L~{l_mohan*1e6:.2f}uH (Mohan) / {l_nxp*1e6:.2f}uH (NXP)")',
         '\t(tags "NFC antenna coil 13.56MHz CLRC663")',
-        f'\t(property "Reference" "REF**" (at 0 {fmt(-(crt_r + 1.5))} 0) (layer "F.Fab") (uuid "{uuid.uuid4()}")'
+        f'\t(property "Reference" "REF**" (at 0 {fmt(-(crt_r + 1.5))} 0) (layer "F.Fab") (uuid "{_uid(name)}")'
         ' (effects (font (size 1 1) (thickness 0.15))))',
-        f'\t(property "Value" "{name}" (at 0 {fmt(crt_r + 1.5)} 0) (layer "F.Fab") (uuid "{uuid.uuid4()}")'
+        f'\t(property "Value" "{name}" (at 0 {fmt(crt_r + 1.5)} 0) (layer "F.Fab") (uuid "{_uid(name)}")'
         ' (effects (font (size 1 1) (thickness 0.15))))',
         '\t(attr through_hole exclude_from_pos_files exclude_from_bom)',
         '\t(net_tie_pad_groups "1,2")',
         f'\t(fp_circle (center 0 0) (end {fmt(crt_r)} 0) (stroke (width 0.05) (type solid)) (fill no)'
-        f' (layer "F.CrtYd") (uuid "{uuid.uuid4()}"))',
+        f' (layer "F.CrtYd") (uuid "{_uid(name)}"))',
         f'\t(fp_circle (center 0 0) (end {fmt(args.d_out/2)} 0) (stroke (width 0.1) (type solid)) (fill no)'
-        f' (layer "F.Fab") (uuid "{uuid.uuid4()}"))',
+        f' (layer "F.Fab") (uuid "{_uid(name)}"))',
         *lines,
         pad("1", *p1),
         pad("2", *p2),
@@ -147,6 +156,8 @@ def main():
     ap.add_argument("--lead-in", type=float, default=1.2, help="Abstand innere Durchkontaktierung [mm]")
     ap.add_argument("--pad-offset", type=float, default=1.1, help="Halber Abstand der zwei Anschlusspads [mm]")
     ap.add_argument("--keepout-margin", type=float, default=3.0, help="Sperrflaeche ueber Spule hinaus [mm]")
+    ap.add_argument("--layer", default="B.Cu", choices=["F.Cu", "B.Cu"],
+                    help="Lage der Spirale (Standard B.Cu, Platine wird kopfueber eingebaut)")
     ap.add_argument("--name", default="", help="Footprint-Name (Standard: aus Parametern)")
     ap.add_argument("--out", default=str(Path(__file__).resolve().parent.parent / "lib" / "spielbrett.pretty"))
     build(ap.parse_args())

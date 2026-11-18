@@ -163,7 +163,8 @@ def _track(board, a, b, layer, net, width=0.4):
 
 def add_coil_stubs(board):
     """Feste, gesperrte Anschlussstuecke je Spule, damit Router die Spule nicht anfassen muessen:
-       * B.Cu-Rueckleitung: innere Durchkontaktierung (Pad 2) -> aeusseres Pad 2
+       * F.Cu-Rueckleitung: innere Durchkontaktierung (Pad 2) -> aeusseres Pad 2 (die Spirale
+         selbst liegt auf B.Cu, siehe nfc_coil_gen.py; die Rueckleitung kreuzt sie auf F.Cu)
        * F.Cu: aeusseres Pad 2 -> Drain des spulenseitigen Schalters Qk
        * F.Cu: Pad 1 -> Via ausserhalb der Spule (Anschlusspunkt fuer den ANT_P-Bus)
     """
@@ -174,7 +175,7 @@ def add_coil_stubs(board):
         p2 = sorted([p for p in coil.Pads() if p.GetNumber() == "2"], key=lambda p: p.GetPosition().x)
         inner, outer = p2[0], p2[-1]
         sw = outer.GetNet()
-        _track(board, inner.GetPosition(), outer.GetPosition(), pcbnew.B_Cu, sw)
+        _track(board, inner.GetPosition(), outer.GetPosition(), pcbnew.F_Cu, sw)
         drain = [p for p in q.Pads() if p.GetNumber() == "3"][0]
         _track(board, outer.GetPosition(), drain.GetPosition(), pcbnew.F_Cu, sw)
 
@@ -262,6 +263,10 @@ def main():
             # auf F.Fab mitbringen -> keine uebereinanderliegenden Texte im dichten HF-Block.
             fp.Reference().SetVisible(False)
             fp.Value().SetVisible(False)
+        if ref == "J5":
+            # Programmieranschluss (DNP): GND-Pad zwischen den Signalbahnen bekommt oft nicht
+            # genug Waermefallen-Stege ("starved thermal") -> voll an die Flaeche anbinden.
+            fp.SetLocalZoneConnection(pcbnew.ZONE_CONNECTION_FULL)
         board.Add(fp)
         for pad in fp.Pads():
             key = (ref, pad.GetNumber())

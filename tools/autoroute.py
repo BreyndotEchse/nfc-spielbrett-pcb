@@ -243,25 +243,34 @@ def save(board):
         pro.write_bytes(pro_bak)
 
 
-def post():
-    board = pcbnew.LoadBoard(str(PCB))
-    thin = fix_thin_tracks(board)
-    save(board)
+def remove_dangling_vias():
+    """Vias entfernen, die laut DRC nur auf einer Lage angeschlossen sind."""
     before = drc()
     gone = []
     for u in dangling_vias(before):
         # Einzeln entfernen und nachpruefen: ein "nur auf einer Lage" angeschlossenes Via kann
-        # trotzdem der Knotenpunkt zweier Bahnen derselben Lage sein -> dann zuruecknehmen.
+        # trotzdem der einzige Knotenpunkt zweier Bahnen derselben Lage sein -> dann zuruecknehmen.
         old = PCB.read_text(encoding="utf-8")
         PCB.write_text(strip_items(old, [u]), encoding="utf-8")
         if len(drc()["unconnected_items"]) > len(before["unconnected_items"]):
             PCB.write_text(old, encoding="utf-8")
         else:
             gone.append(u)
+    return gone
+
+
+def post():
+    board = pcbnew.LoadBoard(str(PCB))
+    thin = fix_thin_tracks(board)
+    save(board)
+    gone = remove_dangling_vias()
     if gone:
         board = pcbnew.LoadBoard(str(PCB))
     stitched = stitch_gnd_islands(board)
     save(board)
+    # Nach dem GND-Nachheften meldet die DRC haeufig weitere einseitig angeschlossene Vias
+    # (Freerouting-Knotenpunkte), die der erste Durchgang noch nicht erfasst -> zweiter Durchgang.
+    gone += remove_dangling_vias()
     print(f"Nacharbeit: {thin} zu duenne Bahnen verbreitert, {len(gone)} ungenutzte Vias entfernt, "
           f"{stitched} GND-Vias fuer abgeschnittene Flaecheninseln", flush=True)
 
